@@ -6,10 +6,13 @@
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/FXMLDocument.fxml</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Answer.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Test.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/TestDao.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/Router.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/UserDao.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/DashController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/User.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/FXMLDocumentController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/dash.fxml</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Question.java</file>
         </group>
