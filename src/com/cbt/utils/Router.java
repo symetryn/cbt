@@ -23,7 +23,7 @@ public class Router {
         try {
             Node source = (Node) e.getSource();
             Window theStage = source.getScene().getWindow();
-            Parent pane = FXMLLoader.load(getClass().getResource("/cbt/"+fxml));
+            Parent pane = FXMLLoader.load(getClass().getResource("/com/cbt/views/"+fxml));
             theStage.getScene().setRoot(pane);
         } catch (IOException ex) {
             Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);

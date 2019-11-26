@@ -5,6 +5,7 @@
  */
 package com.cbt.dao;
 
+import com.cbt.bll.User;
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
 
@@ -14,4 +15,6 @@ import java.sql.ResultSet;
  */
 public interface UserDao extends java.rmi.Remote {
      Boolean validateLogin(String Username,String Password)throws RemoteException;
+     
+     void registerUser(User user)throws RemoteException;
 }

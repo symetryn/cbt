@@ -5,6 +5,7 @@
  */
 package com.cbt.views;
 
+import com.cbt.bll.User;
 import com.cbt.dao.UserDao;
 import com.cbt.utils.Router;
 import java.io.IOException;
@@ -42,8 +43,11 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         
         try {
-            UserDao user= (UserDao)Naming.lookup("rmi://localhost/UserService");
-            Boolean result=user.validateLogin("1720971", "hash");
+            UserDao userImpl= (UserDao)Naming.lookup("rmi://localhost/UserService");
+            Boolean result=userImpl.validateLogin("1720971", "hash");
+            User user = new User();
+            user.setFirstName("rojan");
+            userImpl.registerUser(user);
             System.out.print(result);
             if(result){
                  Router router= new Router();
