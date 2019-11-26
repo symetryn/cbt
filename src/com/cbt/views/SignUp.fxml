@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1932&amp;q=80&quot;);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.SignUpController">
+   <children>
+      <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="775.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
+         <children>
+            <TextField layoutX="50.0" layoutY="145.0" prefHeight="48.0" prefWidth="285.0" promptText="First Name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="368.0" />
+            <TextField layoutX="50.0" layoutY="215.0" prefHeight="48.0" prefWidth="321.0" promptText="Email" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <Label layoutX="165.0" layoutY="48.0" text="Create a New Account" textFill="#e1bc29">
+               <font>
+                  <Font name="System Bold" size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="241.0" layoutY="647.0" text="Already Have Account?">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="59.0" layoutY="276.0" prefHeight="48.0" prefWidth="321.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <TextField layoutX="60.0" layoutY="344.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <TextField layoutX="390.0" layoutY="145.0" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
+            <ComboBox layoutX="50.0" layoutY="416.0" prefHeight="40.0" prefWidth="285.0" promptText="Level" AnchorPane.leftAnchor="50.0" />
+            <ComboBox layoutX="368.0" layoutY="415.0" prefHeight="40.0" prefWidth="285.0" promptText="Semester" AnchorPane.rightAnchor="50.0" />
+            <Button layoutX="467.0" layoutY="493.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="179.0" text="Choose Photo" />
+            <TextField layoutX="70.0" layoutY="494.0" prefHeight="48.0" prefWidth="418.0" promptText="No File Chosen" AnchorPane.leftAnchor="50.0" />
+            <JFXButton layoutX="50.0" layoutY="586.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40 #7bdb40;" text="Create My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="50.0" layoutY="686.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6 #4f7ed6;" text="Login In With My Account" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="207.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="687.0" prefWidth="693.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="207.0">
+         <font>
+            <Font name="SansSerif Bold" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="577.0" layoutY="609.0" text="-Albert Einstein" textFill="WHITE">
+         <font>
+            <Font name="Book Antiqua Bold" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
