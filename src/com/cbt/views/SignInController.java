@@ -20,6 +20,9 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -63,14 +66,14 @@ public class SignInController implements Initializable {
                 router.routeTo("Dashboard.fxml", e);
             } else {
                 System.out.print("invalid username or password");
+
+                Alert a = new Alert(AlertType.ERROR, "Invalid username or password", ButtonType.OK);
+//              a.setTitle("Authentication failed");
+//              
+//              a.setContentText("Invalid username or password"); 
+                a.show();
             }
-        } catch (NotBoundException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (RemoteException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -79,22 +82,6 @@ public class SignInController implements Initializable {
 
         router.routeTo("SignUp.fxml", e);
 
-//        try {
-//            UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
-//
-//            User user = new User();
-//            user.setFirstName("rojan");
-//            userImpl.registerUser(user);
-//
-//        } catch (NotBoundException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (MalformedURLException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (RemoteException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
 
 }
