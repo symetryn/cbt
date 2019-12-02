@@ -185,7 +185,7 @@
                               <Font size="17.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="addOption" layoutX="537.0" layoutY="29.0" mnemonicParsing="false" onAction="#addOptionClick" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #7bdb40 #7bdb40;" text="Add Option" textFill="WHITE">
+                        <Button layoutX="537.0" layoutY="29.0" mnemonicParsing="false" onAction="#addOption" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #7bdb40 #7bdb40;" text="Add Option" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

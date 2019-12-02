@@ -2,9 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
@@ -15,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.DashboardController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.InstructionController">
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -46,7 +43,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="315.0">
                      <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Add Question" textAlignment="CENTER" textFill="WHITE">
+                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Exam" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="20.0" />
                            </font></JFXButton>
@@ -62,6 +59,15 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="315.0">
                      <children>
+                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Edit Profile" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="20.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="315.0">
+                     <children>
                         <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Log Out" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="20.0" />
@@ -73,65 +79,9 @@
             </VBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="dfr" layoutX="323.0" layoutY="7.0" prefHeight="617.0" prefWidth="1596.0" style="-fx-background-color: #dee0e3;" AnchorPane.bottomAnchor="456.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="7.0">
-         <children>
-            <AnchorPane layoutX="59.0" layoutY="130.0" prefHeight="200.0" prefWidth="322.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-               <children>
-                  <Label layoutX="27.0" layoutY="19.0" text="Total Students">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="430.0" layoutY="130.0" prefHeight="200.0" prefWidth="322.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-               <children>
-                  <Label layoutX="17.0" layoutY="15.0" text="Total Students">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-               <effect>
-                  <DropShadow color="#00000029" height="13.5" offsetX="1.0" offsetY="3.0" radius="7.875" width="20.0" />
-               </effect>
-            </AnchorPane>
-            <AnchorPane layoutX="819.0" layoutY="130.0" prefHeight="200.0" prefWidth="322.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
-               <children>
-                  <Label layoutX="19.0" layoutY="13.0" text="Total Students">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="1210.0" layoutY="130.0" prefHeight="200.0" prefWidth="322.0" style="-fx-background-radius: 10px; -fx-background-color: white;">
-               <children>
-                  <Label layoutX="17.0" layoutY="12.0" text="Total Students">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="431.0" layoutY="511.0" prefHeight="438.0" prefWidth="876.0" style="-fx-background-color: #fff; -fx-background-radius: 10px;">
-         <children>
-            <BarChart prefHeight="438.0" prefWidth="876.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </BarChart>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="1419.0" layoutY="507.0" prefHeight="438.0" prefWidth="394.0" style="-fx-background-color: #fff; -fx-background-radius: 10px;" />
       <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="61.0" layoutY="32.0" text="Dashboard">
+            <Label layoutX="61.0" layoutY="32.0">
                <font>
                   <Font name="System Bold" size="27.0" />
                </font>
