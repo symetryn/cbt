@@ -31,12 +31,12 @@
             <ComboBox layoutX="368.0" layoutY="415.0" prefHeight="40.0" prefWidth="285.0" promptText="Semester" AnchorPane.rightAnchor="50.0" />
             <Button layoutX="467.0" layoutY="493.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="179.0" text="Choose Photo" />
             <TextField layoutX="70.0" layoutY="494.0" prefHeight="48.0" prefWidth="418.0" promptText="No File Chosen" AnchorPane.leftAnchor="50.0" />
-            <JFXButton layoutX="50.0" layoutY="586.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40 #7bdb40;" text="Create My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <JFXButton layoutX="50.0" layoutY="586.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40;" text="Create My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="50.0" layoutY="686.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6 #4f7ed6;" text="Login In With My Account" textFill="WHITE">
+            <JFXButton layoutX="50.0" layoutY="686.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6;" text="Login In With My Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
