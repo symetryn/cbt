@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -16,19 +15,19 @@
                   <Font name="System Bold" size="38.0" />
                </font>
             </Label>
-            <Label layoutX="196.0" layoutY="415.0" text="Don't Have Account?">
+            <Label layoutX="241.0" layoutY="419.0" text="Don't Have Account?">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="idField" layoutX="50.0" layoutY="187.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-            <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="246.0" prefHeight="50.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-            <JFXButton defaultButton="true" layoutX="50.0" layoutY="358.0" onAction="#handleLoginClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40 #7bdb40;" text="Login In With My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <TextField layoutX="50.0" layoutY="187.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <TextField layoutX="50.0" layoutY="267.0" prefHeight="48.0" prefWidth="321.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            <JFXButton layoutX="50.0" layoutY="358.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40 #7bdb40;" text="Login In With My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="50.0" layoutY="458.0" onAction="#handleSignUpClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6 #4f7ed6;" text="Create New Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <JFXButton layoutX="50.0" layoutY="458.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6 #4f7ed6;" text="Create New Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

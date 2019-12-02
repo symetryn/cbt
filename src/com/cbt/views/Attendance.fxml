@@ -1,129 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="layout.AttendanceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="260.0" prefHeight="106.0" prefWidth="1020.0" style="-fx-background-color: #455678;" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0">
+      <VBox layoutX="1.0" layoutY="-2.0" prefHeight="1080.0" prefWidth="315.0" style="-fx-background-color: #fafbfc;">
          <children>
-            <Label layoutX="55.0" layoutY="28.0" text="Attendace" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="80.0" prefWidth="315.0" text="Attendance">
                <font>
-                  <Font name="System Bold" size="40.0" />
+                  <Font name="Arial Bold" size="25.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="52.0" prefWidth="315.0">
+               <children>
+                  <JFXButton alignment="CENTER" prefHeight="52.0" prefWidth="319.0" text="Dashboard">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="315.0">
+               <children>
+                  <JFXButton alignment="CENTER" prefHeight="52.0" prefWidth="319.0" text="Add Question" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="315.0">
+               <children>
+                  <JFXButton alignment="CENTER" prefHeight="52.0" prefWidth="319.0" text="Result">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox prefHeight="52.0" prefWidth="315.0">
+               <children>
+                  <JFXButton alignment="CENTER" prefHeight="52.0" prefWidth="319.0" text="Log Out">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="316.0" prefHeight="92.0" prefWidth="1614.0" style="-fx-background-color: #455678;">
+         <children>
+            <Label layoutX="67.0" layoutY="30.0" text="Attendance" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="28.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="800.0" prefWidth="263.0" style="-fx-background-color: #555765;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="136.0" fitWidth="140.0" layoutX="43.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/jimmy-fallon.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="94.0" layoutY="168.0" text="User" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="-2.0" layoutY="203.0" prefHeight="57.0" prefWidth="265.0" text="Dashboard" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="3.0" layoutY="262.0" onAction=" " prefHeight="57.0" prefWidth="257.0" text="Exam" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="8.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/test.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="2.0" layoutY="326.0" prefHeight="57.0" prefWidth="257.0" text="Result" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="8.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/verification-of-delivery-list-clipboard-symbol.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="-4.0" layoutY="389.0" prefHeight="57.0" prefWidth="257.0" text="Attendance" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="8.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="3.0" layoutY="456.0" prefHeight="57.0" prefWidth="257.0" text="Edit Profile" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="8.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/man-user.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="-4.0" layoutY="520.0" prefHeight="57.0" prefWidth="257.0" text="Log Out" textAlignment="JUSTIFY" textFill="WHITE" AnchorPane.rightAnchor="8.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-               <graphic>
-                  <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/logout.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <Separator layoutX="5.0" layoutY="576.0" prefHeight="5.0" prefWidth="257.0" />
-         </children>
-      </AnchorPane>
+      <ImageView fitHeight="73.0" fitWidth="58.0" layoutX="1745.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/jimmy-fallon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1821.0" layoutY="45.0" text="Dhurva Boka" textFill="WHITE" />
    </children>
 </AnchorPane>
