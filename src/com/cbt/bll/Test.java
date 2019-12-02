@@ -5,24 +5,19 @@
  */
 package com.cbt.bll;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Symetryn
  */
-public class Test {
-     int id;
+public class Test implements Serializable{
     String title;
     ArrayList<Question> questions;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
+    private static final long serialVersionUID=1L;
+   
 
     public String getTitle() {
         return title;

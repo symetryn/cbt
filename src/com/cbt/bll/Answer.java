@@ -5,18 +5,22 @@
  */
 package com.cbt.bll;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Symetryn
  */
-public class Answer {
-    int id;
-    Boolean correctAnswer;
-    int qid;
+public class Answer implements Serializable{
     
-    public Answer(int id, boolean correctAnswer,int qid){
-        this.id=id;
-        this.correctAnswer=correctAnswer;
-        this.qid=qid;
+    
+      private static final long serialVersionUID=2L;
+    String title;
+    Boolean correctAnswer;
+
+    public Answer(String title, boolean correctAnswer) {
+        this.title = title;
+        this.correctAnswer = correctAnswer;
+
     }
 }
