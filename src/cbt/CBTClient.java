@@ -5,10 +5,14 @@
  */
 package cbt;
 
+import com.cbt.bll.Answer;
+import com.cbt.bll.Question;
+import com.cbt.bll.Test;
 import com.cbt.dao.TestDao;
 import com.cbt.dao.UserDao;
 import java.net.MalformedURLException;
 import java.rmi.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -45,9 +49,33 @@ public class CBTClient extends Application {
 //System.setSecurityManager(new RMISecurityManager());
             
             
-//           TestDao test= (TestDao)Naming.lookup("rmi://localhost/TestService");
-//            test.saveTest();
-            
+           TestDao test= (TestDao)Naming.lookup("rmi://localhost/TestService");
+          
+           
+           ArrayList<Question> qList =new ArrayList<Question>();
+           Question q= new Question();
+           
+           ArrayList<Answer> aList =new ArrayList<Answer>();
+           
+           
+           Answer a= new Answer("test answer",true);
+           Answer a2= new Answer("test answer",true);
+           Answer a3= new Answer("test a",true);
+           
+           aList.add(a);
+           aList.add(a2);
+           aList.add(a3);
+           
+           q.setAnswers(aList);
+           qList.add(q);
+           qList.add(q);
+           
+           Test t = new Test();
+           t.setTitle("first test");
+           t.setQuestions(qList);
+           
+           test.saveTest(t);
+             launch(args); 
             
 //                System.out.println("hello");
 //        } catch (NotBoundException | MalformedURLException | RemoteException ex) {
@@ -55,7 +83,7 @@ public class CBTClient extends Application {
 //        } 
          }catch(Exception e){
          System.out.println(e);}
-        launch(args); 
+       
 //        launch(args);
       
         

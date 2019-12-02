@@ -6,6 +6,7 @@
 package com.cbt.bll;
 
 import com.cbt.bll.Answer;
+import java.io.Serializable;
 
 import java.util.ArrayList;
 
@@ -13,20 +14,13 @@ import java.util.ArrayList;
  *
  * @author Symetryn
  */
-public class Question {
+public class Question implements Serializable {
 
-    private int questionId;
-    private String title;
-    private ArrayList <Answer> answers;
-    private int testId;
+    private static final long serialVersionUID=3L;
     
-    public int getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
-    }
+    private String title;
+    private int marks;
+    private ArrayList<Answer> answers;
 
     public String getTitle() {
         return title;
@@ -36,14 +30,6 @@ public class Question {
         this.title = title;
     }
 
-    public int getTestId() {
-        return testId;
-    }
-
-    public void setTestId(int testId) {
-        this.testId = testId;
-    }
-
     public ArrayList<Answer> getAnswers() {
         return answers;
     }
@@ -51,16 +37,22 @@ public class Question {
     public void setAnswers(ArrayList<Answer> answers) {
         this.answers = answers;
     }
-    
+
     public void addAnswer(Answer answer) {
-       this.answers.add(answer);
+        this.answers.add(answer);
     }
 
-    public void removeAnswer(int index) {        
-        this.answers.remove(index);       
+    public void removeAnswer(int index) {
+        this.answers.remove(index);
     }
-  
-   
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
     
 
 }
