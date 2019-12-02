@@ -125,6 +125,7 @@
             <Separator layoutX="1.0" layoutY="576.0" prefHeight="5.0" prefWidth="257.0" />
          </children>
       </AnchorPane>
+<<<<<<< HEAD
       <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="145.0" prefHeight="171.0" prefWidth="211.0" style="-fx-background-color: #455678;" text="Python MCQ 1" textFill="WHITE">
          <font>
             <Font size="20.0" />
@@ -133,5 +134,7 @@
       <JFXButton layoutX="593.0" layoutY="145.0" prefHeight="171.0" prefWidth="211.0" ripplerFill="#465678f6" style="-fx-background-color: #455678;" text="Exam Name" textFill="WHITE" />
       <JFXButton layoutX="1147.0" layoutY="143.0" prefHeight="171.0" prefWidth="211.0" style="-fx-background-color: #455678;" text="Exam Name" textFill="WHITE" />
       <JFXButton layoutX="873.0" layoutY="145.0" prefHeight="171.0" prefWidth="211.0" style="-fx-background-color: #455678;" text="Exam Name" textFill="WHITE" />
+=======
+>>>>>>> 677ff22855e3fda97cbe6d0074b776b70db976b6
    </children>
 </AnchorPane>
