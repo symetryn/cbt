@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.FormatController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.InstructionController">
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,7 +43,7 @@
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="315.0">
                      <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Add Question" textAlignment="CENTER" textFill="WHITE">
+                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Exam" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="SansSerif Bold" size="20.0" />
                            </font></JFXButton>
@@ -57,6 +55,15 @@
                            <font>
                               <Font name="SansSerif Bold" size="20.0" />
                            </font></JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="80.0" prefWidth="315.0">
+                     <children>
+                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Edit Profile" textFill="WHITE">
+                           <font>
+                              <Font name="SansSerif Bold" size="20.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </HBox>
                   <HBox prefHeight="80.0" prefWidth="315.0">
@@ -74,7 +81,7 @@
       </AnchorPane>
       <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="61.0" layoutY="32.0" text="Result">
+            <Label layoutX="61.0" layoutY="32.0">
                <font>
                   <Font name="System Bold" size="27.0" />
                </font>
@@ -93,48 +100,5 @@
             <Insets />
          </opaqueInsets>
       </AnchorPane>
-      <Label layoutX="438.0" layoutY="205.0" text="Students Login Credentials">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <Separator layoutX="438.0" layoutY="250.0" prefHeight="3.0" prefWidth="504.0" />
-      <TitledPane animated="false" layoutX="438.0" layoutY="272.0" prefHeight="310.0" prefWidth="504.0" text="Exam Result By Student Id">
-        <content>
-          <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="502.0">
-               <children>
-                  <Label layoutX="33.0" layoutY="30.0" text="Student ID*">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField layoutX="16.0" layoutY="64.0" prefHeight="31.0" prefWidth="437.0" />
-                  <Label layoutX="43.0" layoutY="130.0" text="Select Course *">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField layoutX="26.0" layoutY="164.0" prefHeight="31.0" prefWidth="437.0" />
-                  <JFXButton layoutX="59.0" layoutY="218.0" style="-fx-background-color: red;" text="Reset Form" />
-                  <JFXButton layoutX="375.0" layoutY="216.0" style="-fx-background-color: lightgreen;" text="Get Rseult" />
-               </children>
-            </AnchorPane>
-        </content>
-      </TitledPane>
-      <Label layoutX="1328.0" layoutY="205.0" text="Result Section">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <Separator layoutX="1328.0" layoutY="250.0" prefHeight="3.0" prefWidth="504.0" />
-      <TitledPane animated="false" layoutX="1328.0" layoutY="262.0" prefHeight="310.0" prefWidth="504.0" text="Display Result">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="527.0">
-               <children>
-                  <JFXTextField layoutX="26.0" layoutY="164.0" prefHeight="31.0" prefWidth="437.0" />
-               </children>
-            </AnchorPane>
-         </content>
-      </TitledPane>
    </children>
 </AnchorPane>
