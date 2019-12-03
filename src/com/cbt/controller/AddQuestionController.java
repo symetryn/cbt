@@ -9,6 +9,9 @@ import com.cbt.bll.Question;
 import com.cbt.bll.Test;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -31,72 +35,118 @@ import javafx.scene.layout.Pane;
  * @author User
  */
 public class AddQuestionController implements Initializable {
-    int count=0;
-    int yAxis=85;
+
+    int count = 0;
+    int yAxis = 85;
+    
 
     /**
      * Initializes the controller class.
      */
     @FXML
     private ScrollPane scrollpane;
-    
+
     @FXML
     private Pane pane;
-    
+
     @FXML
     private JFXTimePicker startTime;
     
     @FXML
+    private JFXTimePicker endTime;
+    
+    @FXML
+    private DatePicker date;
+
+    @FXML
     private Label marks;
-    
+
     @FXML
-     private TextField marksField;
-    
+    private TextField marksField;
+
     Test test;
-    
+
     @FXML
-    private void addOptionClick(ActionEvent e) throws Exception{
-        TextField option =new TextField();
-        Button drop =new Button("Drop");
-        CheckBox correct= new CheckBox();
-        
+    private void addOptionClick(ActionEvent e) throws Exception {
+        String value = checkDate();
+        if(value.equals("Date Error")){
+            Alert msg = new Alert(Alert.AlertType.ERROR, "You had chosed the past date!", ButtonType.OK);
+            msg.show();
+            System.out.println("This is invalid");
+        }
+        else{
+            TextField option = new TextField();
+        Button drop = new Button("Drop");
+        CheckBox correct = new CheckBox();
+
         option.setLayoutX(11);
         option.setLayoutY(yAxis);
-        option.setPrefSize(633,42);
-        count+=1;
-        yAxis+=70;
-        option.setId("option"+count);
-       
-        pane.getChildren().addAll(option,drop,correct);
+        option.setPrefSize(633, 42);
+        count += 1;
+        yAxis += 70;
+        option.setId("option" + count);
+
+        pane.getChildren().addAll(option, drop, correct);
         scrollpane.setContent(pane);
         scrollpane.setPannable(true);
-         System.out.print(startTime.getValue());
-        System.out.print(startTime.getValue().getClass().getSimpleName());
+        System.out.print(startTime.getValue());
+        System.out.println(date.getValue());
+        
+        }
+        
+
+    }
+
+    @FXML
+    private void addNextClick(ActionEvent e) throws Exception {
+
+    }
+    private String checkDate(){
+        Date d = new Date();
+        
+        LocalDate currentDate = java.time.LocalDate.now();
+        LocalDate setDate = date.getValue();
+        if(currentDate.compareTo(setDate)>0){
+            return "Date Error";
+        }
+        else{
+            return "Date Error Free";
+        }
         
     }
+//    private String checkTime(){
+//        LocalTime start = startTime.getValue();
+//        LocalTime end = endTime.getValue();
+//        if(end.isAfter(start)){
+//            return "Valid Time";
+//        }
+//        else{
+//            return "Invalid Time";
+//        }
+//        
+//    }
+
     @FXML
-    private void addNextClick(ActionEvent e) throws Exception{
-        if(!marks.equals(""))
-                {Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid marks!", ButtonType.OK);
+    private void saveQuestion() {
+        if (!marks.equals("")) {
+            Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid marks!", ButtonType.OK);
             msg.show();
-                }
+        } else {
+            
+            Question q = new Question();
+            q.setTitle("asdf");
+            System.out.println("hello");
+        }
+
     }
-    
-    @FXML
-    private void saveQuestion(){
-        Question q = new Question();
-        q.setTitle("asdf");
-        System.out.println("hello");
-        
-        
-    }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        test= new Test();
-       
-    } 
+        test = new Test();
+
+    }
+
     @FXML
     public void marksKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,2}";
@@ -108,6 +158,5 @@ public class AddQuestionController implements Initializable {
             marks.setText("");
         }
     }
-    
-    
+
 }
