@@ -5,16 +5,6 @@
  */
 package cbt;
 
-import com.cbt.bll.Answer;
-import com.cbt.bll.Question;
-import com.cbt.bll.Test;
-import com.cbt.dao.TestDao;
-import com.cbt.dao.UserDao;
-import java.net.MalformedURLException;
-import java.rmi.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

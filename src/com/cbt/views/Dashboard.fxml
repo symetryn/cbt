@@ -85,10 +85,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="studentImage" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true">
-                     <image>
-                        <Image url="https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[70],backgroundColor:'green'}]}}" />
-                     </image></ImageView>
+                  <ImageView fx:id="studentImage" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true" />
                </children>
                <effect>
                   <DropShadow color="#00000029" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />
@@ -101,11 +98,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="testImage" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true">
-                     <image>
-                        <Image url="https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[70],backgroundColor:'green'}]}}" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="testImage" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true" />
                </children>
                <effect>
                   <DropShadow color="#00000029" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />
@@ -118,11 +111,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="studentImage11" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true">
-                     <image>
-                        <Image url="https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[70],backgroundColor:'green'}]}}" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="studentImage11" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true" />
                </children>
                <effect>
                   <DropShadow color="#00000029" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />
@@ -135,11 +124,7 @@
                         <Font name="Arial Bold" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="studentImage111" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true">
-                     <image>
-                        <Image url="https://quickchart.io/chart?c={type:'radialGauge',data:{datasets:[{data:[70],backgroundColor:'green'}]}}" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="studentImage111" fitHeight="180.0" fitWidth="230.0" layoutX="49.0" layoutY="42.0" pickOnBounds="true" />
                </children>
                <effect>
                   <DropShadow color="#00000029" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />

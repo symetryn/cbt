@@ -18,6 +18,7 @@ public class Answer implements Serializable{
     private String title;
     private Boolean correctAnswer;
 
+    public Answer(){}
     public Answer(String title, boolean correctAnswer) {
         this.title = title;
         this.correctAnswer = correctAnswer;
@@ -30,6 +31,14 @@ public class Answer implements Serializable{
 
     public Boolean getCorrectAnswer() {
         return correctAnswer;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCorrectAnswer(Boolean correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
     
     

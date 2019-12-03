@@ -19,6 +19,11 @@ public class Test implements Serializable{
     private static final long serialVersionUID=1L;
    
 
+    public Test(){
+        questions=new ArrayList();
+    }    
+    
+    
     public String getTitle() {
         return title;
     }

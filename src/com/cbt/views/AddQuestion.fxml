@@ -2,16 +2,16 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTimePicker?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -105,7 +105,6 @@
       </AnchorPane>
       <AnchorPane layoutX="320.0" layoutY="100.0" prefHeight="894.0" prefWidth="1600.0">
          <children>
-            <JFXTreeTableView layoutX="903.0" layoutY="30.0" prefHeight="769.0" prefWidth="659.0" />
             <AnchorPane layoutX="37.0" layoutY="28.0" prefHeight="197.0" prefWidth="827.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="46.0" layoutY="78.0" text="Test Details">
@@ -123,64 +122,26 @@
                <effect>
                   <DropShadow color="#0000002e" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />
                </effect></AnchorPane>
-            <Button layoutX="1380.0" layoutY="817.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #525A65;" text="Submit Test" textFill="WHITE">
+            <Button layoutX="1380.0" layoutY="818.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: #525A65;" text="Submit Test" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
+            <TableView fx:id="questionTable" layoutX="897.0" layoutY="29.0" prefHeight="782.0" prefWidth="667.0">
+               <columns>
+                  <TableColumn fx:id="questionColumn" prefWidth="541.0" text="Question Title" />
+                  <TableColumn fx:id="marksColumn" prefWidth="125.0" text="Marks" />
+               </columns>
+            </TableView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="358.0" layoutY="349.0" prefHeight="613.0" prefWidth="827.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
          <children>
             <ScrollPane fx:id="scrollpane" layoutX="23.0" layoutY="184.0" prefHeight="365.0" prefWidth="781.0" style="-fx-background-radius: 7px;">
                <content>
-                  <Pane fx:id="pane" prefHeight="360.0" prefWidth="759.0" style="-fx-background-radius: 7px;">
+                  <Pane fx:id="pane" prefWidth="772.0" style="-fx-background-radius: 7px;">
                      <children>
-                        <TextField layoutX="11.0" layoutY="85.0" prefHeight="42.0" prefWidth="633.0" promptText="Option">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <Button layoutX="653.0" layoutY="87.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #525A65;" text="Drop" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <CheckBox layoutX="728.0" layoutY="92.0" mnemonicParsing="false" />
-                        <TextField layoutX="10.0" layoutY="153.0" prefHeight="42.0" prefWidth="633.0" promptText="Option">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="13.0" layoutY="218.0" prefHeight="42.0" prefWidth="633.0" promptText="Option">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="13.0" layoutY="284.0" prefHeight="42.0" prefWidth="633.0" promptText="Option">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                        <Button layoutX="653.0" layoutY="155.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #525A65;" text="Drop" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <CheckBox layoutX="728.0" layoutY="160.0" mnemonicParsing="false" />
-                        <Button layoutX="653.0" layoutY="219.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #525A65;" text="Drop" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <CheckBox layoutX="728.0" layoutY="224.0" mnemonicParsing="false" />
-                        <Button layoutX="653.0" layoutY="285.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: #525A65;" text="Drop" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Button>
-                        <CheckBox layoutX="728.0" layoutY="290.0" mnemonicParsing="false" />
-                        <TextField layoutX="13.0" layoutY="27.0" prefHeight="42.0" prefWidth="72.0" promptText="Marks">
+                        <TextField fx:id="marksField" layoutX="13.0" layoutY="27.0" prefHeight="42.0" prefWidth="72.0" promptText="Marks">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -190,12 +151,12 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Label layoutX="708.0" layoutY="41.0" text="Correct" />
+                        <Label fx:id="correctLabel" layoutX="708.0" layoutY="41.0" text="Correct" />
                      </children>
                   </Pane>
                </content>
             </ScrollPane>
-            <TextArea layoutX="24.0" layoutY="26.0" prefHeight="123.0" prefWidth="781.0" promptText="Type Your Question Here" style="-fx-background-radius: 7px;">
+            <TextArea fx:id="questionField" layoutX="24.0" layoutY="26.0" prefHeight="123.0" prefWidth="781.0" promptText="Type Your Question Here" style="-fx-background-radius: 7px;">
                <font>
                   <Font size="17.0" />
                </font>
