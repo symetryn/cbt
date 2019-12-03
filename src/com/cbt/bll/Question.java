@@ -5,7 +5,6 @@
  */
 package com.cbt.bll;
 
-import com.cbt.bll.Answer;
 import java.io.Serializable;
 
 import java.util.ArrayList;

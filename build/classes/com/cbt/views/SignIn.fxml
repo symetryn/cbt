@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1932&amp;q=80&quot;);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.SignInController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1932&amp;q=80&quot;);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignInController">
    <children>
       <AnchorPane layoutX="1095.0" layoutY="199.0" prefHeight="589.0" prefWidth="574.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="251.0" AnchorPane.topAnchor="199.0">
          <children>
@@ -35,7 +35,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <Label layoutX="207.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="687.0" prefWidth="693.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="207.0">
+      <Label layoutX="14.0" layoutY="101.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="687.0" prefWidth="693.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="14.0">
          <font>
             <Font name="SansSerif Bold" size="60.0" />
          </font>

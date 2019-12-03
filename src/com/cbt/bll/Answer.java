@@ -13,14 +13,24 @@ import java.io.Serializable;
  */
 public class Answer implements Serializable{
     
-    
-      private static final long serialVersionUID=2L;
-    String title;
-    Boolean correctAnswer;
+    private static final long serialVersionUID=2L;
+
+    private String title;
+    private Boolean correctAnswer;
 
     public Answer(String title, boolean correctAnswer) {
         this.title = title;
         this.correctAnswer = correctAnswer;
 
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Boolean getCorrectAnswer() {
+        return correctAnswer;
+    }
+    
+    
 }

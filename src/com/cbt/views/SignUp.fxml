@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1932&amp;q=80&quot;);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.views.SignUpController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-image: url(&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1932&amp;q=80&quot;);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignUpController">
    <children>
       <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="775.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
          <children>
             <TextField fx:id="firstNameField" layoutX="50.0" layoutY="150.0" prefHeight="48.0" prefWidth="285.0" promptText="First Name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="368.0" />
-            <TextField fx:id="lastNameField" layoutX="358.0" layoutY="151.0" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
+            <TextField fx:id="lastNameField" layoutX="358.0" layoutY="150.0" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
             <TextField fx:id="emailField" layoutX="50.0" layoutY="215.0" prefHeight="48.0" prefWidth="321.0" promptText="Email" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <TextField fx:id="idField" layoutX="60.0" layoutY="344.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <ComboBox fx:id="levelDrop" layoutX="50.0" layoutY="416.0" prefHeight="40.0" prefWidth="285.0" promptText="Level" AnchorPane.leftAnchor="50.0" />
@@ -29,7 +29,6 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="59.0" layoutY="276.0" prefHeight="48.0" prefWidth="321.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <TextField layoutX="60.0" layoutY="344.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <ComboBox layoutX="50.0" layoutY="416.0" prefHeight="40.0" prefWidth="285.0" promptText="Level" AnchorPane.leftAnchor="50.0" />
             <ComboBox layoutX="368.0" layoutY="415.0" prefHeight="40.0" prefWidth="285.0" promptText="Semester" AnchorPane.rightAnchor="50.0" />
@@ -40,7 +39,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="50.0" layoutY="686.0" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6;" text="Login In With My Account" textFill="WHITE">
+            <JFXButton layoutX="50.0" layoutY="686.0" onAction="#handleSignInClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6;" text="Login In With My Account" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

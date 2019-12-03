@@ -34,6 +34,18 @@ public class Test implements Serializable{
     public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
     }
+    
+    public void pushQuestion(Question q){
+        this.questions.add(q);
+    }
+    
+    public void removeQuestion(int i){
+        this.questions.remove(i);
+    }
+    
+    public void updateQuestion(Question q,int index){
+        this.questions.set(index,q);
+    }
 
     
 }
