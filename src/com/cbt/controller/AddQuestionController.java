@@ -10,13 +10,19 @@ import com.cbt.bll.Test;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 /**
@@ -40,6 +46,12 @@ public class AddQuestionController implements Initializable {
     @FXML
     private JFXTimePicker startTime;
     
+    @FXML
+    private Label marks;
+    
+    @FXML
+     private TextField marksField;
+    
     Test test;
     
     @FXML
@@ -62,6 +74,13 @@ public class AddQuestionController implements Initializable {
         System.out.print(startTime.getValue().getClass().getSimpleName());
         
     }
+    @FXML
+    private void addNextClick(ActionEvent e) throws Exception{
+        if(!marks.equals(""))
+                {Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid marks!", ButtonType.OK);
+            msg.show();
+                }
+    }
     
     @FXML
     private void saveQuestion(){
@@ -78,6 +97,17 @@ public class AddQuestionController implements Initializable {
         test= new Test();
        
     } 
+    @FXML
+    public void marksKeyReleased(KeyEvent e) {
+        String pattern = "[0-9]{1,2}";
+        Pattern pat = Pattern.compile(pattern);
+        Matcher match = pat.matcher(marksField.getText());
+        if (!match.matches()) {
+            marks.setText("Invalid marks!");
+        } else {
+            marks.setText("");
+        }
+    }
     
     
 }
