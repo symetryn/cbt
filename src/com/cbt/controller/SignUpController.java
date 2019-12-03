@@ -15,14 +15,20 @@ import java.rmi.*;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -60,47 +66,72 @@ public class SignUpController implements Initializable {
     @FXML
     private PasswordField passwordField;
 
+    @FXML
+    private Label firstName;
+
+    @FXML
+    private Label lastName;
+
+    @FXML
+    private Label email;
+
+    @FXML
+    private Label sid;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    //initalize level dropdown
-    levelDrop.getItems().removeAll(levelDrop.getItems());
-    levelDrop.getItems().addAll(4,5,6);
-    
-    //initalize semester dropdown
-    semesterDrop.getItems().removeAll(levelDrop.getItems());
-    semesterDrop.getItems().addAll(1,2);
+        //initalize level dropdown
+        levelDrop.getItems().removeAll(levelDrop.getItems());
+        levelDrop.getItems().addAll(4, 5, 6);
+
+        //initalize semester dropdown
+        semesterDrop.getItems().removeAll(levelDrop.getItems());
+        semesterDrop.getItems().addAll(1, 2);
     }
 
     public SignUpController() {
-    
+
         router = new Router();
     }
 
     public void handleSignUpClick(ActionEvent e) {
 
-        try {
-            UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
+        if (firstNameField.getText().equals("") || lastNameField.getText().equals("") || emailField.getText().equals("") || idField.getText().equals("") || passwordField.getText().equals("")) {
+            Alert msg = new Alert(Alert.AlertType.ERROR, "Please fill all the fields!", ButtonType.OK);
+            msg.show();
+        }else if(!firstName.equals("") || !lastName.equals("") || !email.equals("") || !sid.equals("")){
+            Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid information!", ButtonType.OK);
+            msg.show();
+        } 
+        else if (levelDrop.getValue() != "4" || levelDrop.getValue() != "5" || levelDrop.getValue() != "6" || semesterDrop.getValue() != "1" || semesterDrop.getValue() != "2") {
+            Alert msg = new Alert(Alert.AlertType.ERROR, "Please select the level and semester properly!", ButtonType.OK);
+            msg.show();
+        } else {
+            try {
+                UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
 
-            User user = new User();
-            user.setUserID(Integer.parseInt(idField.getText()));
-            user.setFirstName(firstNameField.getText());
-            user.setLastName(lastNameField.getText());
-            user.setEmail(emailField.getText());
-            user.setImageUrl("https://source.unsplash.com/random");
-            user.setPassword(passwordField.getText());
-            user.setSemester((Integer) semesterDrop.getValue());
-            user.setLevel((Integer) levelDrop.getValue());
-            System.out.print(semesterDrop.getValue().getClass().getName());
-            userImpl.registerUser(user);
-        } catch (NotBoundException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (RemoteException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                User user = new User();
+                user.setUserID(Integer.parseInt(idField.getText()));
+                user.setFirstName(firstNameField.getText());
+                user.setLastName(lastNameField.getText());
+                user.setEmail(emailField.getText());
+                user.setImageUrl("https://source.unsplash.com/random");
+                user.setPassword(passwordField.getText());
+                user.setSemester((Integer) semesterDrop.getValue());
+                user.setLevel((Integer) levelDrop.getValue());
+                System.out.print(semesterDrop.getValue().getClass().getName());
+                userImpl.registerUser(user);
+            } catch (NotBoundException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (RemoteException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+
     }
 
     @FXML
@@ -124,6 +155,54 @@ public class SignUpController implements Initializable {
 //        } catch (IOException ex) {
 //            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+    }
+
+    @FXML
+    public void firstNameKeyReleased(KeyEvent e) {
+        String pattern = "[a-zA-Z]{2,}";
+        Pattern pat = Pattern.compile(pattern);
+        Matcher match = pat.matcher(firstNameField.getText());
+        if (!match.matches()) {
+            firstName.setText("Invalid first name!");
+        } else {
+            firstName.setText("");
+        }
+    }
+
+    @FXML
+    public void lastNameKeyReleased(KeyEvent e) {
+        String pattern = "[a-zA-Z]{2,}";
+        Pattern pat = Pattern.compile(pattern);
+        Matcher match = pat.matcher(lastNameField.getText());
+        if (!match.matches()) {
+            lastName.setText("Invalid last name!");
+        } else {
+            lastName.setText("");
+        }
+    }
+
+    @FXML
+    public void emailKeyReleased(KeyEvent e) {
+        String pattern = "\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b";
+        Pattern pat = Pattern.compile(pattern);
+        Matcher match = pat.matcher(emailField.getText());
+        if (!match.matches()) {
+            email.setText("Invalid email!");
+        } else {
+            email.setText("");
+        }
+    }
+
+    @FXML
+    public void sidKeyReleased(KeyEvent e) {
+        String pattern = "[0-9]{2,}";
+        Pattern pat = Pattern.compile(pattern);
+        Matcher match = pat.matcher(idField.getText());
+        if (!match.matches()) {
+            sid.setText("Invalid student ID!");
+        } else {
+            sid.setText("");
+        }
     }
 
 }
