@@ -195,7 +195,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     public void sidKeyReleased(KeyEvent e) {
-        String pattern = "[0-9]{2,}";
+        String pattern = "[0-9]{2,6}";
         Pattern pat = Pattern.compile(pattern);
         Matcher match = pat.matcher(idField.getText());
         if (!match.matches()) {
