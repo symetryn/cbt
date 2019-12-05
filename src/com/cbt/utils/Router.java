@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**
@@ -19,12 +21,16 @@ import javafx.stage.Window;
  * @author Symetryn
  */
 public class Router {
-    public void routeTo(String fxml,ActionEvent e){
+
+
+
+    public void routeTo(String fxml, ActionEvent e) {
         try {
             Node source = (Node) e.getSource();
-            Window theStage = source.getScene().getWindow();
-            Parent pane = FXMLLoader.load(getClass().getResource("/com/cbt/views/"+fxml));
-            theStage.getScene().setRoot(pane);
+            Window stage = source.getScene().getWindow();
+            Parent pane = FXMLLoader.load(getClass().getResource("/com/cbt/views/" + fxml));
+            stage.getScene().setRoot(pane);
+
         } catch (IOException ex) {
             Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);
         }

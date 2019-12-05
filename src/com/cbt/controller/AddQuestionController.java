@@ -9,9 +9,14 @@ import com.cbt.bll.Answer;
 import com.cbt.bll.OptionGroup;
 import com.cbt.bll.Question;
 import com.cbt.bll.Test;
+import com.cbt.dao.TestDao;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXTreeTableView;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
@@ -25,6 +30,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
@@ -87,6 +94,9 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TextField marksField;
+    
+     @FXML
+    private TextField titleField;
 
     Test test;
 
@@ -301,6 +311,22 @@ public class AddQuestionController implements Initializable {
             }
         });
 
+    }
+    
+    @FXML
+    private void submitQuestions(){
+        try {
+            System.out.println("test submitted");
+            TestDao t= (TestDao)Naming.lookup("rmi://localhost/TestService");
+            
+            test.setTitle(titleField.getText());
+            
+            t.saveTest(test);
+            
+        } catch (NotBoundException | MalformedURLException | RemoteException ex) {
+            Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }
 
 //    @FXML

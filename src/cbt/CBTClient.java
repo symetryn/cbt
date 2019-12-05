@@ -5,28 +5,29 @@
  */
 package cbt;
 
+import com.cbt.utils.Router;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
-
 /**
  *
  * @author Symetryn
  */
 public class CBTClient extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/cbt/views/AddQuestion.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("/com/cbt/views/SignIn.fxml"));
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
+       
+
     }
 
     /**
@@ -37,7 +38,7 @@ public class CBTClient extends Application {
 //             System.setProperty("java.security.policy", "client.policy");
 //if (System.getSecurityManager() == null)
 //System.setSecurityManager(new RMISecurityManager());
-            
+
 //            
 //           TestDao test= (TestDao)Naming.lookup("rmi://localhost/TestService");
 //          
@@ -79,10 +80,8 @@ public class CBTClient extends Application {
 //         System.out.println(e);
 //         e.printStackTrace(System.out);
 //         }
-       
-   launch(args);
-      
-        
+        launch(args);
+
     }
-    
+
 }

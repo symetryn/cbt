@@ -8,6 +8,7 @@ package com.cbt.controller;
 import com.cbt.bll.User;
 import com.cbt.dao.UserDao;
 import com.cbt.utils.Router;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,7 +29,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -78,6 +81,9 @@ public class SignUpController implements Initializable {
     @FXML
     private Label sid;
 
+    @FXML
+    private TextField imageUrl;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //initalize level dropdown
@@ -99,11 +105,10 @@ public class SignUpController implements Initializable {
         if (firstNameField.getText().equals("") || lastNameField.getText().equals("") || emailField.getText().equals("") || idField.getText().equals("") || passwordField.getText().equals("")) {
             Alert msg = new Alert(Alert.AlertType.ERROR, "Please fill all the fields!", ButtonType.OK);
             msg.show();
-        }else if(!firstName.equals("") || !lastName.equals("") || !email.equals("") || !sid.equals("")){
+        } else if (firstName.equals("") || lastName.equals("") || email.equals("") || sid.equals("")) {
             Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid information!", ButtonType.OK);
             msg.show();
-        } 
-        else if (levelDrop.getValue() != "4" || levelDrop.getValue() != "5" || levelDrop.getValue() != "6" || semesterDrop.getValue() != "1" || semesterDrop.getValue() != "2") {
+        } else if (levelDrop.getValue() == null || semesterDrop.getValue() == null) {
             Alert msg = new Alert(Alert.AlertType.ERROR, "Please select the level and semester properly!", ButtonType.OK);
             msg.show();
         } else {
@@ -121,12 +126,15 @@ public class SignUpController implements Initializable {
                 user.setLevel((Integer) levelDrop.getValue());
                 System.out.print(semesterDrop.getValue().getClass().getName());
                 userImpl.registerUser(user);
+                router.routeTo("SignIn.fxml", e);
             } catch (NotBoundException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (RemoteException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                Alert msg = new Alert(Alert.AlertType.INFORMATION, "The ID already exists", ButtonType.OK);
+                msg.show();
             } catch (IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -139,22 +147,6 @@ public class SignUpController implements Initializable {
 
         router.routeTo("SignIn.fxml", e);
 
-//        try {
-//            UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
-//
-//            User user = new User();
-//            user.setFirstName("rojan");
-//            userImpl.registerUser(user);
-//
-//        } catch (NotBoundException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (MalformedURLException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (RemoteException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
 
     @FXML
@@ -195,7 +187,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     public void sidKeyReleased(KeyEvent e) {
-        String pattern = "[0-9]{2,6}";
+        String pattern = "[0-9]{7}";
         Pattern pat = Pattern.compile(pattern);
         Matcher match = pat.matcher(idField.getText());
         if (!match.matches()) {
@@ -205,4 +197,17 @@ public class SignUpController implements Initializable {
         }
     }
 
+    @FXML
+    public void fileOpen(ActionEvent event) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            Image image1 = new Image(file.toURI().toString());
+            System.out.println(image1);
+            imageUrl.setText(file.toURI().toString());
+        }
+
+    }
 }
