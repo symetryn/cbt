@@ -41,6 +41,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -97,6 +98,12 @@ public class AddQuestionController implements Initializable {
     
      @FXML
     private TextField titleField;
+     
+     @FXML
+    private ComboBox levelDrop;
+
+    @FXML
+    private ComboBox semesterDrop;
 
     Test test;
 
@@ -235,6 +242,13 @@ public class AddQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //initalize level dropdown
+        levelDrop.getItems().removeAll(levelDrop.getItems());
+        levelDrop.getItems().addAll(4, 5, 6);
+
+        //initalize semester dropdown
+        semesterDrop.getItems().removeAll(levelDrop.getItems());
+        semesterDrop.getItems().addAll(1, 2);
         createQuestionRow();
         createQuestionRow();
 

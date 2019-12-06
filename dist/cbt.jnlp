@@ -8,9 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="cbt.jar" size="7511225" download="eager" />
-    <jar href="lib\jfoenix-8.0.7.jar" size="2631271" download="eager" />
-    <jar href="lib\mysql-connector.jar" size="540852" download="eager" />
+    <jar href="cbt.jar" size="7511456" download="eager" />
+    <jar href="lib/jfoenix-8.0.2.jar" size="2442326" download="eager" />
+    <jar href="lib/mysql-connector.jar" size="540852" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="cbt" >
     <param name="requiredFXVersion" value="8.0+"/>
