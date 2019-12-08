@@ -3,24 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/nbproject/jfx-impl.xml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/Router.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/SignIn.fxml</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Result.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/User.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/EditProfileController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/SignUp.fxml</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/FXMLDocumentController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SideBarController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/DashboardController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ExamController.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/AddQuestionController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Result.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/sideBar.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Dashboard.fxml</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Answer.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/TestDao.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Test.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/Exam.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/UserDao.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SignInController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SignUpController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ResultController.java</file>
         </group>
     </open-files>
 </project-private>

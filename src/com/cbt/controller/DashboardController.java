@@ -56,9 +56,7 @@ public class DashboardController implements Initializable {
 
         } catch (MalformedURLException ex) {
             Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 
 }

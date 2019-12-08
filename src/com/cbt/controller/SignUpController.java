@@ -127,17 +127,11 @@ public class SignUpController implements Initializable {
                 System.out.print(semesterDrop.getValue().getClass().getName());
                 userImpl.registerUser(user);
                 router.routeTo("SignIn.fxml", e);
-            } catch (NotBoundException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (RemoteException ex) {
-//                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                Alert msg = new Alert(Alert.AlertType.INFORMATION, "The ID already exists", ButtonType.OK);
-                msg.show();
-            } catch (IOException ex) {
+            } catch (NotBoundException | IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }
+//              
+
         }
 
     }

@@ -11,46 +11,30 @@ import com.cbt.bll.Question;
 import com.cbt.bll.Test;
 import com.cbt.dao.TestDao;
 import com.jfoenix.controls.JFXTimePicker;
-import com.jfoenix.controls.JFXTreeTableView;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 /**
@@ -94,8 +78,8 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TextField marksField;
-    
-     @FXML
+
+    @FXML
     private TextField titleField;
 
     Test test;
@@ -125,24 +109,54 @@ public class AddQuestionController implements Initializable {
         drop.setLayoutX(653);
         drop.setLayoutY(yAxis);
         drop.setPrefSize(65, 33);
-        drop.setStyle("-fx-background-color:#525A65");
-        drop.setStyle("-fx-text-fill:#ffffff");
-        // drop.setId("drop" + count);
+        drop.setStyle("-fx-background-color:#525A65;-fx-text-fill:#ffffff");
 
+        OptionGroup og = new OptionGroup(option, drop, correct);
+        drop.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+
+                dropItem(og);
+
+            }
+
+        });
+
+        // drop.setId("drop" + count);
         correct.setLayoutX(732);
         correct.setLayoutY(yAxis + 7);
         // correct.setId("correct" + count);
 
         count += 1;
-        yAxis += 68;
+        yAxis += 60;
 
         pane.getChildren().addAll(option, drop, correct);
         scrollpane.setContent(pane);
         scrollpane.setPannable(true);
 
-        OptionGroup og = new OptionGroup(option, drop, correct);
-
         optionList.add(og);
+
+    }
+
+    private void dropItem(OptionGroup og) {
+        yAxis = 85 + 60 * (optionList.size() - 1);
+        pane.getChildren().remove(og.getTextField());
+        pane.getChildren().remove(og.getBox());
+        pane.getChildren().remove(og.getBtn());
+        int removedIndex = optionList.indexOf(og);
+        optionList.remove(og);
+
+        if (removedIndex != optionList.size()) {
+            for (int i = removedIndex; i < optionList.size(); i++) {
+
+                OptionGroup currentOption = optionList.get(i);
+                double previous = currentOption.getTextField().getLayoutY();
+                currentOption.getTextField().setLayoutY(previous - 60);
+                currentOption.getBtn().setLayoutY(previous - 58);
+                currentOption.getBox().setLayoutY(previous - 53);
+            }
+        }
+        System.out.println(optionList.size());
 
     }
 
@@ -312,21 +326,21 @@ public class AddQuestionController implements Initializable {
         });
 
     }
-    
+
     @FXML
-    private void submitQuestions(){
+    private void submitQuestions() {
         try {
             System.out.println("test submitted");
-            TestDao t= (TestDao)Naming.lookup("rmi://localhost/TestService");
-            
+            TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
+
             test.setTitle(titleField.getText());
-            
+
             t.saveTest(test);
-            
+
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-           
+
     }
 
 //    @FXML
@@ -340,5 +354,4 @@ public class AddQuestionController implements Initializable {
 //            marks.setText("");
 //        }
 //    }
-
 }

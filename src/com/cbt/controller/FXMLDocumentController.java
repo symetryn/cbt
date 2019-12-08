@@ -44,12 +44,12 @@ public class FXMLDocumentController implements Initializable {
         
         try {
             UserDao userImpl= (UserDao)Naming.lookup("rmi://localhost/UserService");
-            Boolean result=userImpl.validateLogin("1720971", "hash");
+            String result=userImpl.validateLogin("1720971", "hash");
             User user = new User();
             user.setFirstName("rojan");
             userImpl.registerUser(user);
             System.out.print(result);
-            if(result){
+            if(result.equals("student")){
                  Router router= new Router();
                  router.routeTo("dash.fxml",event);
             }
@@ -58,8 +58,6 @@ public class FXMLDocumentController implements Initializable {
         } catch (MalformedURLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (RemoteException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

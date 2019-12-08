@@ -57,12 +57,12 @@ public class SignInController implements Initializable {
         try {
             UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
 
-            Boolean result = userImpl.validateLogin(idField.getText(), passwordField.getText());
+            String result = userImpl.validateLogin(idField.getText(), passwordField.getText());
 //            User user = new User();
 //            user.setFirstName("rojan");
 //            userImpl.registerUser(user);
-//            System.out.print(result);
-            if (result) {
+            System.out.print(result);
+            if (result.equals("admin")) {
                 router.routeTo("Dashboard.fxml", e);
             } else {
                 System.out.print("invalid username or password");
