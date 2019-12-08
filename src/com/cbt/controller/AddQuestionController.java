@@ -29,12 +29,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
->>>>>>> ee121bf3f10184b367f2a311386571d0ef9281ee
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -87,8 +84,8 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TextField titleField;
-     
-     @FXML
+
+    @FXML
     private ComboBox levelDrop;
 
     @FXML
@@ -193,43 +190,6 @@ public class AddQuestionController implements Initializable {
             }
         });
 
-        // for (Node node : pane.getChildren()) {
-        //
-        // if (node instanceof TextField && node.getId()==null) {
-        // System.out.println(((TextField) node).getText()+ " here");
-        //
-        // if (((TextField) node).getText() == "" || ((TextField) node).getText() ==
-        // null) {
-        // break;
-        // }
-        // a.setTitle(((TextField) node).getText());
-        // textCount++;
-        //
-        // } else if (node instanceof CheckBox) {
-        // a.setCorrectAnswer(((CheckBox) node).isSelected());
-        // checkCount++;
-        // }
-        //// System.out.println(textCount + " " + checkCount);
-        // if (textCount == 1 && checkCount == 1) {
-        // System.out.println("selected");
-        // System.out.print(a.getTitle());
-        // if (a.getTitle() != null && a.getTitle().trim() != "") {
-        // q.addAnswer(a);
-        // }
-        // a = new Answer();
-        // textCount = 0;
-        // checkCount = 0;
-        // }
-        //
-        // }
-        //// ArrayList ar = new ArrayList();
-        // Answer a = new Answer("this is answer", true);
-        //// ar.add(a);
-        ////// q.setAnswers();
-        //
-        // q.addAnswer(a);
-        // q.addAnswer(a);
-        // q.addAnswer(a);
         test.pushQuestion(q);
         setTable();
 
@@ -261,11 +221,11 @@ public class AddQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //initalize level dropdown
+        // initalize level dropdown
         levelDrop.getItems().removeAll(levelDrop.getItems());
         levelDrop.getItems().addAll(4, 5, 6);
 
-        //initalize semester dropdown
+        // initalize semester dropdown
         semesterDrop.getItems().removeAll(levelDrop.getItems());
         semesterDrop.getItems().addAll(1, 2);
         createQuestionRow();
@@ -362,15 +322,15 @@ public class AddQuestionController implements Initializable {
 
     }
 
-//    @FXML
-//    public void marksKeyReleased(KeyEvent e) {
-//        String pattern = "[0-9]{1,2}";
-//        Pattern pat = Pattern.compile(pattern);
-//        Matcher match = pat.matcher(marksField.getText());
-//        if (!match.matches()) {
-//            marks.setText("Invalid marks!");
-//        } else {
-//            marks.setText("");
-//        }
-//    }
+    // @FXML
+    // public void marksKeyReleased(KeyEvent e) {
+    // String pattern = "[0-9]{1,2}";
+    // Pattern pat = Pattern.compile(pattern);
+    // Matcher match = pat.matcher(marksField.getText());
+    // if (!match.matches()) {
+    // marks.setText("Invalid marks!");
+    // } else {
+    // marks.setText("");
+    // }
+    // }
 }
