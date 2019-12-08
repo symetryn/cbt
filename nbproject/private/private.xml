@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Result.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/User.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
@@ -17,6 +18,14 @@
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/Exam.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/UserDao.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SignInController.java</file>
+=======
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/cbt/CBTClient.java</file>
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/ExamController.java</file>
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/SignUpController.java</file>
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/SignInController.java</file>
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/AddQuestionController.java</file>
+            <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/SideBarController.java</file>
+>>>>>>> ee121bf3f10184b367f2a311386571d0ef9281ee
         </group>
     </open-files>
 </project-private>
