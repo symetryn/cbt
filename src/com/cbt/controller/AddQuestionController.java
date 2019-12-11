@@ -24,14 +24,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -51,6 +50,8 @@ public class AddQuestionController implements Initializable {
     int yAxis = 85;
 
     ArrayList<OptionGroup> optionList;
+
+    ObservableList questions;
 
     /**
      * Initializes the controller class.
@@ -91,7 +92,27 @@ public class AddQuestionController implements Initializable {
     @FXML
     private ComboBox semesterDrop;
 
+    @FXML
+    private TextField durationField;
+
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private JFXTimePicker endTime;
+
+    @FXML
+    DatePicker testDate;
+
+    @FXML
+    private TextField passMarksField;
+
+    @FXML
+    private Button updateBtn;
+
     Test test;
+
+    int selectedItem;
 
     public AddQuestionController() {
         test = new Test();
@@ -112,7 +133,6 @@ public class AddQuestionController implements Initializable {
         option.setLayoutX(11);
         option.setLayoutY(yAxis);
         option.setPrefSize(633, 42);
-        // option.setId("option" + count);
         option.setPromptText("Option ");
 
         drop.setLayoutX(653);
@@ -121,14 +141,8 @@ public class AddQuestionController implements Initializable {
         drop.setStyle("-fx-background-color:#525A65;-fx-text-fill:#ffffff");
 
         OptionGroup og = new OptionGroup(option, drop, correct);
-        drop.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-
-                dropItem(og);
-
-            }
-
+        drop.setOnAction((ActionEvent e) -> {
+            dropItem(og);
         });
 
         // drop.setId("drop" + count);
@@ -197,7 +211,7 @@ public class AddQuestionController implements Initializable {
     }
 
     private void setTable() {
-        ObservableList questions = FXCollections.observableArrayList(test.getQuestions());
+        questions = FXCollections.observableArrayList(test.getQuestions());
 
         questionTable.setItems(questions);
     }
@@ -241,13 +255,11 @@ public class AddQuestionController implements Initializable {
                 questionField.setText((newSelection.getTitle()));
                 marksField.setText(Integer.toString(newSelection.getMarks()));
 
-                // pane.getChildren().removeIf(node -> node.getId() == null);
-                //// pane.getChildren().removeIf(node -> node instanceof CheckBox);
-                //// pane.getChildren().removeIf(node -> {
-                //// if(node.getId()==null) return node instanceof Button;
-                //// return (node instanceof Button && node.getId().toString()!="addOption") ;
-                //// });
                 ArrayList<Answer> newAnswerList = newSelection.getAnswers();
+
+                selectedItem = test.getQuestions().indexOf(newSelection);
+                System.out.println("selected Item" + selectedItem);
+
                 int optionSize = optionList.size();
                 int answerSize = newAnswerList.size();
 
@@ -279,9 +291,7 @@ public class AddQuestionController implements Initializable {
                 optionSize = optionList.size();
                 answerSize = newAnswerList.size();
                 yAxis = optionSize * 60 + 85;
-                // System.out.println(optionSize);
-                // System.out.println(answerSize);
-                // optionList = new ArrayList<OptionGroup>();
+
                 for (int i = 0; i < answerSize; i++) {
                     // set option
 
@@ -294,13 +304,6 @@ public class AddQuestionController implements Initializable {
 
                 }
 
-                // System.out.println(newSelection.getAnswers().size());
-                // newSelection.getAnswers().forEach((data) -> {
-                //// System.out.println("therre");
-                // System.out.println(data.getTitle());
-                //// System.out.println(data.getCorrectAnswer());
-                // createQuestionRow();
-                // });
             }
         });
 
@@ -313,12 +316,60 @@ public class AddQuestionController implements Initializable {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
 
             test.setTitle(titleField.getText());
+            test.setDate(java.sql.Date.valueOf(testDate.getValue()));
+            test.setStartTime(java.sql.Time.valueOf(startTime.getValue()));
+            test.setEndTime(java.sql.Time.valueOf(endTime.getValue()));
+            test.setLevel((Integer) levelDrop.getValue());
+            test.setSemester((Integer) semesterDrop.getValue());
+            test.setPassword(passwordField.getText());
+            test.setDuration(Integer.parseInt(durationField.getText()));
+            test.setPassMarks(Integer.parseInt(passMarksField.getText()));
+            test.setPassword(passwordField.getText());
+
+            int fullMarks = 0;
+            for (Question element : test.getQuestions()) {
+                fullMarks += element.getMarks();
+            }
+            test.setFullMarks(fullMarks);
 
             t.saveTest(test);
 
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    public void updateQuestion() {
+        System.out.println("table updated");
+//        questionTable.refresh();
+
+        Question q = new Question();
+        q.setTitle(questionField.getText());
+        q.setMarks(Integer.parseInt(marksField.getText()));
+
+        optionList.forEach(data -> {
+            String text = data.getTextField().getText();
+            System.out.println("before " + text);
+
+            if (text != null && !text.isEmpty()) {
+                System.out.println(data.getBox().isSelected());
+                System.out.println("after:" + text);
+                Answer a = new Answer(text, data.getBox().isSelected());
+                q.addAnswer(a);
+            }
+        });
+
+        ArrayList<Question> updatedQuestions = test.getQuestions();
+        System.out.println(selectedItem);
+        updatedQuestions.set(selectedItem, q);
+        test.setQuestions(updatedQuestions);
+
+//        questions = FXCollections.observableArrayList(updatedQuestions);
+//        questionTable.refresh();
+        questions = FXCollections.observableArrayList(test.getQuestions());
+
+        questionTable.setItems(questions);
 
     }
 

@@ -43,8 +43,6 @@ public class SignUpController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    Router router;
-
     @FXML
     private TextField firstNameField;
 
@@ -96,8 +94,6 @@ public class SignUpController implements Initializable {
     }
 
     public SignUpController() {
-
-        router = new Router();
     }
 
     public void handleSignUpClick(ActionEvent e) {
@@ -126,11 +122,10 @@ public class SignUpController implements Initializable {
                 user.setLevel((Integer) levelDrop.getValue());
                 System.out.print(semesterDrop.getValue().getClass().getName());
                 userImpl.registerUser(user);
-                router.routeTo("SignIn.fxml", e);
+                Router.routeTo("SignIn.fxml", e);
             } catch (NotBoundException | IOException ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-//              
+            }            
 
         }
 
@@ -139,7 +134,7 @@ public class SignUpController implements Initializable {
     @FXML
     public void handleSignInClick(ActionEvent e) {
 
-        router.routeTo("SignIn.fxml", e);
+        Router.routeTo("SignIn.fxml", e);
 
     }
 

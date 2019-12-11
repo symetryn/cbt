@@ -29,10 +29,10 @@ public class SideBarController implements Initializable {
     @FXML
     private JFXButton logout;
 
-    Router r;
+//    Router r;
 
     public SideBarController() {
-        r = new Router();
+//        r = new Router();
     }
 
     /**
@@ -46,12 +46,12 @@ public class SideBarController implements Initializable {
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
-        r.routeTo("Dashboard.fxml", event);
+        Router.routeTo("Dashboard.fxml", event);
     }
 
     @FXML
     private void gotoExam(ActionEvent event) {
-        r.routeTo("Exam.fxml", event);
+        Router.routeTo("Exam.fxml", event);
     }
 
     @FXML
@@ -61,7 +61,7 @@ public class SideBarController implements Initializable {
 
     @FXML
     private void logout(ActionEvent event) {
-        r.routeTo("SignIn.fxml", event);
+        Router.routeTo("SignIn.fxml", event);
     }
 
 }

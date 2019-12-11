@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -27,6 +28,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -38,30 +40,27 @@ import javafx.scene.paint.Color;
  * @author User
  */
 public class ExamController implements Initializable {
-
-    Router r;
-
+    
     @FXML
     HBox examContainer;
-
+    
     @FXML
     ScrollPane examScroll;
-
+    
     @FXML
     HBox examUpcomingContainer;
-
+    
     @FXML
     ScrollPane examUpcomingScroll;
-
+    
     @FXML
     TilePane searchTile;
-
+    
     @FXML
     TextField searchField;
-
+    
     public ExamController() {
-        r = new Router();
-
+        
     }
 
     /**
@@ -81,37 +80,37 @@ public class ExamController implements Initializable {
             }
         });
     }
-
+    
     @FXML
     private void gotoAddQuestion(ActionEvent e) {
-        r.routeTo("AddQuestion.fxml", e);
-
+        Router.routeTo("AddQuestion.fxml", e);
+        
     }
-
+    
     private void createExams() {
-
+        
     }
-
+    
     private void createExamList() {
         try {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             ArrayList<Test> testList = t.getAllTest();
             ArrayList<Test> upcomingTestList = t.getAllUpcomingTest();
             testList.forEach((item) -> {
-                examContainer.getChildren().addAll(createExamItem(item.getTitle(), item.getDate()));
+                examContainer.getChildren().addAll(createExamItem(item.getId(),item.getTitle(), item.getDate()));
             });
-
+            
             upcomingTestList.forEach((item) -> {
-                examUpcomingContainer.getChildren().addAll(createExamItem(item.getTitle(), item.getDate()));
+                examUpcomingContainer.getChildren().addAll(createExamItem(item.getId(),item.getTitle(), item.getDate()));
             });
-
+            
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(ExamController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
-
-    private Pane createExamItem(String name, Date date) {
+    
+    private Pane createExamItem(int id,String name, Date date) {
         System.out.println("created item");
 
         //dropshadow
@@ -139,30 +138,34 @@ public class ExamController implements Initializable {
         title.setLayoutY(15);
         title.fontProperty();
         title.setStyle("-fx-font-weight: bold;-fx-font-size:20");
-
+        
         p.getChildren().addAll(title);
-
+        
+        p.addEventFilter(MouseEvent.MOUSE_CLICKED,event->{
+            Router r= new Router();
+            r.routeToViewExam(id);
+        });
+        
         return p;
     }
-
+    
     @FXML
     private void search(ActionEvent e) {
         try {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             ArrayList<Test> searchResult = t.getTestSearch(searchField.getText());
-
+            
             searchTile.getChildren().clear();
-
-           
+            
             searchResult.forEach((element) -> {
                 System.out.println(element.getTitle());
-
-                searchTile.getChildren().addAll(createExamItem(element.getTitle(), element.getDate()));
+                
+                searchTile.getChildren().addAll(createExamItem(element.getId(),element.getTitle(), element.getDate()));
             });
-
+            
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(ExamController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
     }
 }

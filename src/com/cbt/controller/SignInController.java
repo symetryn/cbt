@@ -42,12 +42,6 @@ public class SignInController implements Initializable {
     @FXML
     PasswordField passwordField;
 
-    Router router;
-
-    public SignInController() {
-        router = new Router();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -63,7 +57,7 @@ public class SignInController implements Initializable {
 //            userImpl.registerUser(user);
             System.out.print(result);
             if (result.equals("admin")) {
-                router.routeTo("Dashboard.fxml", e);
+                Router.routeTo("Dashboard.fxml", e);
             } else {
                 System.out.print("invalid username or password");
 
@@ -80,7 +74,7 @@ public class SignInController implements Initializable {
 
     public void handleSignUpClick(ActionEvent e) {
 
-        router.routeTo("SignUp.fxml", e);
+        Router.routeTo("SignUp.fxml", e);
 
     }
 

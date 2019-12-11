@@ -18,21 +18,15 @@
             <Insets />
          </VBox.margin>
       </Label>
-      <Separator prefWidth="200.0" />
-      <HBox prefHeight="80.0" prefWidth="315.0">
+      <Separator opacity="0.12" prefWidth="200.0" />
+      <HBox layoutX="11.0" layoutY="194.0" prefHeight="80.0" prefWidth="315.0">
          <children>
-            <JFXButton fx:id="dashboard" alignment="CENTER" onAction="#gotoDashboard" prefHeight="80.0" prefWidth="319.0" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="dashboard" alignment="CENTER" onAction="#gotoDashboard" prefHeight="80.0" prefWidth="319.0" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="20.0" />
                </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </JFXButton>
          </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
       </HBox>
       <HBox prefHeight="80.0" prefWidth="315.0">
          <children>

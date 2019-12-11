@@ -23,59 +23,6 @@
    <children>
       <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
          <children>
-<!--            <VBox layoutY="14.0" prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: #525A65; -fx-border-color: #707070;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="100.0" prefWidth="320.0" text="Patan Test" textFill="WHITE">
-                     <font>
-                        <Font name="Arial Bold" size="25.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <Separator prefWidth="200.0" />
-                  <HBox prefHeight="80.0" prefWidth="315.0">
-                     <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Dashboard" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="20.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin></JFXButton>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="80.0" prefWidth="315.0">
-                     <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Add Question" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="20.0" />
-                           </font></JFXButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="80.0" prefWidth="315.0">
-                     <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Result" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="20.0" />
-                           </font></JFXButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="80.0" prefWidth="315.0">
-                     <children>
-                        <JFXButton alignment="CENTER" prefHeight="80.0" prefWidth="319.0" text="Log Out" textFill="WHITE">
-                           <font>
-                              <Font name="SansSerif Bold" size="20.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </HBox>
-                  <Accordion />
-               </children>
-            </VBox>-->
               <fx:include fx:id="" source="sideBar.fxml" />
          </children>
       </AnchorPane>
@@ -102,20 +49,20 @@
       </AnchorPane>
       <AnchorPane layoutX="320.0" layoutY="100.0" prefHeight="894.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0">
          <children>
-            <AnchorPane layoutX="37.0" layoutY="28.0" prefHeight="243.0" prefWidth="827.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="37.0" layoutY="28.0" prefHeight="252.0" prefWidth="827.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
                <children>
-                  <Label layoutX="329.0" layoutY="23.0" text="Test Details">
+                  <Label layoutX="329.0" layoutY="19.0" text="Test Details">
                      <font>
                         <Font name="SansSerif Bold" size="24.0" />
                      </font>
                   </Label>
                   <TextField fx:id="titleField" layoutX="287.0" layoutY="73.0" prefHeight="39.0" prefWidth="218.0" promptText="Test Name" />
-                  <TextField fx:id="idField1" layoutX="287.0" layoutY="132.0" prefHeight="39.0" prefWidth="218.0" promptText="Pass Marks" />
+                  <TextField fx:id="passMarksField" layoutX="287.0" layoutY="132.0" prefHeight="39.0" prefWidth="218.0" promptText="Pass Marks" />
                   <PasswordField fx:id="passwordField" layoutX="563.0" layoutY="73.0" prefHeight="39.0" prefWidth="218.0" promptText="Password" />
-                  <DatePicker layoutX="563.0" layoutY="128.0" prefHeight="39.0" prefWidth="218.0" />
-                  <JFXTimePicker fx:id="startTime" layoutX="288.0" layoutY="190.0" prefHeight="31.0" prefWidth="218.0" promptText="Start At" />
-                  <JFXTimePicker layoutX="566.0" layoutY="190.0" prefHeight="31.0" prefWidth="218.0" promptText="End At" />
-                  <TextField fx:id="titleField11" layoutX="47.0" layoutY="186.0" prefHeight="39.0" prefWidth="182.0" promptText="Exam Duration" />
+                  <DatePicker fx:id="testDate" layoutX="563.0" layoutY="128.0" prefHeight="39.0" prefWidth="218.0" />
+                  <JFXTimePicker fx:id="startTime" layoutX="287.0" layoutY="190.0" prefHeight="31.0" prefWidth="218.0" promptText="Start At" />
+                  <JFXTimePicker fx:id="endTime" layoutX="566.0" layoutY="190.0" prefHeight="31.0" prefWidth="218.0" promptText="End At" />
+                  <TextField fx:id="durationField" layoutX="47.0" layoutY="186.0" prefHeight="39.0" prefWidth="182.0" promptText="Exam Duration" />
                   <ComboBox fx:id="levelDrop" layoutX="47.0" layoutY="73.0" prefHeight="40.0" prefWidth="182.0" promptText="Level" />
                   <ComboBox fx:id="semesterDrop" layoutX="47.0" layoutY="130.0" prefHeight="40.0" prefWidth="182.0" promptText="Semester" />
                </children>
@@ -162,6 +109,11 @@
                </font>
             </TextArea>
             <Button layoutX="640.0" layoutY="506.0" mnemonicParsing="false" onAction="#saveQuestion" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #7bdb40 #7bdb40;" text="New Question" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateBtn" layoutX="481.0" layoutY="506.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: #7bdb40 #7bdb40;" text="Update" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

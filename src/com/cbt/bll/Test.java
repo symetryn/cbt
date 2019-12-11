@@ -24,8 +24,10 @@ public class Test implements Serializable {
     private int semester;
     private Time startTime;
     private Time endTime;
-    private Time duration;
+    private int duration;
     private String password;
+    private int passMarks;
+    private int fullMarks;
 
     private static final long serialVersionUID = 1L;
 
@@ -109,14 +111,37 @@ public class Test implements Serializable {
         this.endTime = endTime;
     }
 
-    public Time getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
- 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getPassMarks() {
+        return passMarks;
+    }
+
+    public void setPassMarks(int passMarks) {
+        this.passMarks = passMarks;
+    }
+
+    public int getFullMarks() {
+        return fullMarks;
+    }
+
+    public void setFullMarks(int fullMarks) {
+        this.fullMarks = fullMarks;
+    }
+
+    
 }

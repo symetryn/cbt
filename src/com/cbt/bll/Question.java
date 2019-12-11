@@ -17,6 +17,7 @@ public class Question implements Serializable {
 
     private static final long serialVersionUID=3L;
     
+    private int id;
     private String title;
     private int marks;
     private ArrayList<Answer> answers;
@@ -56,5 +57,15 @@ public class Question implements Serializable {
     public void setMarks(int marks) {
         this.marks = marks;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 
 }
