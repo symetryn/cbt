@@ -15,15 +15,15 @@ import java.util.ArrayList;
  */
 public class Question implements Serializable {
 
-    private static final long serialVersionUID=3L;
-    
-    private int id;
+    private static final long serialVersionUID = 3L;
+
+    private Integer id;
     private String title;
     private int marks;
     private ArrayList<Answer> answers;
-    
-    public Question(){
-        answers=new ArrayList();
+
+    public Question() {
+        answers = new ArrayList();
     }
 
     public String getTitle() {
@@ -58,14 +58,12 @@ public class Question implements Serializable {
         this.marks = marks;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    
-    
 
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class Test implements Serializable {
 
-    private int id;
+    private Integer id;
     private String title;
     private ArrayList<Question> questions;
     private Date date;
@@ -63,11 +63,11 @@ public class Test implements Serializable {
         this.questions.set(index, q);
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -143,5 +143,4 @@ public class Test implements Serializable {
         this.fullMarks = fullMarks;
     }
 
-    
 }

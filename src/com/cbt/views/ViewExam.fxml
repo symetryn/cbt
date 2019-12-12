@@ -118,6 +118,11 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Button layoutX="325.0" layoutY="506.0" mnemonicParsing="false" onAction="#deleteQuestion" prefHeight="30.0" prefWidth="123.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
          <effect>
             <DropShadow color="#0000002c" height="19.6" offsetX="1.0" offsetY="3.0" radius="9.4" width="20.0" />
