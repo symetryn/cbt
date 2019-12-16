@@ -8,6 +8,8 @@ package com.cbt.controller;
 import com.cbt.bll.Test;
 import com.cbt.dao.TestDao;
 import com.cbt.utils.Router;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRippler;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.Naming;
@@ -112,7 +114,7 @@ public class ExamController implements Initializable {
     
     private Pane createExamItem(int id,String name, Date date) {
         System.out.println("created item");
-
+       
         //dropshadow
         DropShadow dropShadow = new DropShadow();
         dropShadow.setRadius(8.69);
@@ -123,10 +125,13 @@ public class ExamController implements Initializable {
         dropShadow.setHeight(16.75);
         dropShadow.setSpread(0);
         dropShadow.setBlurType(BlurType.THREE_PASS_BOX);
-
+        
+      
+      
+        
         //item pane
         Pane p = new Pane();
-        p.setStyle("-fx-background-color: white; -fx-background-radius: 10px;");
+        p.setStyle("-fx-background-color: white; -fx-background-radius: 10px;-fx-cursor: hand");
         p.setPrefHeight(200);
         p.setPrefWidth(322);
         p.setEffect(dropShadow);
@@ -146,7 +151,13 @@ public class ExamController implements Initializable {
             r.routeToViewExam(id);
         });
         
-        return p;
+//        JFXButton btn= new JFXButton(p);
+//                .addAll(p);
+
+        JFXRippler rippler = new JFXRippler(p);
+        rippler.setRipplerFill(Color.valueOf("#000"));
+       
+        return rippler;
     }
     
     @FXML

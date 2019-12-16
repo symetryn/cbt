@@ -1,5 +1,7 @@
 package com.cbt.utils;
 
+import com.cbt.bll.ChartItem;
+import com.google.gson.Gson;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.image.Image;
@@ -22,12 +25,49 @@ import javafx.scene.image.Image;
  */
 public class ChartBuilder {
 
+    Gson g;
+
     private final String URL = "https://quickchart.io/chart";
 
-    public Image build(String type, String data, String color, int width, int height) throws MalformedURLException {
+    public ChartBuilder() {
+        g = new Gson();
+    }
+
+    public Image build(String type, String[] label, ArrayList<ChartItem> data, int width, int height) throws MalformedURLException {
+        URL imageUrl;
+
         switch (type) {
             case "radialGauge":
-                URL imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'radialGauge',data:{datasets:[{data:[" + data + "],backgroundColor:'" + color + "'}]}}");
+                imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'radialGauge',data:{datasets:" + g.toJson(data) + "}}");
+                return getImageFromByteStream(imageUrl);
+
+            case "line":
+                System.out.println("here");
+                System.out.println(g.toJson(data));
+                imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'line',"
+                        + "data:{"
+                        + "labels:"
+                        + g.toJson(label)
+                        + ","
+                        + "datasets:"
+                        + g.toJson(data)
+                        + "}}");
+
+                return getImageFromByteStream(imageUrl);
+            case "pie":
+                System.out.println("here");
+                System.out.println(g.toJson(data));
+                imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'pie',"
+                        + "data:{"
+                        + "labels:"
+                        + g.toJson(label)
+                        + ","
+                        + "datasets:"
+                        + g.toJson(data)
+                        + "}}");
+
+                ChartItem c1 = new ChartItem(null, new Integer[]{50}, null, null);
+                System.out.println(c1.toString());
                 return getImageFromByteStream(imageUrl);
             default:
                 return null;
@@ -44,7 +84,7 @@ public class ChartBuilder {
             InputStream is = ucon.getInputStream();
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[2048];
             int read;
             while ((read = is.read(buffer, 0, buffer.length)) != -1) {
                 baos.write(buffer, 0, read);
