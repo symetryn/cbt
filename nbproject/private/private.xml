@@ -3,19 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/StudentExamController.java</file>
             <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/ResultController.java</file>
             <file>file:/Users/Dhruba/Desktop/PRoject/cbt/src/com/cbt/controller/SideBarController.java</file>
-=======
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/DashboardController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/ChartBuilder.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ExamController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Result.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/bll/Answer.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ViewExamController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
->>>>>>> a9658d035518288f4355d552526dc5b61ca8e17b
         </group>
     </open-files>
 </project-private>
