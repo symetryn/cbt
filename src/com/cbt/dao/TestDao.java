@@ -22,6 +22,8 @@ public interface TestDao extends java.rmi.Remote {
 
     public void saveTest(Test test) throws RemoteException;
 
+    public void updateTest(Test test) throws RemoteException;
+
     public void removeTest(int testId) throws RemoteException;
 
     public ArrayList<Test> getAllTest() throws RemoteException;
@@ -29,7 +31,7 @@ public interface TestDao extends java.rmi.Remote {
     public ArrayList<Test> getAllUpcomingTest() throws RemoteException;
 
     public ArrayList<Test> getTestSearch(String searchQuery) throws RemoteException;
-    
+
     public Test getTest(int testId) throws RemoteException;
 
     public void getAllQuestions(int tId) throws RemoteException;

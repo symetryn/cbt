@@ -11,17 +11,27 @@ import java.io.Serializable;
  *
  * @author Symetryn
  */
-public class Answer implements Serializable{
-    
-    private static final long serialVersionUID=2L;
+public class Answer implements Serializable {
+
+    private static final long serialVersionUID = 2L;
 
     private String title;
     private Boolean correctAnswer;
+    private Integer id;
 
-    public Answer(){}
+    public Answer() {
+    }
+
     public Answer(String title, boolean correctAnswer) {
         this.title = title;
         this.correctAnswer = correctAnswer;
+
+    }
+
+    public Answer(int id, String title, boolean correctAnswer) {
+        this.title = title;
+        this.correctAnswer = correctAnswer;
+        this.id = id;
 
     }
 
@@ -40,6 +50,13 @@ public class Answer implements Serializable{
     public void setCorrectAnswer(Boolean correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
-    
-    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }

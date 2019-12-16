@@ -111,9 +111,10 @@ public class ViewExamController implements Initializable {
     @FXML
     private Button updateBtn;
 
-    Test test;
+    private Test test;
 
-    int selectedItem;
+    private int selectedItem;
+    private Question selectedQuestion;
 
     public ViewExamController() {
         test = new Test();
@@ -151,10 +152,8 @@ public class ViewExamController implements Initializable {
             dropItem(og);
         });
 
-        // drop.setId("drop" + count);
         correct.setLayoutX(732);
         correct.setLayoutY(yAxis + 7);
-        // correct.setId("correct" + count);
 
         count += 1;
         yAxis += 60;
@@ -164,7 +163,6 @@ public class ViewExamController implements Initializable {
         scrollpane.setPannable(true);
 
         optionList.add(og);
-
     }
 
     private void dropItem(OptionGroup og) {
@@ -174,6 +172,7 @@ public class ViewExamController implements Initializable {
         pane.getChildren().remove(og.getBtn());
         int removedIndex = optionList.indexOf(og);
         optionList.remove(og);
+        selectedQuestion.getAnswers().remove(removedIndex);
 
         if (removedIndex != optionList.size()) {
             for (int i = removedIndex; i < optionList.size(); i++) {
@@ -191,14 +190,11 @@ public class ViewExamController implements Initializable {
 
     @FXML
     private void saveQuestion() {
-        // optionList = new ArrayList<OptionGroup>();
-        // yAxis = optionList.size() * 60 + 85;
+
         Question q = new Question();
         q.setTitle(questionField.getText());
         q.setMarks(Integer.parseInt(marksField.getText()));
 
-        // int textCount = 0;
-        // int checkCount = 0;
         optionList.forEach(data -> {
             String text = data.getTextField().getText();
             System.out.println("before " + text);
@@ -211,6 +207,7 @@ public class ViewExamController implements Initializable {
         });
 
         test.pushQuestion(q);
+        System.out.println(test.getQuestions().size());
         setTable();
 
         reset();
@@ -243,11 +240,11 @@ public class ViewExamController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initalize level dropdown
-        levelDrop.getItems().removeAll(levelDrop.getItems());
+        levelDrop.getItems().removeAll();
         levelDrop.getItems().addAll(4, 5, 6);
 
         // initalize semester dropdown
-        semesterDrop.getItems().removeAll(levelDrop.getItems());
+        semesterDrop.getItems().removeAll();
         semesterDrop.getItems().addAll(1, 2);
         createQuestionRow();
         createQuestionRow();
@@ -267,8 +264,13 @@ public class ViewExamController implements Initializable {
                 startTime.setValue(test.getStartTime().toLocalTime());
                 endTime.setValue(test.getEndTime().toLocalTime());
                 durationField.setText(Integer.toString(test.getDuration()));
-                levelDrop.getSelectionModel().select(test.getLevel());
-                semesterDrop.getSelectionModel().select(test.getSemester());
+                System.out.println(test.getLevel());
+                System.out.println(test.getSemester());
+
+                levelDrop.getSelectionModel().select(Integer.toString(test.getLevel()));
+                System.out.println(levelDrop.getSelectionModel().getSelectedItem());
+                semesterDrop.getSelectionModel().select(Integer.toString(test.getSemester()));
+                System.out.println(semesterDrop.getSelectionModel().getSelectedItem());
                 testDate.setValue(test.getDate().toLocalDate());
                 passMarksField.setText(Integer.toString(test.getPassMarks()));
 
@@ -293,6 +295,7 @@ public class ViewExamController implements Initializable {
                 ArrayList<Answer> newAnswerList = newSelection.getAnswers();
 
                 selectedItem = test.getQuestions().indexOf(newSelection);
+                selectedQuestion = newSelection;
                 System.out.println("selected Item" + selectedItem);
 
                 int optionSize = optionList.size();
@@ -352,8 +355,8 @@ public class ViewExamController implements Initializable {
             test.setDate(java.sql.Date.valueOf(testDate.getValue()));
             test.setStartTime(java.sql.Time.valueOf(startTime.getValue()));
             test.setEndTime(java.sql.Time.valueOf(endTime.getValue()));
-            test.setLevel((Integer) levelDrop.getValue());
-            test.setSemester((Integer) semesterDrop.getValue());
+            test.setLevel(Integer.parseInt(levelDrop.getValue().toString()));
+            test.setSemester(Integer.parseInt(semesterDrop.getValue().toString()));
             test.setPassword(passwordField.getText());
             test.setDuration(Integer.parseInt(durationField.getText()));
             test.setPassMarks(Integer.parseInt(passMarksField.getText()));
@@ -364,7 +367,7 @@ public class ViewExamController implements Initializable {
             }
             test.setFullMarks(fullMarks);
 
-            t.saveTest(test);
+            t.updateTest(test);
 
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(ViewExamController.class.getName()).log(Level.SEVERE, null, ex);
@@ -373,35 +376,55 @@ public class ViewExamController implements Initializable {
     }
 
     public void updateQuestion() {
-        System.out.println("table updated");
-//        questionTable.refresh();
 
         Question q = new Question();
+        q.setId(test.getQuestions().get(selectedItem).getId());
         q.setTitle(questionField.getText());
         q.setMarks(Integer.parseInt(marksField.getText()));
 
-        optionList.forEach(data -> {
-            String text = data.getTextField().getText();
-            System.out.println("before " + text);
+        int i = 0;
 
-            if (text != null && !text.isEmpty()) {
-                System.out.println(data.getBox().isSelected());
-                System.out.println("after:" + text);
-                Answer a = new Answer(text, data.getBox().isSelected());
-                q.addAnswer(a);
+        for (OptionGroup data : optionList) {
+            String text = data.getTextField().getText();
+            Answer a;
+            int optionSize = optionList.size();
+            int answerSize = selectedQuestion.getAnswers().size();
+            if (optionSize > answerSize) {
+                int difference = optionSize - answerSize;
+                System.out.println("difference " + difference);
+                for (int j = 0; j < difference; j++) {
+                    selectedQuestion.addAnswer(new Answer(text, data.getBox().isSelected()));
+                }
             }
-        });
+
+            if (selectedQuestion.getAnswers().get(i).getId() == null) {
+                a = new Answer(text, data.getBox().isSelected());
+            } else {
+                a = new Answer(selectedQuestion.getAnswers().get(i).getId(), text, data.getBox().isSelected());
+            }
+            System.out.println("added" + a.getId());
+            q.addAnswer(a);
+            i++;
+        }
 
         ArrayList<Question> updatedQuestions = test.getQuestions();
         System.out.println(selectedItem);
         updatedQuestions.set(selectedItem, q);
         test.setQuestions(updatedQuestions);
 
-//        questions = FXCollections.observableArrayList(updatedQuestions);
-//        questionTable.refresh();
-        questions = FXCollections.observableArrayList(test.getQuestions());
+        setTable();
+        reset();
 
-        questionTable.setItems(questions);
+    }
+
+    @FXML
+    private void deleteQuestion(ActionEvent e) {
+        if (selectedQuestion != null) {
+            test.getQuestions().remove(selectedQuestion);
+            questions.remove(selectedQuestion);
+            setTable();
+
+        }
 
     }
 

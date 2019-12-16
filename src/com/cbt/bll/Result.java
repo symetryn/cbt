@@ -5,6 +5,8 @@
  */
 package com.cbt.bll;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Symetryn
@@ -12,7 +14,7 @@ package com.cbt.bll;
 public class Result {
     int testId;
     int userId;
-    int questionId;
-    int answerId;
-    int submittedId;
+    int marks;
+    Boolean status;
+    ArrayList<ResultItem> resultItem;
 }
