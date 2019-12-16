@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Symetryn
  */
 public class Result {
+    int id;
     int testId;
     int userId;
     int marks;

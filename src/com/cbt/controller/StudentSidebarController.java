@@ -5,7 +5,6 @@
  */
 package com.cbt.controller;
 
-import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,49 +17,39 @@ import javafx.fxml.Initializable;
  *
  * @author Symetryn
  */
-public class SideBarController implements Initializable {
+public class StudentSidebarController implements Initializable {
 
     @FXML
     private JFXButton dashboard;
     @FXML
+    private JFXButton exam;
+    @FXML
     private JFXButton result;
     @FXML
     private JFXButton logout;
-    @FXML
-    private JFXButton exam;
-
-//    Router r;
-    public SideBarController() {
-//        r = new Router();
-    }
 
     /**
-     *
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
+    }    
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
-        Router.routeTo("Dashboard.fxml", event);
     }
 
     @FXML
     private void gotoExam(ActionEvent event) {
-        Router.routeTo("Exam.fxml", event);
     }
 
     @FXML
     private void gotoResult(ActionEvent event) {
-        Router.routeTo("StudentExam.fxml", event);
     }
 
     @FXML
     private void logout(ActionEvent event) {
-        Router.routeTo("SignIn.fxml", event);
     }
-
+    
 }

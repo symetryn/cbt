@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="1010.0" prefWidth="322.0" style="-fx-background-color: #444950; -fx-border-color: #707070;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.StudentSidebarController">
+   <children>
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="320.0" text="Patan Test" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <Separator opacity="0.12" prefWidth="200.0" />
+      <HBox layoutX="11.0" layoutY="194.0" prefHeight="80.0" prefWidth="315.0">
+         <children>
+            <JFXButton fx:id="dashboard" alignment="CENTER" focusTraversable="false" onAction="#gotoDashboard" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox prefHeight="80.0" prefWidth="315.0">
+         <children>
+            <JFXButton fx:id="exam" alignment="CENTER" focusTraversable="false" onAction="#gotoExam" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Exam" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox prefHeight="80.0" prefWidth="315.0">
+         <children>
+            <JFXButton fx:id="result" alignment="CENTER" focusTraversable="false" onAction="#gotoResult" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Result" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox prefHeight="80.0" prefWidth="315.0">
+         <children>
+            <JFXButton fx:id="logout" alignment="CENTER" focusTraversable="false" onAction="#logout" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
