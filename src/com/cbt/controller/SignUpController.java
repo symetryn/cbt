@@ -8,11 +8,13 @@ package com.cbt.controller;
 import com.cbt.bll.User;
 import com.cbt.dao.UserDao;
 import com.cbt.utils.Router;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.*;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -122,10 +124,20 @@ public class SignUpController implements Initializable {
                 user.setLevel((Integer) levelDrop.getValue());
                 System.out.print(semesterDrop.getValue().getClass().getName());
                 userImpl.registerUser(user);
-                Router.routeTo("SignIn.fxml", e);
-            } catch (NotBoundException | IOException ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }            
+                Router.routeTo("SignIn.fxml");
+            } catch (NotBoundException | MalformedURLException | RemoteException ex) {
+                Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
+
+                if (ex.getCause().getMessage().startsWith("com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException")) {
+                    Alert msg = new Alert(Alert.AlertType.ERROR, "User already exists", ButtonType.OK);
+                    msg.show();
+                }
+//                System.out.println(ex instanceof MySQLIntegrityConstraintViolationException);
+//                if (ex.getCause().getClass().equals(MySQLIntegrityConstraintViolationException.class)) {
+//                    Alert msg = new Alert(Alert.AlertType.ERROR, "Email and ID must be unique", ButtonType.OK);
+//                    msg.show();
+//                }
+            }
 
         }
 
@@ -134,7 +146,7 @@ public class SignUpController implements Initializable {
     @FXML
     public void handleSignInClick(ActionEvent e) {
 
-        Router.routeTo("SignIn.fxml", e);
+        Router.routeTo("SignIn.fxml");
 
     }
 

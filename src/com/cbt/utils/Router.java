@@ -9,13 +9,9 @@ import com.cbt.controller.ViewExamController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 /**
  *
@@ -26,13 +22,13 @@ public class Router {
     public static Stage stage;
 
     public Router() {
-
+        
     }
 
-    public static void routeTo(String fxml, ActionEvent e) {
+
+    public static void routeTo(String fxml) {
         try {
-//            Node source = (Node) e.getSource();
-//            Window stage = source.getScene().getWindow();
+
             Parent pane = FXMLLoader.load(new Object() {
             }.getClass().getResource("/com/cbt/views/" + fxml));
             stage.getScene().setRoot(pane);

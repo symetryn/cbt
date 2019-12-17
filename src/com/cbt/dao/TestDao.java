@@ -1,15 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.dao;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import com.cbt.bll.Test;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -31,6 +21,8 @@ public interface TestDao extends java.rmi.Remote {
     public ArrayList<Test> getAllUpcomingTest() throws RemoteException;
 
     public ArrayList<Test> getTestSearch(String searchQuery) throws RemoteException;
+
+    public ArrayList<Test> getTestByLevelSem(int level, int semester) throws RemoteException;
 
     public Test getTest(int testId) throws RemoteException;
 

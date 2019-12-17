@@ -5,11 +5,13 @@
  */
 package com.cbt.controller;
 
+import com.cbt.bll.Test;
+import com.cbt.utils.UserState;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -31,12 +33,17 @@ public class StudentExamController implements Initializable {
     VBox option;
     int count = 1;
     AnchorPane anchor;
+    
+    Test test;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        UserState user=UserState.getInstance();
+        user.getName();
+        
 
     }
     
@@ -53,6 +60,7 @@ public class StudentExamController implements Initializable {
             hbox.getChildren().addAll(check, options);
             option.setSpacing(30);
             hbox.setSpacing(20);
+            hbox.setAlignment(Pos.CENTER);
             option.getChildren().addAll(hbox);
         }
 

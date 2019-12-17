@@ -7,6 +7,7 @@ package com.cbt.controller;
 
 import com.cbt.bll.ChartItem;
 import com.cbt.utils.ChartBuilder;
+import com.cbt.utils.UserState;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -53,6 +55,9 @@ public class DashboardController implements Initializable {
 
     @FXML
     private ImageView performancePie;
+    
+    @FXML
+    private Label userName;
 
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
@@ -63,6 +68,9 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        UserState user = UserState.getInstance();
+        System.out.println(user.getName());
+        userName.setText(user.getName());
 
         Platform.runLater(()
                 -> {
