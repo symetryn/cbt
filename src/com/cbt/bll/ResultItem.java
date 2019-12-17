@@ -5,30 +5,33 @@
  */
 package com.cbt.bll;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Symetryn
  */
-public class ResultItem {
+public class ResultItem implements Serializable {
 
-    private String question;
+    private static final long serialVersionUID = 5L;
+    private Integer questionId;
     private String correctAnswer;
     private String selectedAnswer;
     private Boolean correct;
 
-    public ResultItem(String question, String correctAnswer, String selectedAnswer, Boolean correct) {
-        this.question = question;
+    public ResultItem(Integer question, String correctAnswer, String selectedAnswer, Boolean correct) {
+        this.questionId = question;
         this.correctAnswer = correctAnswer;
         this.selectedAnswer = selectedAnswer;
         this.correct = correct;
     }
 
-    public String getQuestion() {
-        return question;
+    public Integer getQuestionId() {
+        return questionId;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
     public String getCorrectAnswer() {

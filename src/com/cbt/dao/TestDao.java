@@ -1,5 +1,6 @@
 package com.cbt.dao;
 
+import com.cbt.bll.Result;
 import com.cbt.bll.Test;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -26,8 +27,10 @@ public interface TestDao extends java.rmi.Remote {
 
     public Test getTest(int testId) throws RemoteException;
 
-    public void getAllQuestions(int tId) throws RemoteException;
-    
-    public Boolean verifyPassword(int testId,String password) throws RemoteException;
+    public Boolean verifyPassword(int testId, String password) throws RemoteException;
+
+    public void saveResult(Result result) throws RemoteException;
+
+    public void getResultsById(int resultId) throws RemoteException;
 
 }

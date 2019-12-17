@@ -43,58 +43,58 @@ import javafx.scene.text.Font;
  * @author Dhruba
  */
 public class StudentExamController implements Initializable {
-
+    
     @FXML
     ScrollPane sp;
     @FXML
     VBox option;
-
+    
     @FXML
     Label testField;
-
+    
     @FXML
     Label fullMarksField;
-
+    
     @FXML
     Label passMarksField;
-
+    
     @FXML
     Label durationField;
-
+    
     @FXML
     Label question;
-
+    
     @FXML
     Label marks;
-
+    
     @FXML
     Label questionNumber;
-
+    
     @FXML
     Button nextBtn;
-
+    
     @FXML
     Button prevBtn;
-
+    
     Test test;
-
+    
     Test clientTest;
-
+    
     int testId;
-
+    
     int currentQuestionIndex = 0;
-
+    
     Question currentQuestion;
-
+    
     ArrayList<AnswerGroup> answerList;
-
+    
     public void setTestId(int testId) {
         this.testId = testId;
     }
-
+    
     public StudentExamController() {
         answerList = new ArrayList<>();
-
+        
     }
 
     /**
@@ -111,19 +111,19 @@ public class StudentExamController implements Initializable {
                 clientTest = t.getTest(testId);
                 clientTest.setQuestions(new ArrayList<>());
                 testField.setText(test.getTitle());
-
+                
                 fullMarksField.setText(Integer.toString(test.getFullMarks()));
                 passMarksField.setText(Integer.toString(test.getPassMarks()));
                 durationField.setText(Integer.toString(test.getDuration()));
                 createQuestionPanel();
-
+                
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(StudentExamController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-
+        
     }
-
+    
     @FXML
     public void createQuestionPanel() {
         answerList = new ArrayList<>();
@@ -134,21 +134,21 @@ public class StudentExamController implements Initializable {
         System.out.println(test.getTitle());
         System.out.println(test.getQuestions().size());
         currentQuestion = test.getQuestions().get(currentQuestionIndex);
-
+        
         questionNumber.setText(Integer.toString(currentQuestionIndex + 1));
         question.setText(currentQuestion.getTitle());
         marks.setText(Integer.toString(currentQuestion.getMarks()));
-
+        
         Boolean lastQuestion = (currentQuestionIndex == test.getQuestions().size() - 1);
         if (currentQuestionIndex == 0) {
             prevBtn.setVisible(false);
-
+            
         }
         if (lastQuestion) {
-
+            
             nextBtn.setText("Submit");
             nextBtn.setStyle("-fx-background-color:red");
-
+            
         }
         System.out.println(currentQuestionIndex);
         System.out.println(clientTest.getQuestions().size());
@@ -158,71 +158,51 @@ public class StudentExamController implements Initializable {
                 System.out.println("previous answer called");
                 createOptionRow(a.getTitle(), a.getCorrectAnswer());
             }
-
+            
         } else {
-
+            
             for (Answer a : currentQuestion.getAnswers()) {
                 System.out.println("new called");
                 createOptionRow(a.getTitle(), false);
-
+                
             }
-
+            
         }
-
+        
         sp.setContent(option);
     }
-
+    
     @FXML
     private void nextQuestion() {
         if (currentQuestionIndex != (test.getQuestions().size() - 1)) {
-
-            System.out.println(test.getQuestions().size() - 1);
-            System.out.println(currentQuestionIndex);
-            ArrayList<Answer> a = new ArrayList<>();
-            for (AnswerGroup ag : answerList) {
-                a.add(ag.getAnswer());
-                System.out.println(ag.getAnswer().getTitle());
-            }
-            currentQuestion.setAnswers(a);
-            clientTest.pushQuestion(currentQuestion);
+            
+            updateAnswerList();
+            
             currentQuestionIndex++;
             createQuestionPanel();
         } else {
             submitTest();
         }
-
+        
     }
-
+    
     private void submitTest() {
         try {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             Test newTest = t.getTest(testId);
-            ArrayList<Answer> ans = new ArrayList<>();
-            for (AnswerGroup ag : answerList) {
-                ans.add(ag.getAnswer());
-                System.out.println(ag.getAnswer().getTitle());
-            }
-            currentQuestion.setAnswers(ans);
-            clientTest.pushQuestion(currentQuestion);
-            System.out.println("test submitted");
+            updateAnswerList();
+            
             Result r = new Result();
-            System.out.println(newTest.toString());
-
-            System.out.println(clientTest.toString());
+            
             ArrayList<Question> actualQuestions = newTest.getQuestions();
             ArrayList<Question> clientQuestions = clientTest.getQuestions();
+            
             for (int i = 0; i < actualQuestions.size(); i++) {
-//            ArrayList<Answer> correctAnswer = actualQuestions.get(i).getAnswers().stream().filter(data -> {
-//                return data.getCorrectAnswer() == true;
-//            }).collect(Collectors.toCollection(ArrayList::new));
-//            ArrayList<Answer> selectedAnswer = actualQuestions.get(i).getAnswers().stream().filter(data -> {
-//                return data.getCorrectAnswer() == true;
-//            }).collect(Collectors.toCollection(ArrayList::new));
-//            System.out.println("selected" + correctAnswer.get(0));
-//            System.out.println("selected" + correctAnswer.get(0));
                 Answer correctAnswer = new Answer();
                 Answer selectedAnswer = new Answer();
                 System.out.println("question-----------");
+
+                //get actual answer
                 for (Answer a : actualQuestions.get(i).getAnswers()) {
                     System.out.println(a.getTitle() + "  " + a.getCorrectAnswer());
                     if (a.getCorrectAnswer() == true) {
@@ -231,6 +211,7 @@ public class StudentExamController implements Initializable {
                         break;
                     }
                 }
+                //get submitted answer
                 System.out.println("client--------------");
                 for (Answer an : clientQuestions.get(i).getAnswers()) {
                     System.out.println(an.getTitle() + "  " + an.getCorrectAnswer());
@@ -241,42 +222,60 @@ public class StudentExamController implements Initializable {
                     }
                 }
                 Boolean selectedCorrectAnswer = selectedAnswer.getTitle().equals(correctAnswer.getTitle());
-
+                
                 if (selectedCorrectAnswer) {
                     r.addMarks(actualQuestions.get(i).getMarks());
-                    r.pushResultItem(new ResultItem(actualQuestions.get(i).getTitle(), correctAnswer.getTitle(), selectedAnswer.getTitle(), true));
-                } else {
-                    r.pushResultItem(new ResultItem(actualQuestions.get(i).getTitle(), correctAnswer.getTitle(), selectedAnswer.getTitle(), false));
-
+                    
                 }
-
+                r.pushResultItem(new ResultItem(actualQuestions.get(i).getId(), correctAnswer.getTitle(), selectedAnswer.getTitle(), selectedCorrectAnswer));
             }
+            if (r.getMarks() >= newTest.getPassMarks()) {
+                r.setStatus(true);
+            } else {
+                r.setStatus(true);
+            }
+            r.setTestId(test.getId());
+            r.setUserId(UserState.getInstance().getUserId());
+            t.saveResult(r);
+            
             System.out.println(r.toString());
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(StudentExamController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     @FXML
     private void prevQuestion() {
+//        ArrayList<Answer> a = new ArrayList<>();
+//        for (AnswerGroup ag : answerList) {
+//            a.add(ag.getAnswer());
+//            System.out.println(ag.getAnswer().getTitle());
+//        }
+//        currentQuestion.setAnswers(a);
+//
+//        clientTest.pushQuestion(currentQuestion);
+        updateAnswerList();
+        if (currentQuestionIndex > 0) {
+            System.out.println("change question Index from " + currentQuestionIndex);
+            currentQuestionIndex--;
+            System.out.println("to " + currentQuestionIndex);
+            
+            createQuestionPanel();
+        }
+        
+    }
+    
+    private void updateAnswerList() {
         ArrayList<Answer> a = new ArrayList<>();
         for (AnswerGroup ag : answerList) {
             a.add(ag.getAnswer());
             System.out.println(ag.getAnswer().getTitle());
         }
         currentQuestion.setAnswers(a);
-
+        
         clientTest.pushQuestion(currentQuestion);
-        if (currentQuestionIndex > 0) {
-            System.out.println("change question Index from " + currentQuestionIndex);
-            currentQuestionIndex--;
-            System.out.println("to " + currentQuestionIndex);
-
-            createQuestionPanel();
-        }
-
     }
-
+    
     private void createOptionRow(String optionText, Boolean selectedStatus) {
         Label options = new Label();
         HBox hbox = new HBox();
@@ -290,7 +289,7 @@ public class StudentExamController implements Initializable {
         hbox.setAlignment(Pos.CENTER);
         option.getChildren().addAll(hbox);
         answerList.add(new AnswerGroup(check, options));
-
+        
     }
-
+    
 }

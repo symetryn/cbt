@@ -6,14 +6,16 @@
 package com.cbt.bll;
 
 import com.google.gson.Gson;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Symetryn
  */
-public class Result {
+public class Result implements Serializable {
 
+    private static final long serialVersionUID = 4L;
     private int id;
     private int testId;
     private int userId;
