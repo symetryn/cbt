@@ -44,44 +44,54 @@
             <Insets />
          </opaqueInsets>
       </AnchorPane>
-      <AnchorPane layoutX="404.0" layoutY="166.0" prefHeight="763.0" prefWidth="1440.0" style="-fx-background-color: white; -fx-background-radius: 7px;">
+      <AnchorPane layoutX="380.0" layoutY="166.0" prefHeight="789.0" prefWidth="1489.0" style="-fx-background-color: white; -fx-background-radius: 7px;">
          <children>
             <Label layoutX="565.0" layoutY="37.0" prefHeight="37.0" prefWidth="263.0" text="Exam Instruction">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <TextArea fx:id="before" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="97.0" layoutY="137.0" prefHeight="222.0" prefWidth="1275.0" scaleShape="false" text="&#10;1. If you are taking the exam late in the day, it is recommended that you reboot your computer before beginning to free up memory &#10;    resources from other programs on your computer.&#10;2. Shutdown all Instant Messaging tools (Skype,AIM,,MSN,Messenger) and Email&#10;     programs as they can conflict with Blackboard.&#10;3. Maximize your browser window before starting the test.Minimizing the browser window during the exam can prevent the &#10;    submission of your exam.&#10;">
+            <TextArea fx:id="before" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="96.0" layoutY="123.0" prefHeight="223.0" prefWidth="1275.0" scaleShape="false" text="1. If you are taking the exam late in the day, it is recommended that you reboot your computer before beginning to free up memory &#10;    resources from other programs on your computer.&#10;2. Shutdown all Instant Messaging tools (Skype,AIM,,MSN,Messenger) and Email&#10;     programs as they can conflict with Blackboard.&#10;3. Maximize your browser window before starting the test.Minimizing the browser window during the exam can prevent the &#10;    submission of your exam.&#10;">
                <font>
                   <Font size="20.0" />
                </font>
             </TextArea>
-            <TextArea fx:id="after" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="97.0" layoutY="427.0" prefHeight="220.0" prefWidth="1275.0" scaleShape="false" text="&#10;1. Read the notes above titled Before'beginning the exam and During the exam.&#10;2. Your instructor will provide your exam password. This password is required to open the exam.&#10;3. Use the password sent to your student email account to open the exam.&#10;4. The exam must be completed in one sitting. You can only open it once.&#10;5. Answer all questions in the exam.&#10;6. Click the “Submi&quot; button in the bottom right corner when you are done to submit your work.&#10;">
+            <TextArea fx:id="after" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="97.0" layoutY="389.0" prefHeight="211.0" prefWidth="1275.0" scaleShape="false" text="1. Read the notes above titled Before'beginning the exam and During the exam.&#10;2. Your instructor will provide your exam password. This password is required to open the exam.&#10;3. Use the password sent to your student email account to open the exam.&#10;4. The exam must be completed in one sitting. You can only open it once.&#10;5. Answer all questions in the exam.&#10;6. Click the “Submit&quot; button in the bottom right corner when you are done to submit your work.">
                <font>
                   <Font size="20.0" />
                </font>
             </TextArea>
-            <Label layoutX="97.0" layoutY="102.0" text="Before begining the exam">
+            <Label layoutX="97.0" layoutY="90.0" text="Before begining the exam">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="101.0" layoutY="387.0" text="Instructions for accessing the Exam">
+            <Label layoutX="101.0" layoutY="349.0" text="Instructions for accessing the Exam">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <PasswordField layoutX="336.0" layoutY="675.0" prefHeight="65.0" prefWidth="707.0" promptText="Password">
+            <PasswordField fx:id="passwordField" layoutX="336.0" layoutY="678.0" prefHeight="61.0" prefWidth="707.0" promptText="Password">
                <font>
                   <Font size="24.0" />
                </font>
             </PasswordField>
-            <JFXButton layoutX="1116.0" layoutY="678.0" prefHeight="61.0" prefWidth="253.0" style="-fx-background-color: #525A65;" text="Submit" textFill="WHITE">
+            <JFXButton defaultButton="true" layoutX="1116.0" layoutY="678.0" onAction="#verifyPassword" prefHeight="61.0" prefWidth="253.0" style="-fx-background-color: #525A65;" text="Submit" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </JFXButton>
-            <Label layoutX="100.0" layoutY="697.0" text="Test Password">
+            <Label layoutX="101.0" layoutY="691.0" text="Test Password">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="623.0" text="Test Name:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="testLabel" layoutX="336.0" layoutY="623.0" text="test name">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

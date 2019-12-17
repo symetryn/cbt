@@ -27,5 +27,7 @@ public interface TestDao extends java.rmi.Remote {
     public Test getTest(int testId) throws RemoteException;
 
     public void getAllQuestions(int tId) throws RemoteException;
+    
+    public Boolean verifyPassword(int testId,String password) throws RemoteException;
 
 }
