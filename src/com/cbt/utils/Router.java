@@ -5,8 +5,10 @@
  */
 package com.cbt.utils;
 
+import com.cbt.bll.Result;
 import com.cbt.controller.ExamInstructionController;
 import com.cbt.controller.InstructionController;
+import com.cbt.controller.ResultController;
 import com.cbt.controller.StudentExamController;
 import com.cbt.controller.ViewExamController;
 import java.io.IOException;
@@ -79,6 +81,20 @@ public class Router {
             StudentExamController controller
                     = fxmlLoader.<StudentExamController>getController();
             controller.setTestId(testId);
+            stage.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void routeToResult(int resultId) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "Result.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            ResultController controller
+                    = fxmlLoader.<ResultController>getController();
+            controller.setResultId(resultId);
             stage.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);

@@ -18,12 +18,24 @@ public class ResultItem implements Serializable {
     private String correctAnswer;
     private String selectedAnswer;
     private Boolean correct;
+    private Question question;
+
+    public ResultItem() {
+    }
 
     public ResultItem(Integer question, String correctAnswer, String selectedAnswer, Boolean correct) {
         this.questionId = question;
         this.correctAnswer = correctAnswer;
         this.selectedAnswer = selectedAnswer;
         this.correct = correct;
+    }
+
+    public ResultItem(Integer questionId, String correctAnswer, String selectedAnswer, Boolean correct, Question question) {
+        this.questionId = questionId;
+        this.correctAnswer = correctAnswer;
+        this.selectedAnswer = selectedAnswer;
+        this.correct = correct;
+        this.question = question;
     }
 
     public Integer getQuestionId() {
@@ -58,7 +70,12 @@ public class ResultItem implements Serializable {
         this.correct = correct;
     }
 
-    public ResultItem() {
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
     }
 
 }

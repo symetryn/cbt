@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ResultController">
@@ -47,11 +42,65 @@
                 <DropShadow color="#00000031" />
             </effect>
         </ScrollPane>
-        <Label layoutX="403.0" layoutY="162.0" text="Total Marks Obtained:20">
+        <Label fx:id="total" layoutX="1031.0" layoutY="204.0" text="Full Marks:">
             <font>
-                <Font size="24.0" />
+                <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Button fx:id="tryBtn" layoutX="1476.0" layoutY="149.0" mnemonicParsing="false" onAction="#tryThis" prefHeight="27.0" prefWidth="79.0" text="Try" />
+      <Label fx:id="total1" layoutX="1032.0" layoutY="171.0" text="Pass Marks:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="total11" layoutX="407.0" layoutY="203.0" text="Marks Obtained:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="total111" layoutX="1033.0" layoutY="139.0" text="Status:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="total112" layoutX="407.0" layoutY="138.0" text="Test Name:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="total1121" layoutX="407.0" layoutY="170.0" text="Date:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="testLabel" layoutX="521.0" layoutY="140.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="testDateLabel" layoutX="464.0" layoutY="172.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="obtainedMarks" layoutX="573.0" layoutY="205.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="testStatus" layoutX="1102.0" layoutY="141.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="passMarks" layoutX="1146.0" layoutY="173.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="fullMarks" layoutX="1141.0" layoutY="206.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

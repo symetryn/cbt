@@ -22,6 +22,7 @@ public class Result implements Serializable {
     private int marks = 0;
     private Boolean status;
     private ArrayList<ResultItem> resultItem;
+    private Test test;
 
     public Result() {
         resultItem = new ArrayList<>();
@@ -90,6 +91,14 @@ public class Result implements Serializable {
 
     public void addMarks(Integer i) {
         this.marks += i;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     @Override
