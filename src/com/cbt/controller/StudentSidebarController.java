@@ -35,10 +35,11 @@ public class StudentSidebarController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
+         Router.routeTo("StudentDashboard.fxml");
     }
 
     @FXML
@@ -48,11 +49,12 @@ public class StudentSidebarController implements Initializable {
 
     @FXML
     private void gotoResult(ActionEvent event) {
+        Router.routeTo("StudentViewResult.fxml");
     }
 
     @FXML
     private void logout(ActionEvent event) {
         Router.routeTo("SignIn.fxml");
     }
-    
+
 }

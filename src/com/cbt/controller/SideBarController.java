@@ -56,7 +56,7 @@ public class SideBarController implements Initializable {
 
     @FXML
     private void gotoResult(ActionEvent event) {
-        Router.routeTo("StudentExam.fxml");
+        Router.routeTo("ResultList.fxml");
     }
 
     @FXML

@@ -71,6 +71,8 @@ public class ResultController implements Initializable {
             try {
                 TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
                 Result result = t.getResult(resultId);
+
+                System.out.println(result.toString());
                 testLabel.setText(result.getTest().getTitle());
                 testDateLabel.setText(result.getTest().getDate().toString());
                 obtainedMarks.setText(Integer.toString(result.getMarks()));
@@ -89,7 +91,7 @@ public class ResultController implements Initializable {
                     if (item.getCorrect()) {
                         makeLayout(item.getQuestion().getTitle(), Integer.toString(item.getQuestion().getMarks()), item.getCorrectAnswer(), item.getSelectedAnswer());
                     } else {
-                        makeLayout(item.getQuestion().getTitle(), Integer.toString(item.getQuestion().getMarks()), item.getCorrectAnswer(), item.getSelectedAnswer());
+                        makeLayout(item.getQuestion().getTitle(), "0", item.getCorrectAnswer(), item.getSelectedAnswer());
 
                     }
 

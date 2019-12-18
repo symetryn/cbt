@@ -32,4 +32,9 @@ public interface TestDao extends java.rmi.Remote {
     public Integer saveResult(Result result) throws RemoteException;
 
     public Result getResult(int resultId) throws RemoteException;
+
+    public ArrayList<Result> getResultByUser(int userId) throws RemoteException;
+
+    public ArrayList<Result> getAllResult() throws RemoteException;
+
 }

@@ -13,7 +13,7 @@
     <children>
         <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
             <children>
-                <fx:include fx:id="" source="sideBar.fxml" />
+                <fx:include fx:id="" source="studentSideBar.fxml" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

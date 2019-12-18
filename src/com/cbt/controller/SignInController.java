@@ -49,24 +49,25 @@ public class SignInController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
     }
 
     public void handleLoginClick(ActionEvent e) {
-      
+
         try {
             UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
 
             User user = userImpl.validateLogin(idField.getText(), passwordField.getText());
             if (user != null) {
-                System.out.println( user.getFirstName());
+                System.out.println(user.getFirstName());
                 UserState.createInstance(user.getFirstName(), user.getUserID(), user.getLevel(), user.getSemester());
-                  System.out.println(user.getRole());
+                System.out.println(user.getRole());
                 if (user.getRole().equals("admin")) {
                     System.out.println("admin here");
                     Router.routeTo("Dashboard.fxml");
+                    
                 } else {
-                    Router.routeTo("StudentViewExam.fxml");
+                    Router.routeTo("StudentDashboard.fxml");
                 }
             } else {
                 System.out.print("invalid username or password");

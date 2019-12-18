@@ -233,7 +233,7 @@ public class StudentExamController implements Initializable {
             if (r.getMarks() >= newTest.getPassMarks()) {
                 r.setStatus(true);
             } else {
-                r.setStatus(true);
+                r.setStatus(false);
             }
             r.setTestId(test.getId());
             r.setUserId(UserState.getInstance().getUserId());

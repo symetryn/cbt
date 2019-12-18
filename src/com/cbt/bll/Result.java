@@ -23,6 +23,7 @@ public class Result implements Serializable {
     private Boolean status;
     private ArrayList<ResultItem> resultItem;
     private Test test;
+    private User user;
 
     public Result() {
         resultItem = new ArrayList<>();
@@ -99,6 +100,14 @@ public class Result implements Serializable {
 
     public void setTest(Test test) {
         this.test = test;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

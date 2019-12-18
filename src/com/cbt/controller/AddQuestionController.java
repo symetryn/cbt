@@ -71,8 +71,6 @@ public class AddQuestionController implements Initializable {
     @FXML
     private TableColumn<?, ?> questionColumn;
 
-    @FXML
-    private TableColumn<?, ?> answerColumn;
 
     @FXML
     private TableColumn<?, ?> marksColumn;
