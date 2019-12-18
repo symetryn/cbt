@@ -5,36 +5,33 @@
  */
 package com.cbt.bll;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Symetryn
  */
-public class ResultItem {
-    
-    private String question;
+public class ResultItem implements Serializable {
+
+    private static final long serialVersionUID = 5L;
+    private Integer questionId;
     private String correctAnswer;
-    private String SelectedAnswer;
+    private String selectedAnswer;
+    private Boolean correct;
 
-    public ResultItem(String question, String correctAnswer, String SelectedAnswer) {
-        this.question = question;
+    public ResultItem(Integer question, String correctAnswer, String selectedAnswer, Boolean correct) {
+        this.questionId = question;
         this.correctAnswer = correctAnswer;
-        this.SelectedAnswer = SelectedAnswer;
+        this.selectedAnswer = selectedAnswer;
+        this.correct = correct;
     }
 
-    public String getSelectedAnswer() {
-        return SelectedAnswer;
+    public Integer getQuestionId() {
+        return questionId;
     }
 
-    public void setSelectedAnswer(String SelectedAnswer) {
-        this.SelectedAnswer = SelectedAnswer;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
     }
 
     public String getCorrectAnswer() {
@@ -44,7 +41,24 @@ public class ResultItem {
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
-    
-    
-    
+
+    public String getSelectedAnswer() {
+        return selectedAnswer;
+    }
+
+    public void setSelectedAnswer(String selectedAnswer) {
+        this.selectedAnswer = selectedAnswer;
+    }
+
+    public Boolean getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(Boolean correct) {
+        this.correct = correct;
+    }
+
+    public ResultItem() {
+    }
+
 }

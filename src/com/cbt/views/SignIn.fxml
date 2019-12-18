@@ -4,22 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignInController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignInController">
    <children>
-      <ImageView disable="true" fitHeight="1028.0" fitWidth="1920.0" pickOnBounds="true">
+      <ImageView disable="true" fitHeight="1253.0" fitWidth="2341.0" layoutX="-419.0" layoutY="-158.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../image/bg.jpg" />
+            <Image url="@../../../image/kelly-sikkema-VBPzRgd7gfc-unsplash.jpg" />
          </image>
-         <effect>
-            <BoxBlur iterations="3" />
-         </effect>
       </ImageView>
       <AnchorPane layoutX="1095.0" layoutY="199.0" prefHeight="589.0" prefWidth="574.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="251.0" AnchorPane.topAnchor="199.0">
          <children>
@@ -50,21 +46,15 @@
             <DropShadow color="#00000081" />
          </effect>
       </AnchorPane>
-      <Label layoutX="207.0" layoutY="91.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="687.0" prefWidth="693.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="207.0">
+      <Label layoutX="605.0" layoutY="529.0" text="-Albert Einstein">
          <font>
-            <Font name="SansSerif Bold" size="60.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
-      <Label layoutX="577.0" layoutY="609.0" text="-Albert Einstein" textFill="WHITE">
+      <Label layoutX="326.0" layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="535.0" prefWidth="543.0" rotate="0.7" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="326.0">
          <font>
-            <Font name="Book Antiqua Bold" size="40.0" />
+            <Font name="SansSerif Bold Italic" size="36.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
    </children>
 </AnchorPane>

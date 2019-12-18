@@ -6,22 +6,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignUpController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignUpController">
    <children>
-      <ImageView fitHeight="1018.0" fitWidth="1920.0" pickOnBounds="true">
+      <ImageView disable="true" fitHeight="1253.0" fitWidth="2341.0" layoutX="-409.0" layoutY="-148.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../image/bg.jpg" />
+            <Image url="@../../../image/kelly-sikkema-VBPzRgd7gfc-unsplash.jpg" />
          </image>
-         <effect>
-            <BoxBlur iterations="3" />
-         </effect>
       </ImageView>
       <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="775.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
          <children>
@@ -63,22 +59,19 @@
             <Label fx:id="email" layoutX="50.0" layoutY="263.0" prefHeight="21.0" prefWidth="593.0" textFill="RED" />
             <Label fx:id="sid" layoutX="50.0" layoutY="392.0" prefHeight="21.0" prefWidth="593.0" textFill="RED" />
          </children>
+         <effect>
+            <DropShadow color="#00000029" offsetX="1.0" offsetY="3.0" />
+         </effect>
       </AnchorPane>
-      <Label layoutX="207.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="687.0" prefWidth="665.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="235.0">
+      <Label layoutX="615.0" layoutY="539.0" text="-Albert Einstein">
          <font>
-            <Font name="SansSerif Bold" size="60.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
-      <Label layoutX="537.0" layoutY="628.0" text="-Albert Einstein" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="336.0" layoutY="178.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="535.0" prefWidth="543.0" text="&quot;YOU HAVE TO LEARN THE RULES OF THE GAME AND YOU HAVE TO PLAY BETTER THAN ANYONE ELSE&quot;" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Book Antiqua Bold" size="40.0" />
+            <Font name="SansSerif Bold Italic" size="36.0" />
          </font>
-         <effect>
-            <DropShadow />
-         </effect>
       </Label>
    </children>
 </AnchorPane>

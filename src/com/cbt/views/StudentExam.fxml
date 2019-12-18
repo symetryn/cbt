@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -30,7 +31,7 @@
                 </Label>
                 <ImageView fitHeight="73.0" fitWidth="58.0" layoutX="1514.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../image/jimmy-fallon.png" />
+                        <Image url="@../../../image/jimmy-fallon.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="1446.0" layoutY="36.0" text="Dhurva " />
@@ -42,45 +43,55 @@
                 <Insets />
             </opaqueInsets>
         </AnchorPane>
-        <Button layoutX="1608.0" layoutY="847.0" mnemonicParsing="false" onAction="#questionPanel" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: #525A65;" text="Next" textFill="WHITE">
+        <Button fx:id="nextBtn" layoutX="1608.0" layoutY="847.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: #525A65;" text="Next" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
         <Label layoutX="502.0" layoutY="155.0" text="Time" />
-        <Button layoutX="467.0" layoutY="847.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: #525A65;" text="Previous" textFill="WHITE">
+        <Button fx:id="prevBtn" layoutX="467.0" layoutY="847.0" mnemonicParsing="false" onAction="#prevQuestion" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: #525A65;" text="Previous" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Button>
         <Pane layoutX="467.0" layoutY="152.0" prefHeight="200.0" prefWidth="1291.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 7px;">
             <children>
-                <Label layoutX="39.0" layoutY="33.0" text="TESTNAME: ">
+                <Label layoutX="37.0" layoutY="33.0" text="Test Name: ">
                     <font>
                         <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="37.0" layoutY="83.0" text="FULL MARKS:">
+                <Label layoutX="39.0" layoutY="68.0" text="Full Marks:">
                     <font>
                         <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label layoutX="37.0" layoutY="129.0" text="Time">
+                <Label layoutX="39.0" layoutY="140.0" text="Time:">
                     <font>
                         <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-            <Label layoutX="176.0" layoutY="33.0" text="tstnamelabel">
+            <Label fx:id="testField" layoutX="154.0" layoutY="33.0" text="Test Name: ">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="176.0" layoutY="83.0" text="tstmarklabel">
+            <Label fx:id="fullMarksField" layoutX="153.0" layoutY="68.0" text="Test Name: ">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="176.0" layoutY="129.0" text="tsttimelabel">
+            <Label layoutX="39.0" layoutY="104.0" text="Pass Marks:">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="passMarksField" layoutX="152.0" layoutY="104.0" text="Test Name: ">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="durationField" layoutX="106.0" layoutY="141.0" text="Time">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -94,19 +105,19 @@
                         <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label fx:id="question" layoutX="220.0" layoutY="30.0" text="What is your name?">
+                <Label fx:id="question" layoutX="216.0" layoutY="35.0" text="What is your name?">
                     <font>
                         <Font name="System Bold" size="19.0" />
                     </font>
                 </Label>
-                <Label fx:id="marks" layoutX="1224.0" layoutY="31.0" text="2">
+                <Label fx:id="marks" layoutX="1226.0" layoutY="36.0" text="2">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </Label>
-                <ScrollPane fx:id="sp" layoutX="216.0" layoutY="107.0" prefHeight="303.0" prefWidth="1027.0" style="-fx-background-color: #F5F5F5;">
+                <ScrollPane fx:id="sp" layoutX="216.0" layoutY="107.0" pannable="true" prefHeight="303.0" prefWidth="1027.0" style="-fx-background-color: #F5F5F5;">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="1021.0" style="-fx-background-color: #F5F5F5;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="301.0" prefWidth="1024.0" style="-fx-background-color: #F5F5F5;">
                             <children>
                                 <VBox fx:id="option" style="-fx-background-color: #F5F5F5;" />
                             </children>
@@ -115,5 +126,6 @@
                 </ScrollPane>
             </children>
         </Pane>
+      <JFXProgressBar layoutX="467.0" layoutY="380.0" prefHeight="4.0" prefWidth="1291.0" progress="0.39" />
     </children>
 </AnchorPane>

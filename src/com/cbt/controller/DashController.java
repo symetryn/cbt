@@ -35,14 +35,14 @@ public class DashController implements Initializable {
     
     @FXML
     private Button logout;
-    Router r;
+  
     
     public DashController(){
-       r = new Router();
+      
     }
     public void handleLogout(ActionEvent e) throws IOException{
        
-        r.routeTo("FXMLDocument.fxml",e);
+        Router.routeTo("FXMLDocument.fxml");
 //        Node source = (Node) e.getSource();
 //        Window theStage = source.getScene().getWindow();
 //        Parent pane = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

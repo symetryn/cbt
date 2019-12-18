@@ -8,6 +8,7 @@ package com.cbt.controller;
 import com.cbt.bll.User;
 import com.cbt.dao.UserDao;
 import com.cbt.utils.Router;
+import com.cbt.utils.UserState;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,6 +27,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.prefs.Preferences;
+
 /**
  * FXML Controller class
  *
@@ -42,40 +45,79 @@ public class SignInController implements Initializable {
     @FXML
     PasswordField passwordField;
 
+    private Preferences prefs;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+       
     }
 
     public void handleLoginClick(ActionEvent e) {
+      
         try {
             UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
 
-            String result = userImpl.validateLogin(idField.getText(), passwordField.getText());
-//            User user = new User();
-//            user.setFirstName("rojan");
-//            userImpl.registerUser(user);
-            System.out.print(result);
-            if (result.equals("admin")) {
-                Router.routeTo("Dashboard.fxml", e);
+            User user = userImpl.validateLogin(idField.getText(), passwordField.getText());
+            if (user != null) {
+                System.out.println( user.getFirstName());
+                UserState.createInstance(user.getFirstName(), user.getUserID(), user.getLevel(), user.getSemester());
+                  System.out.println(user.getRole());
+                if (user.getRole().equals("admin")) {
+                    System.out.println("admin here");
+                    Router.routeTo("Dashboard.fxml");
+                } else {
+                    Router.routeTo("StudentViewExam.fxml");
+                }
             } else {
                 System.out.print("invalid username or password");
 
                 Alert a = new Alert(AlertType.ERROR, "Invalid username or password", ButtonType.OK);
-//              a.setTitle("Authentication failed");
-//              
-//              a.setContentText("Invalid username or password"); 
+
                 a.show();
             }
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void handleSignUpClick(ActionEvent e) {
+//        setPreference();
 
-        Router.routeTo("SignUp.fxml", e);
+        Router.routeTo("SignUp.fxml");
 
     }
 
+//    public void setPreference(User u) {
+//        // This will define a node in which the preferences can be stored
+//        prefs = Preferences.userRoot().node(this.getClass().getName());
+//        int userId;
+//        String firstName;
+//        String lastName;
+//        int semester;
+//        int level;
+//        String lastn=Name;
+//          
+//        
+//        
+////        prefs.putInt();
+////        prefs.putString(firstName,u.getFirstName());
+//
+////        prefs.setInt(userId,)
+//        // now set the values
+////        prefs.putBoolean(ID1, false);
+////        prefs.put(ID2, "Hello Europa");
+////        prefs.putInt(ID3, 45);
+////
+////        // Delete the preference settings for the first value
+////        prefs.remove(ID1);
+////
+////        // First we will get the values
+////        // Define a boolean value
+////        System.out.println(prefs.getBoolean(ID1, true));
+////        // Define a string with default "Hello World
+////        System.out.println(prefs.get(ID2, "Hello World"));
+////        // Define a integer with default 50
+////        System.out.println(prefs.getInt(ID3, 50));
+//
+//    }
 }

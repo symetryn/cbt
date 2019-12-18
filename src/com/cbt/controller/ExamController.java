@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.cbt.controller;
 
 import com.cbt.bll.Test;
 import com.cbt.dao.TestDao;
 import com.cbt.utils.Router;
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRippler;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -21,16 +16,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -61,6 +55,9 @@ public class ExamController implements Initializable {
     @FXML
     TextField searchField;
     
+    @FXML
+    private AnchorPane rootPane;
+    
     public ExamController() {
         
     }
@@ -68,7 +65,8 @@ public class ExamController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @params
+     * @param url
+     * @param rb
      *
      */
     @Override
@@ -85,18 +83,17 @@ public class ExamController implements Initializable {
     
     @FXML
     private void gotoAddQuestion(ActionEvent e) {
-        Router.routeTo("AddQuestion.fxml", e);
+        Router.routeTo("AddQuestion.fxml");
         
     }
     
-    private void createExams() {
-        
-    }
+
     
     private void createExamList() {
         try {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             ArrayList<Test> testList = t.getAllTest();
+            System.out.println(testList.size());
             ArrayList<Test> upcomingTestList = t.getAllUpcomingTest();
             testList.forEach((item) -> {
                 examContainer.getChildren().addAll(createExamItem(item.getId(),item.getTitle(), item.getDate()));
@@ -150,9 +147,6 @@ public class ExamController implements Initializable {
             Router r= new Router();
             r.routeToViewExam(id);
         });
-        
-//        JFXButton btn= new JFXButton(p);
-//                .addAll(p);
 
         JFXRippler rippler = new JFXRippler(p);
         rippler.setRipplerFill(Color.valueOf("#000"));
@@ -167,7 +161,6 @@ public class ExamController implements Initializable {
             ArrayList<Test> searchResult = t.getTestSearch(searchField.getText());
             
             searchTile.getChildren().clear();
-            
             searchResult.forEach((element) -> {
                 System.out.println(element.getTitle());
                 

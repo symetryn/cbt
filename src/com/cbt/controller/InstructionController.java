@@ -19,9 +19,20 @@ public class InstructionController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    private int testId;
+    private String testName;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
+    public void setTestId(int testId) {
+        this.testId = testId;
+    }
+
+    public void setTestName(String name) {
+        this.testName = name;
+    }
+
 }

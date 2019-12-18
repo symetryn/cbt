@@ -5,6 +5,7 @@
  */
 package com.cbt.controller;
 
+import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,6 +43,7 @@ public class StudentSidebarController implements Initializable {
 
     @FXML
     private void gotoExam(ActionEvent event) {
+        Router.routeTo("StudentViewExam.fxml");
     }
 
     @FXML
@@ -50,6 +52,7 @@ public class StudentSidebarController implements Initializable {
 
     @FXML
     private void logout(ActionEvent event) {
+        Router.routeTo("SignIn.fxml");
     }
     
 }

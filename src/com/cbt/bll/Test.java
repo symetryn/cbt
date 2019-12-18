@@ -5,6 +5,7 @@
  */
 package com.cbt.bll;
 
+import com.google.gson.Gson;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
@@ -141,6 +142,14 @@ public class Test implements Serializable {
 
     public void setFullMarks(int fullMarks) {
         this.fullMarks = fullMarks;
+    }
+
+    @Override
+    public String toString() {
+        Gson g = new Gson();
+        return g.toJson(this);
+//        return Gso questions.toString();
+
     }
 
 }

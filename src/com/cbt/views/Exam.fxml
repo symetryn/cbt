@@ -108,7 +108,7 @@
             </VBox>
          </content>
       </ScrollPane>
-      <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1602.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="61.0" layoutY="32.0" text="Exam">
                <font>

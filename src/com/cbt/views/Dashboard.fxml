@@ -153,7 +153,7 @@
                   <Image url="@../../../image/jimmy-fallon.png" />
                </image>
             </ImageView>
-            <Label layoutX="1446.0" layoutY="36.0" text="Dhurva " />
+            <Label fx:id="userName" layoutX="1446.0" layoutY="36.0" text="Dhurva " />
          </children>
          <effect>
             <DropShadow color="#00000082" height="11.67" radius="7.6675" spread="0.17" />

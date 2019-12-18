@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Symetryn
  */
-public class User implements Serializable{
+public class User implements Serializable{    
 private int userID;
 private String firstName;
 private String lastName;
@@ -20,6 +20,7 @@ private String imageUrl;
 private String password;
 private int level;
 private int semester; 
+private String role;
 
     public int getUserID() {
         return userID;
@@ -84,6 +85,16 @@ private int semester;
     public void setSemester(int semester) {
         this.semester = semester;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
+    
  
  
 }
