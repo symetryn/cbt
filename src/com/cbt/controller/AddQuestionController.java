@@ -5,11 +5,12 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.Answer;
-import com.cbt.bll.OptionGroup;
-import com.cbt.bll.Question;
-import com.cbt.bll.Test;
+import com.cbt.model.Answer;
+import com.cbt.model.OptionGroup;
+import com.cbt.model.Question;
+import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
+import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -331,6 +332,7 @@ public class AddQuestionController implements Initializable {
             test.setFullMarks(fullMarks);
 
             t.saveTest(test);
+            Router.routeTo("Exam.fxml");
 
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);

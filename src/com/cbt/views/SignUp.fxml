@@ -21,8 +21,8 @@
       </ImageView>
       <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="775.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
          <children>
-            <TextField fx:id="firstNameField" layoutX="50.0" layoutY="150.0" onKeyReleased="#firstNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="First Name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="368.0" />
-            <TextField fx:id="lastNameField" layoutX="358.0" layoutY="150.0" onKeyReleased="#lastNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
+            <TextField fx:id="firstNameField" layoutX="50.0" layoutY="148.0" onKeyReleased="#firstNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="First Name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="368.0" />
+            <TextField fx:id="lastNameField" layoutX="358.0" layoutY="148.0" onKeyReleased="#lastNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
             <TextField fx:id="emailField" layoutX="50.0" layoutY="215.0" onKeyReleased="#emailKeyReleased" prefHeight="48.0" prefWidth="321.0" promptText="Email" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <PasswordField fx:id="passwordField" layoutX="50.0" layoutY="279.0" prefHeight="48.0" prefWidth="593.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <TextField fx:id="idField" layoutX="60.0" layoutY="344.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
@@ -54,10 +54,22 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <Label fx:id="firstName" layoutX="50.0" layoutY="198.0" prefHeight="21.0" prefWidth="275.0" textFill="RED" />
-            <Label fx:id="lastName" layoutX="358.0" layoutY="198.0" prefHeight="22.0" prefWidth="285.0" textFill="RED" />
-            <Label fx:id="email" layoutX="50.0" layoutY="263.0" prefHeight="21.0" prefWidth="593.0" textFill="RED" />
-            <Label fx:id="sid" layoutX="50.0" layoutY="392.0" prefHeight="21.0" prefWidth="593.0" textFill="RED" />
+            <Label fx:id="firstName" layoutX="50.0" layoutY="197.0" prefHeight="5.0" prefWidth="275.0" textFill="RED">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="lastName" layoutX="358.0" layoutY="195.0" prefHeight="22.0" prefWidth="285.0" textFill="RED">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="email" layoutX="50.0" layoutY="261.0" prefHeight="21.0" prefWidth="593.0" textFill="RED">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label fx:id="sid" layoutX="50.0" layoutY="392.0" prefHeight="21.0" prefWidth="593.0" textFill="RED">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
          </children>
          <effect>
             <DropShadow color="#00000029" offsetX="1.0" offsetY="3.0" />

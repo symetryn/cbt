@@ -1,7 +1,7 @@
 
 package com.cbt.controller;
 
-import com.cbt.bll.Test;
+import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
 import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXRippler;

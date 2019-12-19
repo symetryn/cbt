@@ -5,7 +5,7 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.User;
+import com.cbt.model.User;
 import com.cbt.dao.UserDao;
 import com.cbt.utils.Router;
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;

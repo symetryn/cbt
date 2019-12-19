@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cbt.bll;
+package com.cbt.model;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;

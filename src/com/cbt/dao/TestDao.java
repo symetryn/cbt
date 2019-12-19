@@ -1,7 +1,7 @@
 package com.cbt.dao;
 
-import com.cbt.bll.Result;
-import com.cbt.bll.Test;
+import com.cbt.model.Result;
+import com.cbt.model.Test;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 

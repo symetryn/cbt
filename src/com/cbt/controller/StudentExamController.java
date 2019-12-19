@@ -5,12 +5,12 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.Answer;
-import com.cbt.bll.AnswerGroup;
-import com.cbt.bll.Question;
-import com.cbt.bll.Result;
-import com.cbt.bll.ResultItem;
-import com.cbt.bll.Test;
+import com.cbt.model.Answer;
+import com.cbt.model.AnswerGroup;
+import com.cbt.model.Question;
+import com.cbt.model.Result;
+import com.cbt.model.ResultItem;
+import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
 import com.cbt.utils.Router;
 import com.cbt.utils.UserState;

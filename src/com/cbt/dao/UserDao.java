@@ -5,7 +5,7 @@
  */
 package com.cbt.dao;
 
-import com.cbt.bll.User;
+import com.cbt.model.User;
 import java.rmi.RemoteException;
 import java.sql.ResultSet;
 

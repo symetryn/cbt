@@ -48,15 +48,6 @@
       </HBox>
       <HBox prefHeight="80.0" prefWidth="315.0">
          <children>
-            <JFXButton fx:id="logout" focusTraversable="false" onAction="#logout" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Profile Settings" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="20.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </HBox>
-      <HBox prefHeight="80.0" prefWidth="315.0">
-         <children>
             <JFXButton fx:id="logout1" focusTraversable="false" onAction="#logout" prefHeight="80.0" prefWidth="319.0" ripplerFill="#0000001a" text="Log Out           " textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="20.0" />

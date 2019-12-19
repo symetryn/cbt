@@ -5,7 +5,7 @@
  */
 package com.cbt.utils;
 
-import com.cbt.bll.Result;
+import com.cbt.model.Result;
 import com.cbt.controller.ExamInstructionController;
 import com.cbt.controller.InstructionController;
 import com.cbt.controller.ResultController;

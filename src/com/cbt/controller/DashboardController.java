@@ -5,7 +5,7 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.ChartItem;
+import com.cbt.model.ChartItem;
 import com.cbt.utils.ChartBuilder;
 import com.cbt.utils.UserState;
 import java.io.IOException;
@@ -42,6 +42,7 @@ public class DashboardController implements Initializable {
     @FXML
     private ImageView resultImage;
 
+    @FXML
     private ImageView statsImage;
 
     @FXML
@@ -50,6 +51,7 @@ public class DashboardController implements Initializable {
     @FXML
     private ImageView performancePie;
 
+    @FXML
     private Label userName;
     @FXML
     private AnchorPane dfr;
@@ -66,9 +68,8 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         UserState user = UserState.getInstance();
         System.out.println(user.getName());
-        userName.setText(user.getName());
+//        userName.setText(user.getName());
 //        System.out.println(userName.getText());
-          
 
         Platform.runLater(()
                 -> {
@@ -95,12 +96,12 @@ public class DashboardController implements Initializable {
                 line.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
                 line.add(new ChartItem(new String[]{"cats"}, new Integer[]{100, 200, 300, 400, 500}, false, "red"));
 
-                performanceGraph.setImage(c.build("line", new String[]{"Hi", "Hello", "dirty", "fellow", "there"}, line, 863, 463));
+                performanceGraph.setImage(c.build("line", new String[]{"Hi", "Hello", "hi", "fellow", "there"}, line, 863, 463));
 
                 ArrayList<ChartItem> pie = new ArrayList<>();
                 pie.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
 
-                performancePie.setImage(c.build("pie", new String[]{"Hi", "Hello", "dirty", "fellow", "there"}, pie, 386, 395));
+                performancePie.setImage(c.build("pie", new String[]{"Hi", "Hello", "hi", "fellow", "there"}, pie, 386, 395));
 
             } catch (MalformedURLException ex) {
                 Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);

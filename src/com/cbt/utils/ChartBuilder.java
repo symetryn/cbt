@@ -1,6 +1,6 @@
 package com.cbt.utils;
 
-import com.cbt.bll.ChartItem;
+import com.cbt.model.ChartItem;
 import com.google.gson.Gson;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
