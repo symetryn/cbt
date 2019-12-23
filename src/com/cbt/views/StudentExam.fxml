@@ -96,6 +96,16 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
+            <Label fx:id="durationField1" layoutX="877.0" layoutY="80.0" text="Time">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="time" layoutX="987.0" layoutY="80.0" text="Time">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
         <Pane layoutX="467.0" layoutY="406.0" prefHeight="434.0" prefWidth="1291.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 7px;">
