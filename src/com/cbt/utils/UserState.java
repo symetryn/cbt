@@ -69,6 +69,9 @@ public final class UserState {
 
   
     public String getName() {
+        if(name==null){
+            return "no user";
+        }
         return name;
     }
 

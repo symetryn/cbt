@@ -20,7 +20,7 @@ public class CBTClient extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/cbt/views/SignIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/cbt/views/Exam.fxml"));
 
         Scene scene = new Scene(root);
 

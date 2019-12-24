@@ -3,31 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/Router.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/StudentViewExamController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SideBarController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/studentSideBar.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/DashboardController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/UserState.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Result.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/UserDao.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/AnswerGroup.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/SignInController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ResultController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ResultListController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentViewExam.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/StudentViewResultController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/ChartBuilder.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ViewExamController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/StudentViewExamController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/DashController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/cbt/CBTClient.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/StudentExamController.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/ResultList.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/User.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentViewResult.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/StudentSidebarController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/DashboardController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ExamController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/utils/UserState.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/AddQuestionController.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/ChartItem.java</file>
             <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/Result.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/dao/TestDao.java</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/Test.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/Exam.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/model/AnswerGroup.java</file>
+            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/controller/ResultListController.java</file>
         </group>
     </open-files>
 </project-private>

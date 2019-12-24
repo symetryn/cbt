@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -74,6 +75,9 @@ public class ViewExamController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> answerColumn;
+    
+    @FXML
+    private TableColumn<Question, Number> sn;
 
     @FXML
     private TableColumn<?, ?> marksColumn;
@@ -246,6 +250,9 @@ public class ViewExamController implements Initializable {
         // initalize semester dropdown
         semesterDrop.getItems().removeAll();
         semesterDrop.getItems().addAll(1, 2);
+        
+             sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
+
         createQuestionRow();
         createQuestionRow();
 

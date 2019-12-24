@@ -24,6 +24,7 @@ import javafx.scene.Node;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -68,6 +69,9 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TableView<Question> questionTable;
+    
+    @FXML
+    private TableColumn<Question, Number> sn;
 
     @FXML
     private TableColumn<?, ?> questionColumn;
@@ -246,6 +250,7 @@ public class AddQuestionController implements Initializable {
 
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         marksColumn.setCellValueFactory(new PropertyValueFactory<>("marks"));
+        sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
 
         questionTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
