@@ -67,15 +67,15 @@
                         <Font name="SansSerif Bold" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="titleField1" layoutX="751.0" layoutY="73.0" prefHeight="40.0" prefWidth="255.0" promptText="Test Name" />
-                  <TextField fx:id="passMarksField1" layoutX="751.0" layoutY="133.0" prefHeight="39.0" prefWidth="255.0" promptText="Pass Marks" />
-                  <PasswordField fx:id="passwordField1" layoutX="1218.0" layoutY="73.0" prefHeight="39.0" prefWidth="274.0" promptText="Test Password" />
-                  <DatePicker fx:id="testDate1" layoutX="1219.0" layoutY="134.0" prefHeight="39.0" prefWidth="274.0" promptText="Exam Date" />
-                  <JFXTimePicker fx:id="startTime1" layoutX="753.0" layoutY="190.0" prefHeight="31.0" prefWidth="255.0" promptText="Start At" />
-                  <JFXTimePicker fx:id="endTime1" layoutX="1219.0" layoutY="192.0" prefHeight="31.0" prefWidth="274.0" promptText="End At" />
-                  <TextField fx:id="durationField1" layoutX="284.0" layoutY="186.0" prefHeight="39.0" prefWidth="244.0" promptText="Exam Duration" />
-                  <ComboBox fx:id="levelDrop1" layoutX="281.0" layoutY="73.0" prefHeight="40.0" prefWidth="244.0" promptText="Level" />
-                  <ComboBox fx:id="semesterDrop1" layoutX="282.0" layoutY="130.0" prefHeight="40.0" prefWidth="244.0" promptText="Semester" />
+                  <TextField fx:id="titleField" layoutX="751.0" layoutY="73.0" prefHeight="40.0" prefWidth="255.0" promptText="Test Name" />
+                  <TextField fx:id="passMarksField" layoutX="751.0" layoutY="133.0" prefHeight="39.0" prefWidth="255.0" promptText="Pass Marks" />
+                  <PasswordField fx:id="passwordField" layoutX="1218.0" layoutY="73.0" prefHeight="39.0" prefWidth="274.0" promptText="Test Password" />
+                  <DatePicker fx:id="testDate" layoutX="1219.0" layoutY="134.0" prefHeight="39.0" prefWidth="274.0" promptText="Exam Date" />
+                  <JFXTimePicker fx:id="startTime" layoutX="753.0" layoutY="190.0" prefHeight="31.0" prefWidth="255.0" promptText="Start At" />
+                  <JFXTimePicker fx:id="endTime" layoutX="1219.0" layoutY="192.0" prefHeight="31.0" prefWidth="274.0" promptText="End At" />
+                  <TextField fx:id="durationField" layoutX="284.0" layoutY="186.0" prefHeight="39.0" prefWidth="244.0" promptText="Exam Duration" />
+                  <ComboBox fx:id="levelDrop" layoutX="281.0" layoutY="73.0" prefHeight="40.0" prefWidth="244.0" promptText="Level" />
+                  <ComboBox fx:id="semesterDrop" layoutX="282.0" layoutY="130.0" prefHeight="40.0" prefWidth="244.0" promptText="Semester" />
                   <Label layoutX="44.0" layoutY="88.0" text="Level">
                      <font>
                         <Font name="System Bold" size="19.0" />
@@ -126,6 +126,9 @@
                   <DropShadow color="#0000002e" height="16.75" offsetX="1.0" offsetY="3.0" radius="8.6875" width="20.0" />
                </effect>
             </AnchorPane>
+            <Label fx:id="examDurationLabel" layoutX="324.0" layoutY="255.0" prefHeight="17.0" prefWidth="244.0" textFill="RED" />
+            <Label fx:id="testNameLabel" layoutX="788.0" layoutY="141.0" prefHeight="17.0" prefWidth="244.0" textFill="RED" />
+            <Label fx:id="passMarksLabel" layoutX="789.0" layoutY="202.0" prefHeight="17.0" prefWidth="244.0" textFill="RED" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="358.0" layoutY="349.0" prefHeight="550.0" prefWidth="827.0" style="-fx-background-color: white; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="33.0">
@@ -169,6 +172,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Label fx:id="eachMarks" layoutX="37.0" layoutY="195.0" prefHeight="17.0" prefWidth="154.0" textFill="RED" />
          </children>
          <effect>
             <DropShadow color="#0000002c" height="19.6" offsetX="1.0" offsetY="3.0" radius="9.4" width="20.0" />

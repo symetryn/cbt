@@ -65,16 +65,17 @@ public class SignInController implements Initializable {
                 if (user.getRole().equals("admin")) {
                     System.out.println("admin here");
                     Router.routeTo("Dashboard.fxml");
-                    
+
                 } else {
                     Router.routeTo("StudentDashboard.fxml");
                 }
             } else {
                 System.out.print("invalid username or password");
 
-                Alert a = new Alert(AlertType.ERROR, "Invalid username or password", ButtonType.OK);
-
-                a.show();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setContentText("Invalid username or password");
+                alert.showAndWait();
             }
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {
             Logger.getLogger(SignInController.class.getName()).log(Level.SEVERE, null, ex);

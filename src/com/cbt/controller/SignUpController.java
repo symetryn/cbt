@@ -97,18 +97,23 @@ public class SignUpController implements Initializable {
 
     public SignUpController() {
     }
-
+    public void warningMessage(String contextText) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
     public void handleSignUpClick(ActionEvent e) {
 
         if (firstNameField.getText().equals("") || lastNameField.getText().equals("") || emailField.getText().equals("") || idField.getText().equals("") || passwordField.getText().equals("")) {
-            Alert msg = new Alert(Alert.AlertType.ERROR, "Please fill all the fields!", ButtonType.OK);
-            msg.show();
-        } else if (firstName.equals("") || lastName.equals("") || email.equals("") || sid.equals("")) {
-            Alert msg = new Alert(Alert.AlertType.ERROR, "Please enter the valid information!", ButtonType.OK);
-            msg.show();
+            
+            warningMessage("Please fill all the fields!");
+        } else if (!firstName.getText().equals("") || !lastName.getText().equals("") || !email.getText().equals("") || !sid.getText().equals("")) {
+
+            warningMessage("Please enter the valid information!");
         } else if (levelDrop.getValue() == null || semesterDrop.getValue() == null) {
-            Alert msg = new Alert(Alert.AlertType.ERROR, "Please select the level and semester properly!", ButtonType.OK);
-            msg.show();
+            
+            warningMessage("Please select the level and semester properly!");
         } else {
             try {
                 UserDao userImpl = (UserDao) Naming.lookup("rmi://localhost/UserService");
@@ -129,8 +134,8 @@ public class SignUpController implements Initializable {
                 Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
 
                 if (ex.getCause().getMessage().startsWith("com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException")) {
-                    Alert msg = new Alert(Alert.AlertType.ERROR, "User already exists", ButtonType.OK);
-                    msg.show();
+                    
+                    warningMessage("User already exists");
                 }
 //                System.out.println(ex instanceof MySQLIntegrityConstraintViolationException);
 //                if (ex.getCause().getClass().equals(MySQLIntegrityConstraintViolationException.class)) {
