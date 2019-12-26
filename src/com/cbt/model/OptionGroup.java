@@ -6,7 +6,7 @@
 package com.cbt.model;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 /**
@@ -19,9 +19,9 @@ public class OptionGroup {
 
     private Button btn;
 
-    private CheckBox box;
+    private RadioButton box;
 
-    public OptionGroup(TextField textField, Button btn, CheckBox box) {
+    public OptionGroup(TextField textField, Button btn, RadioButton box) {
         this.textField = textField;
         this.btn = btn;
         this.box = box;
@@ -43,11 +43,11 @@ public class OptionGroup {
         this.btn = btn;
     }
 
-    public CheckBox getBox() {
+    public RadioButton getBox() {
         return box;
     }
 
-    public void setBox(CheckBox box) {
+    public void setBox(RadioButton box) {
         this.box = box;
     }
     

@@ -33,7 +33,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -43,6 +43,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -137,6 +138,8 @@ public class ViewExamController implements Initializable {
 
     private int selectedItem;
     private Question selectedQuestion;
+    
+    ToggleGroup group;
 
     public ViewExamController() {
         test = new Test();
@@ -157,7 +160,7 @@ public class ViewExamController implements Initializable {
     private void createQuestionRow() {
         TextField option = new TextField();
         Button drop = new Button("Drop");
-        CheckBox correct = new CheckBox();
+        RadioButton correct = new RadioButton();
 
         option.setLayoutX(11);
         option.setLayoutY(yAxis);
@@ -179,10 +182,14 @@ public class ViewExamController implements Initializable {
 
         count += 1;
         yAxis += 60;
+        
+        correct.setToggleGroup(group);
 
         pane.getChildren().addAll(option, drop, correct);
         scrollpane.setContent(pane);
         scrollpane.setPannable(true);
+        
+        
 
         optionList.add(og);
     }
@@ -270,8 +277,8 @@ public class ViewExamController implements Initializable {
                 ((TextField) node).clear();
 
             }
-            if (node instanceof CheckBox) {
-                ((CheckBox) node).setSelected(false);
+            if (node instanceof RadioButton) {
+                ((RadioButton) node).setSelected(false);
             }
 
         }
@@ -379,7 +386,7 @@ public class ViewExamController implements Initializable {
                     optionTitle.setText(newAnswerList.get(i).getTitle());
 
                     // set correct answer
-                    CheckBox optionCheck = optionList.get(i).getBox();
+                    RadioButton optionCheck = optionList.get(i).getBox();
                     optionCheck.setSelected(newAnswerList.get(i).getCorrectAnswer());
 
                 }

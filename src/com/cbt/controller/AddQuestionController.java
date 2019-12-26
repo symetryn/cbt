@@ -37,16 +37,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -79,7 +81,7 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TableView<Question> questionTable;
-    
+
     @FXML
     private TableColumn<Question, Number> sn;
 
@@ -136,10 +138,13 @@ public class AddQuestionController implements Initializable {
 
     Test test;
     int selectedItem;
+    
+    ToggleGroup group;
 
     public AddQuestionController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
+        group= new ToggleGroup();
     }
 
     @FXML
@@ -151,7 +156,7 @@ public class AddQuestionController implements Initializable {
     private void createQuestionRow() {
         TextField option = new TextField();
         Button drop = new Button("Drop");
-        CheckBox correct = new CheckBox();
+        RadioButton correct = new RadioButton();
 
         option.setLayoutX(11);
         option.setLayoutY(yAxis);
@@ -179,6 +184,7 @@ public class AddQuestionController implements Initializable {
         pane.getChildren().addAll(option, drop, correct);
         scrollpane.setContent(pane);
         scrollpane.setPannable(true);
+        correct.setToggleGroup(group);
 
         optionList.add(og);
 
@@ -219,7 +225,7 @@ public class AddQuestionController implements Initializable {
 
             warningMessage("Question Feild cannot be empty!");
 
-        } else if (!eachMarks.equals("")) {
+        } else if (!eachMarks.getText().equals("")) {
 
             warningMessage("Please emter the valid marks!");
         } else if (marksField.getText().equals("") || marksField.getText().equals("0")) {
@@ -268,8 +274,8 @@ public class AddQuestionController implements Initializable {
                 ((TextField) node).clear();
 
             }
-            if (node instanceof CheckBox) {
-                ((CheckBox) node).setSelected(false);
+            if (node instanceof RadioButton) {
+                ((RadioButton) node).setSelected(false);
             }
 
         }
@@ -290,7 +296,7 @@ public class AddQuestionController implements Initializable {
 
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         marksColumn.setCellValueFactory(new PropertyValueFactory<>("marks"));
-        sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
+        sn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue()) + 1));
 
         questionTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
@@ -343,7 +349,7 @@ public class AddQuestionController implements Initializable {
                     optionTitle.setText(newAnswerList.get(i).getTitle());
 
                     // set correct answer
-                    CheckBox optionCheck = optionList.get(i).getBox();
+                    RadioButton optionCheck = optionList.get(i).getBox();
                     optionCheck.setSelected(newAnswerList.get(i).getCorrectAnswer());
 
                 }
@@ -359,7 +365,7 @@ public class AddQuestionController implements Initializable {
         LocalDate enteredDate = testDate.getValue();
         System.out.println(enteredDate);
         System.out.println(currentDate);
-        if (titleField.getText().equals("")||durationField.getText().equals("")||passMarksField.getText().equals("")||passwordField.getText().equals("")) {
+        if (titleField.getText().equals("") || durationField.getText().equals("") || passMarksField.getText().equals("") || passwordField.getText().equals("")) {
 
             warningMessage("Please complete all the feilds");
 
@@ -374,7 +380,7 @@ public class AddQuestionController implements Initializable {
 
         } else if (startTime.getValue() == null || endTime.getValue() == null) {
             System.out.println("Please enter valid start time and endtime");
-         
+
             warningMessage("Please enter valid start time and endtime");
         } else if (testDate.getValue() == null) {
 
@@ -406,9 +412,8 @@ public class AddQuestionController implements Initializable {
 
                 t.saveTest(test);
 
-            t.saveTest(test);
-            Router.routeTo("Exam.fxml");
-
+                t.saveTest(test);
+                Router.routeTo("Exam.fxml");
 
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);
