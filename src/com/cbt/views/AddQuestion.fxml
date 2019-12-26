@@ -57,7 +57,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="titleField" layoutX="751.0" layoutY="73.0" onKeyReleased="#testNameKeyReleased" prefHeight="40.0" prefWidth="255.0" promptText="Test Name" />
-                  <TextField fx:id="passMarksField" layoutX="751.0" layoutY="132.0" prefHeight="39.0" prefWidth="255.0" promptText="Pass Marks" />
+                  <TextField fx:id="passMarksField" layoutX="751.0" layoutY="132.0" onKeyReleased="#examMarksKeyReleased" prefHeight="39.0" prefWidth="255.0" promptText="Pass Marks" />
                   <PasswordField fx:id="passwordField" layoutX="1218.0" layoutY="73.0" prefHeight="39.0" prefWidth="274.0" promptText="Test Password" />
                   <DatePicker fx:id="testDate" layoutX="1217.0" layoutY="138.0" prefHeight="39.0" prefWidth="274.0" promptText="Exam Date" />
                   <JFXTimePicker fx:id="startTime" layoutX="753.0" layoutY="190.0" prefHeight="31.0" prefWidth="255.0" promptText="Start At" />
