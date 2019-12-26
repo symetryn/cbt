@@ -510,7 +510,7 @@ public class ViewExamController implements Initializable {
 
     @FXML
     public void testNameKeyReleased(KeyEvent e) {
-        String pattern = "[a-zA-Z]{2,}";
+        String pattern = "[a-zA-Z ]{2,}";
         Pattern pat = Pattern.compile(pattern);
         Matcher match = pat.matcher(titleField.getText());
         if (!match.matches()) {
