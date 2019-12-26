@@ -364,7 +364,7 @@ public class AddQuestionController implements Initializable {
             warningMessage("Please complete all the feilds");
 
         } else if (!examDurationLabel.getText().equals("") || !testNameLabel.getText().equals("") || !passMarksLabel.getText().equals("")) {
-            Alert alert = new Alert(AlertType.WARNING);
+          
 
             warningMessage("Please enter the valid information!");
 
@@ -452,7 +452,7 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     public void testNameKeyReleased(KeyEvent e) {
-        String pattern = "[a-zA-Z]{2,}";
+        String pattern = "[a-zA-Z ]{2,}";
         Pattern pat = Pattern.compile(pattern);
         Matcher match = pat.matcher(titleField.getText());
         if (!match.matches()) {
