@@ -136,6 +136,6 @@
                 </ScrollPane>
             </children>
         </Pane>
-      <JFXProgressBar layoutX="467.0" layoutY="380.0" prefHeight="4.0" prefWidth="1291.0" progress="0.39" />
+      <JFXProgressBar fx:id="progressBar" layoutX="467.0" layoutY="380.0" prefHeight="4.0" prefWidth="1291.0" progress="0.39" />
     </children>
 </AnchorPane>

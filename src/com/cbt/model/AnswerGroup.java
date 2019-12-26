@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cbt.bll;
+package com.cbt.model;
 
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 
 /**
  *
@@ -14,11 +15,11 @@ import javafx.scene.control.Label;
  */
 public class AnswerGroup {
 
-    private CheckBox check;
+    private RadioButton check;
 
     private Label label;
 
-    public AnswerGroup(CheckBox check, Label label) {
+    public AnswerGroup(RadioButton check, Label label) {
         this.check = check;
         this.label = label;
     }
@@ -27,11 +28,11 @@ public class AnswerGroup {
         this.label = label;
     }
 
-    public void setCheck(CheckBox check) {
+    public void setCheck(RadioButton check) {
         this.check = check;
     }
 
-    public CheckBox getCheck() {
+    public RadioButton getCheck() {
         return check;
     }
 

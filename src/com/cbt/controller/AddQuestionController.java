@@ -5,11 +5,12 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.Answer;
-import com.cbt.bll.OptionGroup;
-import com.cbt.bll.Question;
-import com.cbt.bll.Test;
+import com.cbt.model.Answer;
+import com.cbt.model.OptionGroup;
+import com.cbt.model.Question;
+import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
+import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,8 +25,12 @@ import javafx.scene.Node;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javafx.beans.property.ReadOnlyObjectWrapper;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -74,6 +79,9 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TableView<Question> questionTable;
+    
+    @FXML
+    private TableColumn<Question, Number> sn;
 
     @FXML
     private TableColumn<?, ?> questionColumn;
@@ -282,6 +290,7 @@ public class AddQuestionController implements Initializable {
 
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         marksColumn.setCellValueFactory(new PropertyValueFactory<>("marks"));
+        sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
 
         questionTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
@@ -365,11 +374,8 @@ public class AddQuestionController implements Initializable {
 
         } else if (startTime.getValue() == null || endTime.getValue() == null) {
             System.out.println("Please enter valid start time and endtime");
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Invalid Time Selection!");
-            alert.setContentText("Please enter valid start time and endtime");
-            alert.showAndWait();
+         
+            warningMessage("Please enter valid start time and endtime");
         } else if (testDate.getValue() == null) {
 
             warningMessage("Please select the exam date!");
@@ -399,6 +405,10 @@ public class AddQuestionController implements Initializable {
                 test.setFullMarks(fullMarks);
 
                 t.saveTest(test);
+
+            t.saveTest(test);
+            Router.routeTo("Exam.fxml");
+
 
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(AddQuestionController.class.getName()).log(Level.SEVERE, null, ex);

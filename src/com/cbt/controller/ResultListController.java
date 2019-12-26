@@ -5,8 +5,8 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.Question;
-import com.cbt.bll.Result;
+import com.cbt.model.Question;
+import com.cbt.model.Result;
 import com.cbt.dao.TestDao;
 import com.cbt.utils.Router;
 import java.net.MalformedURLException;

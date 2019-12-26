@@ -5,10 +5,10 @@
  */
 package com.cbt.controller;
 
-import com.cbt.bll.Answer;
-import com.cbt.bll.OptionGroup;
-import com.cbt.bll.Question;
-import com.cbt.bll.Test;
+import com.cbt.model.Answer;
+import com.cbt.model.OptionGroup;
+import com.cbt.model.Question;
+import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.MalformedURLException;
@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -80,6 +81,9 @@ public class ViewExamController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> answerColumn;
+    
+    @FXML
+    private TableColumn<Question, Number> sn;
 
     @FXML
     private TableColumn<?, ?> marksColumn;
@@ -283,6 +287,9 @@ public class ViewExamController implements Initializable {
         // initalize semester dropdown
         semesterDrop.getItems().removeAll();
         semesterDrop.getItems().addAll(1, 2);
+        
+             sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
+
         createQuestionRow();
         createQuestionRow();
 

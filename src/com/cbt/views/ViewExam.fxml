@@ -56,8 +56,9 @@
             </Button>
             <TableView fx:id="questionTable" layoutX="897.0" layoutY="312.0" prefHeight="499.0" prefWidth="667.0">
                <columns>
-                  <TableColumn fx:id="questionColumn" prefWidth="541.0" text="Question Title" />
-                  <TableColumn fx:id="marksColumn" prefWidth="125.0" text="Marks" />
+                  <TableColumn fx:id="sn" prefWidth="75.0" text="Q. No." />
+                  <TableColumn fx:id="questionColumn" prefWidth="496.0" text="Question Title" />
+                  <TableColumn fx:id="marksColumn" minWidth="0.0" prefWidth="92.0" text="Marks" />
                </columns>
             </TableView>
             <AnchorPane layoutX="37.0" layoutY="28.0" prefHeight="252.0" prefWidth="1529.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
