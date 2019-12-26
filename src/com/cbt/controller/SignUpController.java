@@ -129,7 +129,7 @@ public class SignUpController implements Initializable {
                 user.setLevel((Integer) levelDrop.getValue());
                 System.out.print(semesterDrop.getValue().getClass().getName());
                 userImpl.registerUser(user);
-                Router.routeTo("SignIn.fxml");
+                Router.routeTo("SignIn.fxml","");
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -151,7 +151,7 @@ public class SignUpController implements Initializable {
     @FXML
     public void handleSignInClick(ActionEvent e) {
 
-        Router.routeTo("SignIn.fxml");
+        Router.routeTo("SignIn.fxml","");
 
     }
 

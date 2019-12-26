@@ -6,6 +6,7 @@
 package com.cbt.controller;
 
 import com.cbt.utils.Router;
+import com.cbt.utils.UserState;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,22 +40,26 @@ public class StudentSidebarController implements Initializable {
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
-         Router.routeTo("StudentDashboard.fxml");
+         Router.routeTo("StudentDashboard.fxml","Dashboard");
     }
 
     @FXML
     private void gotoExam(ActionEvent event) {
-        Router.routeTo("StudentViewExam.fxml");
+        Router.routeTo("StudentViewExam.fxml","My Exams");
     }
 
     @FXML
     private void gotoResult(ActionEvent event) {
-        Router.routeTo("StudentViewResult.fxml");
+        Router.routeTo("StudentViewResult.fxml","My Results");
     }
 
     @FXML
     private void logout(ActionEvent event) {
-        Router.routeTo("SignIn.fxml");
+         UserState instance = UserState.getInstance();
+        if (instance != null) {
+            instance.resetState();
+        }
+        Router.routeTo("SignIn.fxml","");
     }
 
 }

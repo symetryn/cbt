@@ -87,7 +87,7 @@ public class ExamController implements Initializable {
     
     @FXML
     private void gotoAddQuestion(ActionEvent e) {
-        Router.routeTo("AddQuestion.fxml");
+        Router.routeTo("AddQuestion.fxml","Add Question");
         
     }
     

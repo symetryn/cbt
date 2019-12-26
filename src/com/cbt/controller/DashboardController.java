@@ -66,11 +66,11 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        UserState user = UserState.getInstance();
+//        UserState user = UserState.getInstance();
 
-        if (user.getName() != null) {
-            userName.setText(user.getName());
-        }
+//        if (user.getName() != null) {
+//            userName.setText(user.getName());
+//        }
         
 
 //        Platform.runLater(()

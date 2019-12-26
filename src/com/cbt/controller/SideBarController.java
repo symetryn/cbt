@@ -46,17 +46,17 @@ public class SideBarController implements Initializable {
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
-        Router.routeTo("Dashboard.fxml");
+        Router.routeTo("Dashboard.fxml","Dashboard");
     }
 
     @FXML
     private void gotoExam(ActionEvent event) {
-        Router.routeTo("Exam.fxml");
+        Router.routeTo("Exam.fxml","Exams");
     }
 
     @FXML
     private void gotoResult(ActionEvent event) {
-        Router.routeTo("ResultList.fxml");
+        Router.routeTo("ResultList.fxml","Results");
     }
 
     @FXML
@@ -65,7 +65,7 @@ public class SideBarController implements Initializable {
         if (instance != null) {
             instance.resetState();
         }
-        Router.routeTo("SignIn.fxml");
+        Router.routeTo("SignIn.fxml","");
     }
 
 }

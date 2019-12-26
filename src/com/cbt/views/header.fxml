@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.HeaderController">
+   <children>
+      <Label fx:id="pageTitle" layoutX="61.0" layoutY="32.0" text="Dashboard">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="73.0" fitWidth="58.0" layoutX="1514.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/jimmy-fallon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="userName" layoutX="1446.0" layoutY="36.0" text="Dhurva ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+   </children>
+   <effect>
+      <DropShadow color="#00000082" height="11.67" radius="7.6675" spread="0.17" />
+   </effect>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

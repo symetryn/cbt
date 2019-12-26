@@ -7,6 +7,7 @@ package com.cbt.utils;
 
 import com.cbt.model.Result;
 import com.cbt.controller.ExamInstructionController;
+import com.cbt.controller.HeaderController;
 import com.cbt.controller.InstructionController;
 import com.cbt.controller.ResultController;
 import com.cbt.controller.StudentExamController;
@@ -26,17 +27,33 @@ public class Router {
 
     public static Stage stage;
 
+    public static String currentPage = "unavailable";
+
     public Router() {
 
     }
 
-    public static void routeTo(String fxml) {
+    public static void routeTo(String fxml,String pageTitle) {
         try {
-
+            currentPage = pageTitle;
             Parent pane = FXMLLoader.load(new Object() {
             }.getClass().getResource("/com/cbt/views/" + fxml));
             stage.getScene().setRoot(pane);
+            System.out.println("Routing to" + fxml);
 
+        } catch (IOException ex) {
+            Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void setHeader(String headerName) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "header.fxml"));
+
+            Parent root = (Parent) fxmlLoader.load();
+            HeaderController controller
+                    = fxmlLoader.<HeaderController>getController();
+            controller.setPageTitle(headerName);
         } catch (IOException ex) {
             Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);
         }

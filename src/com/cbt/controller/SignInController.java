@@ -64,10 +64,10 @@ public class SignInController implements Initializable {
                 System.out.println(user.getRole());
                 if (user.getRole().equals("admin")) {
                     System.out.println("admin here");
-                    Router.routeTo("Dashboard.fxml");
+                    Router.routeTo("Dashboard.fxml","Dashboard");
 
                 } else {
-                    Router.routeTo("StudentDashboard.fxml");
+                    Router.routeTo("StudentDashboard.fxml","Dashboard");
                 }
             } else {
                 System.out.print("invalid username or password");
@@ -84,7 +84,7 @@ public class SignInController implements Initializable {
 
     public void handleSignUpClick(ActionEvent e) {
 
-        Router.routeTo("SignUp.fxml");
+        Router.routeTo("SignUp.fxml","");
 
     }
 
