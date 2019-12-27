@@ -5,17 +5,9 @@
  */
 package com.cbt.controller;
 
-import com.cbt.model.ChartItem;
-import com.cbt.utils.ChartBuilder;
-import com.cbt.utils.UserState;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

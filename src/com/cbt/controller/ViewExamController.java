@@ -144,6 +144,7 @@ public class ViewExamController implements Initializable {
     public ViewExamController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
+        group= new ToggleGroup();
     }
 
     public void setTest(int testId) {
@@ -230,9 +231,9 @@ public class ViewExamController implements Initializable {
 
             warningMessage("Question Feild cannot be empty!");
 
-        } else if (!eachMarks.equals("")) {
+        } else if (eachMarks.equals("")) {
 
-            warningMessage("Please emter the valid marks!");
+            warningMessage("Please enter the valid marks!");
         } else if (marksField.getText().equals("") || marksField.getText().equals("0")) {
 
             warningMessage("Please enter the valid marks");

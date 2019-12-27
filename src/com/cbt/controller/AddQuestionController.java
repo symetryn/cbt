@@ -225,9 +225,9 @@ public class AddQuestionController implements Initializable {
 
             warningMessage("Question Feild cannot be empty!");
 
-        } else if (!eachMarks.getText().equals("")) {
+        } else if (eachMarks.getText().equals("")) {
 
-            warningMessage("Please emter the valid marks!");
+            warningMessage("Please enter the valid marks!");
         } else if (marksField.getText().equals("") || marksField.getText().equals("0")) {
 
             warningMessage("Please enter the valid marks");
