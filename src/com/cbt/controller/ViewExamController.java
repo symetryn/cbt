@@ -10,6 +10,7 @@ import com.cbt.model.OptionGroup;
 import com.cbt.model.Question;
 import com.cbt.model.Test;
 import com.cbt.dao.TestDao;
+import com.cbt.utils.Router;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -82,7 +83,7 @@ public class ViewExamController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> answerColumn;
-    
+
     @FXML
     private TableColumn<Question, Number> sn;
 
@@ -138,7 +139,7 @@ public class ViewExamController implements Initializable {
 
     private int selectedItem;
     private Question selectedQuestion;
-    
+
     ToggleGroup group;
 
     public ViewExamController() {
@@ -182,14 +183,12 @@ public class ViewExamController implements Initializable {
 
         count += 1;
         yAxis += 60;
-        
+
         correct.setToggleGroup(group);
 
         pane.getChildren().addAll(option, drop, correct);
         scrollpane.setContent(pane);
         scrollpane.setPannable(true);
-        
-        
 
         optionList.add(og);
     }
@@ -294,8 +293,8 @@ public class ViewExamController implements Initializable {
         // initalize semester dropdown
         semesterDrop.getItems().removeAll();
         semesterDrop.getItems().addAll(1, 2);
-        
-             sn.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue())+1));
+
+        sn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(questionTable.getItems().indexOf(column.getValue()) + 1));
 
         createQuestionRow();
         createQuestionRow();
@@ -402,7 +401,7 @@ public class ViewExamController implements Initializable {
         LocalDate enteredDate = testDate.getValue();
         System.out.println(enteredDate);
         System.out.println(currentDate);
-        if (titleField.getText().equals("")||durationField.getText().equals("")||passMarksField.getText().equals("")||passwordField.getText().equals("")) {
+        if (titleField.getText().equals("") || durationField.getText().equals("") || passMarksField.getText().equals("") || passwordField.getText().equals("")) {
 
             warningMessage("Please complete all the feilds");
 
@@ -417,14 +416,12 @@ public class ViewExamController implements Initializable {
 
         } else if (startTime.getValue() == null || endTime.getValue() == null) {
             System.out.println("Please enter valid start time and endtime");
-           
-             warningMessage("Please enter valid start time and endtime");
+
+            warningMessage("Please enter valid start time and endtime");
         } else if (testDate.getValue() == null) {
 
             warningMessage("Please select the exam date!");
-        } else if (!currentDate.isBefore(enteredDate)) {
 
-            warningMessage("The past date cannot be allocated for exam!");
         } else {
             try {
                 System.out.println("test submitted");
@@ -447,6 +444,7 @@ public class ViewExamController implements Initializable {
                 test.setFullMarks(fullMarks);
 
                 t.updateTest(test);
+                Router.routeTo("Exam.fxml", "Exams");
 
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {
                 Logger.getLogger(ViewExamController.class.getName()).log(Level.SEVERE, null, ex);

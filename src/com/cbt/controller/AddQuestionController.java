@@ -138,18 +138,30 @@ public class AddQuestionController implements Initializable {
 
     Test test;
     int selectedItem;
-    
+    private Question selectedQuestion;
+
     ToggleGroup group;
 
     public AddQuestionController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
-        group= new ToggleGroup();
+        group = new ToggleGroup();
     }
 
     @FXML
     private void addOptionClick(ActionEvent e) throws Exception {
         createQuestionRow();
+
+    }
+
+    @FXML
+    private void deleteQuestion(ActionEvent e) {
+        if (selectedQuestion != null) {
+            test.getQuestions().remove(selectedQuestion);
+            questions.remove(selectedQuestion);
+            setTable();
+
+        }
 
     }
 
@@ -306,7 +318,7 @@ public class AddQuestionController implements Initializable {
                 marksField.setText(Integer.toString(newSelection.getMarks()));
 
                 ArrayList<Answer> newAnswerList = newSelection.getAnswers();
-
+                 selectedQuestion = newSelection;
                 selectedItem = test.getQuestions().indexOf(newSelection);
                 System.out.println("selected Item" + selectedItem);
 
