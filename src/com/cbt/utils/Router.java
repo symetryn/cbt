@@ -73,6 +73,8 @@ public class Router {
         }
 
     }
+    
+    
 
     public void routeToStudentInstruction(int testId, String testName) {
         try {
@@ -118,5 +120,21 @@ public class Router {
         }
 
     }
+    
+    public void routeToAdminResult(int resultId) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "AdminResult.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            ResultController controller
+                    = fxmlLoader.<ResultController>getController();
+            controller.setResultId(resultId);
+            stage.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(Router.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    
 
 }

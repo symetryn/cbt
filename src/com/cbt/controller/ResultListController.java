@@ -57,6 +57,8 @@ public class ResultListController implements Initializable {
 
     @FXML
     private TableColumn<Result, String> status;
+    @FXML
+    private TableColumn<Result, String> passMarks;
 
     /**
      * Initializes the controller class.
@@ -99,13 +101,39 @@ public class ResultListController implements Initializable {
                 return new SimpleStringProperty(name);
             });
             marks.setCellValueFactory(new PropertyValueFactory<>("marks"));
-            status.setCellValueFactory(new PropertyValueFactory<>("status"));
+            passMarks.setCellValueFactory(cellData -> {
+                String marks;
+                Result result = cellData.getValue();
+                if (result == null) {
+                    marks = null;
+                } else {
+                    marks = Integer.toString(result.getTest().getPassMarks());
+                    System.out.println(result.getTest().toString());
+
+                }
+                return new SimpleStringProperty(marks);
+            });
+            status.setCellValueFactory(cellData -> {
+                String status;
+                Result result = cellData.getValue();
+                if (result == null) {
+                    status = null;
+                } else {
+                    if (result.getStatus()) {
+                        status = "pass";
+
+                    } else {
+                        status = "fail";
+                    }
+                }
+                return new SimpleStringProperty(status);
+            });
             ObservableList results = FXCollections.observableArrayList(resultList);
             resultTable.setItems(results);
             resultTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 
                 Router r = new Router();
-                r.routeToResult(newSelection.getId());
+                r.routeToAdminResult(newSelection.getId());
             });
 
         } catch (NotBoundException | MalformedURLException | RemoteException ex) {

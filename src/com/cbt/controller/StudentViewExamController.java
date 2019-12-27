@@ -56,7 +56,7 @@ public class StudentViewExamController implements Initializable {
         try {
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             UserState state = UserState.getInstance();
-            ArrayList<Test> testList = t.getTestByLevelSem(state.getLevel(), state.getSemester());
+            ArrayList<Test> testList = t.getTestByLevelSem(state.getUserId(),state.getLevel(), state.getSemester());
             ArrayList<Test> upcomingTestList = t.getAllUpcomingTest();
             testList.forEach((item) -> {
                 examTile.getChildren().addAll(createExamItem(item.getId(), item.getTitle(), item.getDate()));

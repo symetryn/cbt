@@ -23,7 +23,7 @@ public interface TestDao extends java.rmi.Remote {
 
     public ArrayList<Test> getTestSearch(String searchQuery) throws RemoteException;
 
-    public ArrayList<Test> getTestByLevelSem(int level, int semester) throws RemoteException;
+    public ArrayList<Test> getTestByLevelSem(int userId,int level, int semester) throws RemoteException;
 
     public Test getTest(int testId) throws RemoteException;
 
@@ -34,7 +34,7 @@ public interface TestDao extends java.rmi.Remote {
     public Result getResult(int resultId) throws RemoteException;
 
     public ArrayList<Result> getResultByUser(int userId) throws RemoteException;
-
+    
     public ArrayList<Result> getAllResult() throws RemoteException;
 
 }

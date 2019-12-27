@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ResultListController">
     <children>
@@ -19,17 +13,18 @@
         </AnchorPane>
         <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <fx:include  source="header.fxml" />
+                <fx:include source="header.fxml" />
             </children>
 
         </AnchorPane>
         <TableView fx:id="resultTable" layoutX="343.0" layoutY="122.0" prefHeight="851.0" prefWidth="1553.0">
             <columns>
-                <TableColumn fx:id="resultId" prefWidth="95.0" text="Result ID" />
+                <TableColumn fx:id="resultId" prefWidth="95.0" text="Test ID" />
                 <TableColumn fx:id="name" prefWidth="360.0" text="Name" />
                 <TableColumn fx:id="testName" prefWidth="547.0" text="Test Name" />
-                <TableColumn fx:id="marks" prefWidth="263.0" text="Marks" />
-                <TableColumn fx:id="status" prefWidth="287.0" text="Status" />
+                <TableColumn fx:id="marks" prefWidth="188.0" text="Obtained Marks" />
+            <TableColumn fx:id="passMarks" prefWidth="226.0" text="Pass Marks" />
+                <TableColumn fx:id="status" prefWidth="133.0" text="Status" />
             </columns>
         </TableView>
     </children>
