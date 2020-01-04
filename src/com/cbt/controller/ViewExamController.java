@@ -502,6 +502,7 @@ public class ViewExamController implements Initializable {
             test.getQuestions().remove(selectedQuestion);
             questions.remove(selectedQuestion);
             setTable();
+        
 
         }
 

@@ -111,7 +111,7 @@ public class ResultController implements Initializable {
     }
 
 //    @FXML
-    private void makeLayout(String qn, String mark, String userAns, String correctAns) {
+    private void makeLayout(String qn, String mark, String correctAns, String userAns) {
         count = count + 1;
 
         Pane p = new Pane();

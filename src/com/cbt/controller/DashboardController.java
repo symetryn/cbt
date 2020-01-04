@@ -5,16 +5,33 @@
  */
 package com.cbt.controller;
 
+import com.cbt.dao.StatsDao;
+import com.cbt.model.ChartItem;
+import com.cbt.model.StatItem;
+import com.cbt.utils.ChartBuilder;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -41,7 +58,7 @@ public class DashboardController implements Initializable {
     private ImageView performanceGraph;
 
     @FXML
-    private ImageView performancePie;
+    private VBox performancePie;
 
     @FXML
     private Label userName;
@@ -58,49 +75,49 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        UserState user = UserState.getInstance();
 
-//        if (user.getName() != null) {
-//            userName.setText(user.getName());
-//        }
-        
+        Platform.runLater(()
+                -> {
+            try {
+                StatsDao s = (StatsDao) Naming.lookup("rmi://localhost/StatService");
+                ArrayList<ChartItem> list = s.getTotalStudents();
+                ArrayList<ChartItem> list2 = s.getTotalExams();
+                ArrayList<ChartItem> list3 = s.getPassRate();
+                ArrayList<ChartItem> list4 = s.getUpcomingTests();
+                StatItem testMap = s.getTestsData();
 
-//        Platform.runLater(()
-//                -> {
-//            try {
-//                ChartBuilder c = new ChartBuilder();
-//                ArrayList<ChartItem> list = new ArrayList<>();
-//                list.add(new ChartItem(new Integer[]{50}, "green"));
-//
-//                ArrayList<ChartItem> list2 = new ArrayList<>();
-//                list2.add(new ChartItem(new Integer[]{30}, "red"));
-//
-//                ArrayList<ChartItem> list3 = new ArrayList<>();
-//                list3.add(new ChartItem(new Integer[]{70}, "grey"));
-//
-//                ArrayList<ChartItem> list4 = new ArrayList<>();
-//                list4.add(new ChartItem(new Integer[]{90}, "blue"));
-//
-////                studentImage.setImage(c.build("radialGauge", null, list, 230, 180));
-////                testImage.setImage(c.build("radialGauge", null, list2, 230, 180));
-////                resultImage.setImage(c.build("radialGauge", null, list3, 230, 180));
-////                statsImage.setImage(c.build("radialGauge", null, list4, 230, 180));
-//
-//                ArrayList<ChartItem> line = new ArrayList<>();
-//                line.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
-//                line.add(new ChartItem(new String[]{"cats"}, new Integer[]{100, 200, 300, 400, 500}, false, "red"));
-//
-//                performanceGraph.setImage(c.build("line", new String[]{"Hi", "Hello", "hi", "fellow", "there"}, line, 863, 463));
-//
-//                ArrayList<ChartItem> pie = new ArrayList<>();
-//                pie.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
-//
-//                performancePie.setImage(c.build("pie", new String[]{"Hi", "Hello", "hi", "fellow", "there"}, pie, 386, 395));
-//
-//            } catch (MalformedURLException ex) {
-//                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        });
+                System.out.println(list.toString());
+                ChartBuilder c = new ChartBuilder();
+
+                studentImage.setImage(c.build("radialGauge", null, list, 230, 180));
+                testImage.setImage(c.build("radialGauge", null, list2, 230, 180));
+                resultImage.setImage(c.build("radialGauge", null, list3, 230, 180));
+                statsImage.setImage(c.build("radialGauge", null, list4, 230, 180));
+
+                ArrayList<ChartItem> line = new ArrayList<>();
+                line.add(new ChartItem(new String[]{"Pass Percentage"}, new Integer[]{50, 100}, false, "green"));
+                line.add(new ChartItem(new String[]{"cats"}, new Integer[]{100}, false, "red"));
+
+                performanceGraph.setImage(c.build("bar", testMap.getLabelList(), testMap.getChartList(), 863, 463));
+
+                ArrayList<ChartItem> pie = new ArrayList<>();
+                pie.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
+
+                Pane p = new Pane();
+                p.setPadding(new Insets(20, 20, 20, 0));
+                Label l = new Label("hello");
+                p.getChildren().addAll(l);
+
+                performancePie.getChildren().addAll(p);
+
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NotBoundException ex) {
+                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (RemoteException ex) {
+                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
 
     }
 

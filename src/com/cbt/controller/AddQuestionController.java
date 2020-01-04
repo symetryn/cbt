@@ -160,7 +160,7 @@ public class AddQuestionController implements Initializable {
             test.getQuestions().remove(selectedQuestion);
             questions.remove(selectedQuestion);
             setTable();
-
+         
         }
 
     }
@@ -237,7 +237,7 @@ public class AddQuestionController implements Initializable {
 
             warningMessage("Question Feild cannot be empty!");
 
-        } else if (eachMarks.getText().equals("")) {
+        } else if (!eachMarks.getText().equals("")) {
 
             warningMessage("Please enter the valid marks!");
         } else if (marksField.getText().equals("") || marksField.getText().equals("0")) {
@@ -505,6 +505,7 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     public void examMarksKeyReleased(KeyEvent e) {
+        System.out.println("here");
         String pattern = "[0-9]{1,3}";
         Pattern pat = Pattern.compile(pattern);
         Matcher match = pat.matcher(marksField.getText());

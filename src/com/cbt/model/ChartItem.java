@@ -6,19 +6,22 @@
 package com.cbt.model;
 
 import com.google.gson.Gson;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Symetryn
  */
-public class ChartItem {
+public class ChartItem implements Serializable{
 
     String[] label;
     Integer[] data;
     Boolean fill;
     String borderColor;
     String backgroundColor;
+    
+     private static final long serialVersionUID = 5L;
 
     public ChartItem(Integer[] data, String backgroundColor) {
         this.data = data;

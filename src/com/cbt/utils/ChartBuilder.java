@@ -65,9 +65,22 @@ public class ChartBuilder {
                         + "datasets:"
                         + g.toJson(data)
                         + "}}");
-
-                ChartItem c1 = new ChartItem(null, new Integer[]{50}, null, null);
-                System.out.println(c1.toString());
+                
+                return getImageFromByteStream(imageUrl);
+            case "bar":
+                System.out.println("here");
+                System.out.println(g.toJson(data));
+                imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'bar',"
+                        + "data:{"
+                        + "labels:"
+                        + g.toJson(label).replaceAll("\\s+","")
+                        + ","
+                        + "datasets:"
+                        + g.toJson(data).replaceAll("\\s+","")
+                        + "}}");
+                System.out.println(imageUrl);
+              
+                
                 return getImageFromByteStream(imageUrl);
             default:
                 return null;

@@ -120,7 +120,7 @@
                     <content>
                         <Pane fx:id="pane" prefWidth="772.0" style="-fx-background-radius: 7px;">
                             <children>
-                                <TextField fx:id="marksField" layoutX="13.0" layoutY="27.0" prefHeight="42.0" prefWidth="72.0" promptText="Marks">
+                                <TextField fx:id="marksField" layoutX="13.0" layoutY="27.0" onKeyReleased="#examMarksKeyReleased" prefHeight="42.0" prefWidth="72.0" promptText="Marks">
                                     <font>
                                         <Font size="17.0" />
                                     </font>
@@ -155,7 +155,7 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Label fx:id="eachMarks" layoutX="37.0" layoutY="195.0" prefHeight="17.0" prefWidth="154.0" textFill="RED" />
+                <Label fx:id="eachMarks" layoutX="37.0" layoutY="191.0" prefHeight="17.0" prefWidth="154.0" textFill="RED" />
             </children>
             <effect>
                 <DropShadow color="#0000002c" height="19.6" offsetX="1.0" offsetY="3.0" radius="9.4" width="20.0" />
