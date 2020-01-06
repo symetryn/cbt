@@ -47,10 +47,10 @@ public class ChartBuilder {
                 imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'line',"
                         + "data:{"
                         + "labels:"
-                        + g.toJson(label)
+                        + g.toJson(label).replaceAll("\\s+","%20")
                         + ","
                         + "datasets:"
-                        + g.toJson(data)
+                        + g.toJson(data).replaceAll("\\s+","%20")
                         + "}}");
 
                 return getImageFromByteStream(imageUrl);
@@ -73,10 +73,10 @@ public class ChartBuilder {
                 imageUrl = new URL(URL + "?w=" + width + "&h=" + height + "&c={type:'bar',"
                         + "data:{"
                         + "labels:"
-                        + g.toJson(label).replaceAll("\\s+","")
+                        + g.toJson(label).replaceAll("\\s+","%20")
                         + ","
                         + "datasets:"
-                        + g.toJson(data).replaceAll("\\s+","")
+                        + g.toJson(data).replaceAll("\\s+","%20")
                         + "}}");
                 System.out.println(imageUrl);
               

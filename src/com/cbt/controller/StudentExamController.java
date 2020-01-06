@@ -101,6 +101,8 @@ public class StudentExamController implements Initializable {
     int currentQuestionIndex = 0;
 
     Question currentQuestion;
+    
+    Timer timer;
 
     ArrayList<AnswerGroup> answerList;
 
@@ -132,8 +134,9 @@ public class StudentExamController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         UserState user = UserState.getInstance();
         user.getName();
-
-        Timer timer = new Timer();
+        
+        Router.routeEnabled=false;
+        timer = new Timer();
 
         Platform.runLater(() -> {
             try {
@@ -255,6 +258,7 @@ public class StudentExamController implements Initializable {
 
     private void submitTest() {
         try {
+            Router.routeEnabled=true;
             TestDao t = (TestDao) Naming.lookup("rmi://localhost/TestService");
             Test newTest = t.getTest(testId);
 
@@ -312,6 +316,7 @@ public class StudentExamController implements Initializable {
             r.setUserId(UserState.getInstance().getUserId());
             Integer resultID = t.saveResult(r);
             Router router = new Router();
+            timer.cancel();
             router.routeToResult(resultID);
 
             System.out.println(r.toString());

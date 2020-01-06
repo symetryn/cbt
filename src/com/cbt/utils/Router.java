@@ -27,11 +27,16 @@ public class Router {
 
     public static String currentPage = "unavailable";
 
+    public static boolean routeEnabled=true;
+
     public Router() {
 
     }
 
-    public static void routeTo(String fxml,String pageTitle) {
+    public static void routeTo(String fxml, String pageTitle) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             currentPage = pageTitle;
             Parent pane = FXMLLoader.load(new Object() {
@@ -45,6 +50,9 @@ public class Router {
     }
 
     private void setHeader(String headerName) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "header.fxml"));
 
@@ -58,6 +66,9 @@ public class Router {
     }
 
     public void routeToViewExam(int testId) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "ViewExam.fxml"));
 
@@ -71,10 +82,11 @@ public class Router {
         }
 
     }
-    
-    
 
     public void routeToStudentInstruction(int testId, String testName) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "examInstruction.fxml"));
 
@@ -91,6 +103,9 @@ public class Router {
     }
 
     public void routeToStudentExam(int testId) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "StudentExam.fxml"));
 
@@ -106,6 +121,9 @@ public class Router {
     }
 
     public void routeToResult(int resultId) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "Result.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -118,8 +136,11 @@ public class Router {
         }
 
     }
-    
+
     public void routeToAdminResult(int resultId) {
+        if (!routeEnabled) {
+            return;
+        }
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/cbt/views/" + "AdminResult.fxml"));
             Parent root = (Parent) fxmlLoader.load();
@@ -132,7 +153,5 @@ public class Router {
         }
 
     }
-    
-    
 
 }
