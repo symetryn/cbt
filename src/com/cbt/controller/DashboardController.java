@@ -8,6 +8,7 @@ package com.cbt.controller;
 import com.cbt.dao.StatsDao;
 import com.cbt.model.ChartItem;
 import com.cbt.model.StatItem;
+import com.cbt.model.User;
 import com.cbt.utils.ChartBuilder;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -84,6 +85,7 @@ public class DashboardController implements Initializable {
                 ArrayList<ChartItem> list2 = s.getTotalExams();
                 ArrayList<ChartItem> list3 = s.getPassRate();
                 ArrayList<ChartItem> list4 = s.getUpcomingTests();
+                ArrayList<User> topUsers = s.getTopStudents();
                 StatItem testMap = s.getTestsData();
 
                 System.out.println(list.toString());
@@ -94,21 +96,29 @@ public class DashboardController implements Initializable {
                 resultImage.setImage(c.build("radialGauge", null, list3, 230, 180));
                 statsImage.setImage(c.build("radialGauge", null, list4, 230, 180));
 
-                ArrayList<ChartItem> line = new ArrayList<>();
-                line.add(new ChartItem(new String[]{"Pass Percentage"}, new Integer[]{50, 100}, false, "green"));
-                line.add(new ChartItem(new String[]{"cats"}, new Integer[]{100}, false, "red"));
-
+               
                 performanceGraph.setImage(c.build("bar", testMap.getLabelList(), testMap.getChartList(), 863, 463));
 
-                ArrayList<ChartItem> pie = new ArrayList<>();
-                pie.add(new ChartItem(new String[]{"dogs"}, new Integer[]{50, 60, 70, 180, 190}, false, "green"));
 
-                Pane p = new Pane();
-                p.setPadding(new Insets(20, 20, 20, 0));
-                Label l = new Label("hello");
-                p.getChildren().addAll(l);
+                int count = 1;
+                for (User u : topUsers) {
+                    System.out.println("Iterated");
+                    System.out.println(u.toString());
+                    Pane p = new Pane();
+                    p.setStyle("-fx-background-color:#F5F5F5");
 
-                performancePie.getChildren().addAll(p);
+                    p.setPrefHeight(35);
+
+                    Label l = new Label(count + ". " + u.getFirstName() + " " + u.getLastName());
+                    l.setPadding(new Insets(5));
+                    count++;
+                    Label passRate = new Label(Integer.toString(u.getLevel()) + "%");
+                    passRate.setPadding(new Insets(5));
+                    passRate.setLayoutX(380);
+                    p.getChildren().addAll(l, passRate);
+                    performancePie.getChildren().addAll(p);
+
+                }
 
             } catch (MalformedURLException ex) {
                 Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);

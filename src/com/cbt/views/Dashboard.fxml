@@ -85,12 +85,17 @@
             </effect>
             <children>
                 <ImageView fitHeight="395.0" fitWidth="386.0" layoutX="49.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="23.0" layoutY="14.0" text="Student Rankings">
+            <Label layoutX="28.0" layoutY="14.0" text="Student Rankings">
                <font>
                   <Font name="Arial Bold" size="15.0" />
                </font>
             </Label>
-            <VBox fx:id="performancePie" layoutX="28.0" layoutY="40.0" prefHeight="426.0" prefWidth="427.0" />
+            <VBox fx:id="performancePie" layoutX="28.0" layoutY="40.0" prefHeight="426.0" prefWidth="427.0" spacing="8.0" />
+            <Label layoutX="383.0" layoutY="14.0" text="Pass Rate">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
