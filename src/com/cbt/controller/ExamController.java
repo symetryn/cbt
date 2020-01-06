@@ -40,7 +40,7 @@ import javafx.scene.paint.Color;
 /**
  * FXML Controller class
  *
- * @author User
+ * 
  */
 public class ExamController implements Initializable {
 
@@ -67,6 +67,9 @@ public class ExamController implements Initializable {
 
     TestDao t;
 
+    /**
+     *  TO initialize the Test
+     */
     public ExamController() {
         try {
             t = (TestDao) Naming.lookup("rmi://localhost/TestService");
@@ -78,8 +81,8 @@ public class ExamController implements Initializable {
     /**
      * Initializes the controller class.
      *
-     * @param url
-     * @param rb
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
      *
      */
     @Override

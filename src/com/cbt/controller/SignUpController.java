@@ -38,7 +38,7 @@ import javafx.stage.FileChooser;
 /**
  * FXML Controller class
  *
- * @author User
+ * 
  */
 public class SignUpController implements Initializable {
 
@@ -95,14 +95,27 @@ public class SignUpController implements Initializable {
         semesterDrop.getItems().addAll(1, 2);
     }
 
+    /**
+     * Initialize the signup controller
+     */
     public SignUpController() {
     }
+
+    /**
+     *
+     * @param contextText to accept the content of the error message
+     */
     public void warningMessage(String contextText) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setContentText(contextText);
         alert.showAndWait();
     }
+
+    /**
+     *
+     * Validate the Signup action
+     */
     public void handleSignUpClick(ActionEvent e) {
 
         if (firstNameField.getText().equals("") || lastNameField.getText().equals("") || emailField.getText().equals("") || idField.getText().equals("") || passwordField.getText().equals("")) {
@@ -148,6 +161,10 @@ public class SignUpController implements Initializable {
 
     }
 
+    /**
+     *
+     * route to signin page
+     */
     @FXML
     public void handleSignInClick(ActionEvent e) {
 
@@ -155,6 +172,10 @@ public class SignUpController implements Initializable {
 
     }
 
+    /**
+     *
+     * Validation of the first name on key release event
+     */
     @FXML
     public void firstNameKeyReleased(KeyEvent e) {
         String pattern = "[a-zA-Z]{2,}";
@@ -167,6 +188,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Validation of the last name on key release event
+     */
     @FXML
     public void lastNameKeyReleased(KeyEvent e) {
         String pattern = "[a-zA-Z]{2,}";
@@ -179,6 +204,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Validation of the email on key release event
+     */
     @FXML
     public void emailKeyReleased(KeyEvent e) {
         String pattern = "\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b";
@@ -191,6 +220,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     *
+     * Validation of the student id on key release event
+     */
     @FXML
     public void sidKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{7}";
@@ -203,6 +236,10 @@ public class SignUpController implements Initializable {
         }
     }
 
+    /**
+     *
+     * To upload the photo by user
+     */
     @FXML
     public void fileOpen(ActionEvent event) {
 

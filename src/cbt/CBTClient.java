@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Symetryn
+ * 
  */
 public class CBTClient extends Application {
 

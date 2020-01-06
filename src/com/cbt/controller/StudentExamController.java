@@ -48,7 +48,7 @@ import javafx.scene.text.Font;
 /**
  * FXML Controller class
  *
- * @author Dhruba
+ *
  */
 public class StudentExamController implements Initializable {
 
@@ -104,10 +104,17 @@ public class StudentExamController implements Initializable {
 
     ArrayList<AnswerGroup> answerList;
 
+    /**
+     *
+     * @param testId to set the testId
+     */
     public void setTestId(int testId) {
         this.testId = testId;
     }
 
+    /**
+     * to initialize the constructor
+     */
     public StudentExamController() {
         answerList = new ArrayList<>();
         Random r = new Random();
@@ -117,6 +124,9 @@ public class StudentExamController implements Initializable {
 
     /**
      * Initializes the controller class.
+
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -175,6 +185,9 @@ public class StudentExamController implements Initializable {
 
     }
 
+    /**
+     * To create the question panel with various label and button
+     */
     @FXML
     public void createQuestionPanel() {
         answerList = new ArrayList<>();

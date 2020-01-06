@@ -52,7 +52,6 @@ import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
- * @author User
  */
 public class ViewExamController implements Initializable {
 
@@ -142,12 +141,19 @@ public class ViewExamController implements Initializable {
 
     ToggleGroup group;
 
+    /**
+     * To initialize the constructor
+     */
     public ViewExamController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
         group= new ToggleGroup();
     }
 
+    /**
+     *
+     * @param testId to set the testId of the test
+     */
     public void setTest(int testId) {
         test.setId(testId);
         System.out.println("testid set" + testId);
@@ -217,6 +223,10 @@ public class ViewExamController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param contextText To show the content of the error message
+     */
     public void warningMessage(String contextText) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
@@ -284,7 +294,11 @@ public class ViewExamController implements Initializable {
         }
 
     }
-
+    /**
+     * Initializes the controller class.
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // initalize level dropdown
@@ -454,6 +468,9 @@ public class ViewExamController implements Initializable {
         }
     }
 
+    /**
+     * To update the question of the Test
+     */
     public void updateQuestion() {
 
         Question q = new Question();
@@ -508,6 +525,10 @@ public class ViewExamController implements Initializable {
 
     }
 
+    /**
+     *
+     * To validate the test name on key release event
+     */
     @FXML
     public void testNameKeyReleased(KeyEvent e) {
         String pattern = "[a-zA-Z ]{2,}";
@@ -520,6 +541,10 @@ public class ViewExamController implements Initializable {
         }
     }
 
+    /**
+     *
+     * To validate the marks on key release event
+     */
     @FXML
     public void marksKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,3}";
@@ -532,6 +557,10 @@ public class ViewExamController implements Initializable {
         }
     }
 
+    /**
+     *
+     * To validate the exam duration on key release event
+     */
     @FXML
     public void examDurationKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,3}";
@@ -544,6 +573,10 @@ public class ViewExamController implements Initializable {
         }
     }
 
+    /**
+     *
+     * To validate the exam marks on key release event
+     */
     @FXML
     public void examMarksKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,3}";
@@ -556,15 +589,5 @@ public class ViewExamController implements Initializable {
         }
     }
 
-    // @FXML
-    // public void marksKeyReleased(KeyEvent e) {
-    // String pattern = "[0-9]{1,2}";
-    // Pattern pat = Pattern.compile(pattern);
-    // Matcher match = pat.matcher(marksField.getText());
-    // if (!match.matches()) {
-    // marks.setText("Invalid marks!");
-    // } else {
-    // marks.setText("");
-    // }
-    // }
+
 }

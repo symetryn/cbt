@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 /**
  * FXML Controller class
  *
- * @author Symetryn
+ *
  */
 public class HeaderController implements Initializable {
 
@@ -30,11 +30,20 @@ public class HeaderController implements Initializable {
     @FXML
     Label userName;
 
+    /**
+     *
+     * @param title To accept the name of the page title
+     */
     public void setPageTitle(String title) {
 
         System.out.println("title set" + title);
     }
-
+     /**
+     *
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     *
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

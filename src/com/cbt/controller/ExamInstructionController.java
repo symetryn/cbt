@@ -26,7 +26,7 @@ import javafx.scene.control.PasswordField;
 /**
  * FXML Controller class
  *
- * @author Dhruba
+ * 
  */
 public class ExamInstructionController implements Initializable {
 
@@ -41,6 +41,13 @@ public class ExamInstructionController implements Initializable {
 
     @FXML
     PasswordField passwordField;
+    
+     /**
+     *
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     *
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,10 +57,18 @@ public class ExamInstructionController implements Initializable {
         });
     }
 
+    /**
+     *
+     * @param testId To set the test id of the test
+     */
     public void setTestId(int testId) {
         this.testId = testId;
     }
 
+    /**
+     *
+     * @param name To set the name of Test
+     */
     public void setTestName(String name) {
         this.testName = name;
     }

@@ -56,7 +56,7 @@ import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
- * @author User
+ *
  */
 public class AddQuestionController implements Initializable {
 
@@ -142,6 +142,9 @@ public class AddQuestionController implements Initializable {
 
     ToggleGroup group;
 
+    /**
+     * To add question for the test 
+     */
     public AddQuestionController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
@@ -224,6 +227,10 @@ public class AddQuestionController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param contextText To show the content of the error message
+     */
     public void warningMessage(String contextText) {
         Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle("Warning");
@@ -293,6 +300,11 @@ public class AddQuestionController implements Initializable {
         }
 
     }
+        /**
+     *
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -434,6 +446,9 @@ public class AddQuestionController implements Initializable {
 
     }
 
+    /**
+     * To update the question 
+     */
     public void updateQuestion() {
         System.out.println("table updated");
 //        questionTable.refresh();
@@ -467,6 +482,10 @@ public class AddQuestionController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param e To accept the key release event from test name field
+     */
     @FXML
     public void testNameKeyReleased(KeyEvent e) {
         String pattern = "[a-zA-Z ]{2,}";
@@ -479,6 +498,10 @@ public class AddQuestionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param e To accept the key release event from marks field
+     */
     @FXML
     public void marksKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,3}";
@@ -491,6 +514,10 @@ public class AddQuestionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param e To accept the key release event exam duration field
+     */
     @FXML
     public void examDurationKeyReleased(KeyEvent e) {
         String pattern = "[0-9]{1,3}";
@@ -503,6 +530,10 @@ public class AddQuestionController implements Initializable {
         }
     }
 
+    /**
+     *
+     * @param e To accept the key release event from exam marks field
+     */
     @FXML
     public void examMarksKeyReleased(KeyEvent e) {
         System.out.println("here");

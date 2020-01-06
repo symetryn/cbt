@@ -32,7 +32,7 @@ import java.util.prefs.Preferences;
 /**
  * FXML Controller class
  *
- * @author User
+ * 
  */
 public class SignInController implements Initializable {
 
@@ -46,12 +46,20 @@ public class SignInController implements Initializable {
     PasswordField passwordField;
 
     private Preferences prefs;
+     /**
+     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     */
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
+    /**
+     *
+     * Validate the user 
+     */
     public void handleLoginClick(ActionEvent e) {
 
         try {
@@ -82,6 +90,10 @@ public class SignInController implements Initializable {
         }
     }
 
+    /**
+     *
+     * ROute ti SignUp page
+     */
     public void handleSignUpClick(ActionEvent e) {
 
         Router.routeTo("SignUp.fxml","");

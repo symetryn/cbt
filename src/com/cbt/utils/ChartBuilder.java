@@ -21,7 +21,7 @@ import javafx.scene.image.Image;
  */
 /**
  *
- * @author Symetryn
+ * 
  */
 public class ChartBuilder {
 

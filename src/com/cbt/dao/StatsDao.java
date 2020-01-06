@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Symetryn
+ *
  */
 public interface StatsDao extends java.rmi.Remote {
 

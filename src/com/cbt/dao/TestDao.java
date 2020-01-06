@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Symetryn
+ * 
  */
 public interface TestDao extends java.rmi.Remote {
 

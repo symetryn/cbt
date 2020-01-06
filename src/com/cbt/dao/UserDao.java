@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 
 /**
  *
- * @author Symetryn
+ *
  */
 public interface UserDao extends java.rmi.Remote {
      User validateLogin(String Username,String Password)throws RemoteException;
