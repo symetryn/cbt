@@ -38,6 +38,7 @@ public class Result implements Serializable {
         this.resultItem = resultItem;
     }
 
+    //Getter and setters methods for result model
     public int getId() {
         return id;
     }

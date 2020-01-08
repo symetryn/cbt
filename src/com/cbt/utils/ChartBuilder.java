@@ -19,20 +19,30 @@ import javafx.scene.image.Image;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- *
- * 
- */
+
 public class ChartBuilder {
 
     Gson g;
 
     private final String URL = "https://quickchart.io/chart";
 
+    /**
+     * Initializing the Gson object in constructor
+     */
     public ChartBuilder() {
         g = new Gson();
     }
 
+    /**
+     *
+     * @param type type of diagram 
+     * @param label string array of labels
+     * @param data list of chart data
+     * @param width preferred width
+     * @param height preferred height
+     * @return gives back image object
+     * @throws MalformedURLException
+     */
     public Image build(String type, String[] label, ArrayList<ChartItem> data, int width, int height) throws MalformedURLException {
         URL imageUrl;
 
@@ -87,7 +97,9 @@ public class ChartBuilder {
         }
 
     }
-
+/*
+    Fetches image from Image kit as a byte array stream and returns as image object
+*/
     private Image getImageFromByteStream(URL imageUrl) {
         try {
             URLConnection ucon = imageUrl.openConnection();

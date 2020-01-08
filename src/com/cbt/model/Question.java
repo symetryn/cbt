@@ -26,6 +26,8 @@ public class Question implements Serializable {
         answers = new ArrayList();
     }
 
+    
+    //Getters and setters methods for question model
     public String getTitle() {
         return title;
     }

@@ -37,7 +37,7 @@ public class ResultItem implements Serializable {
         this.correct = correct;
         this.question = question;
     }
-
+//Getter and setter methods for result item model
     public Integer getQuestionId() {
         return questionId;
     }

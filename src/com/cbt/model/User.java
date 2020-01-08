@@ -22,6 +22,8 @@ private int level;
 private int semester; 
 private String role;
 
+
+//Getter and setter method for user model
     public int getUserID() {
         return userID;
     }

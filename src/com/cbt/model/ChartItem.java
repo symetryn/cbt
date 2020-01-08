@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Symetryn
+ * @author Dhruba
  */
 public class ChartItem implements Serializable{
 
@@ -23,18 +23,30 @@ public class ChartItem implements Serializable{
     
      private static final long serialVersionUID = 5L;
 
+    /**
+     *
+     * @param data info to represent in chart
+     * @param backgroundColor color for the chart
+     */
     public ChartItem(Integer[] data, String backgroundColor) {
         this.data = data;
         this.backgroundColor = backgroundColor;
     }
 
+    /**
+     *
+     * @param label string array of label
+     * @param data info to create chart
+     * @param fill color to be filled in the chart
+     * @param borderColor border color of the chart
+     */
     public ChartItem(String[] label, Integer[] data, Boolean fill, String borderColor) {
         this.label = label;
         this.data = data;
         this.fill = fill;
         this.borderColor = borderColor;
     }
-
+// overriding the toString method
     @Override
     public String toString() {
         Gson gson = new Gson();

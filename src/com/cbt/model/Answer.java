@@ -35,6 +35,7 @@ public class Answer implements Serializable {
 
     }
 
+    // Getters and setters for the answer model
     public String getTitle() {
         return title;
     }

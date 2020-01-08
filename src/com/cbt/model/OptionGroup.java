@@ -10,7 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 /**
- *
+ * model for storing reference option elements
  * @author Symetryn
  */
 public class OptionGroup {
@@ -27,6 +27,8 @@ public class OptionGroup {
         this.box = box;
     }
 
+    
+    //Getters and setters for option group model
     public TextField getTextField() {
         return textField;
     }

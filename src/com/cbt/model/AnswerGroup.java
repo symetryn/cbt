@@ -23,7 +23,7 @@ public class AnswerGroup {
         this.check = check;
         this.label = label;
     }
-
+// Getters and setter method for answer model
     public void setLabel(Label label) {
         this.label = label;
     }

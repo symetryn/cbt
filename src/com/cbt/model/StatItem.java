@@ -27,7 +27,7 @@ public class StatItem implements Serializable {
         this.labelList = labelList;
     }
     
-    
+    // getter and setter method for stat item model
 
     public ArrayList<ChartItem> getChartList() {
         return chartList;
