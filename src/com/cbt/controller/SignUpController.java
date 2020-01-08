@@ -236,21 +236,5 @@ public class SignUpController implements Initializable {
         }
     }
 
-    /**
-     *
-     * To upload the photo by user
-     */
-    @FXML
-    public void fileOpen(ActionEvent event) {
 
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            Image image1 = new Image(file.toURI().toString());
-            System.out.println(image1);
-            imageUrl.setText(file.toURI().toString());
-        }
-
-    }
 }
