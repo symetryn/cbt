@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/AdminResult.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/examInstruction.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/SignIn.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentDashboard.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/AddQuestion.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/SignUp.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/ResultList.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/ViewExam.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/studentSideBar.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentViewResult.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Result.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Exam.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentExam.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/header.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/sideBar.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/Dashboard.fxml</file>
-            <file>file:/C:/Users/Symetryn/Documents/NetBeansProjects/CBTClient/src/com/cbt/views/StudentViewExam.fxml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
