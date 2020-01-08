@@ -6,8 +6,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -15,17 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ExamController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" style="-fx-background-color: #dee0e3;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ExamController">
     <children>
-        <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="1010.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
             <children>
 
                 <fx:include fx:id="" source="sideBar.fxml" />
             </children>
         </AnchorPane>
-        <ScrollPane layoutX="317.0" layoutY="102.0" prefHeight="912.0" prefWidth="1602.0">
+        <ScrollPane layoutX="319.0" layoutY="102.0" prefHeight="912.0" prefWidth="1600.0">
             <content>
-                <VBox prefWidth="1600.0" spacing="30.0">
+                <VBox prefHeight="865.0" prefWidth="1582.0" spacing="30.0">
                     <children>
                         <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                             <children>
@@ -110,7 +108,7 @@
         </ScrollPane>
         <AnchorPane layoutX="321.0" layoutY="15.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <fx:include  source="header.fxml" />
+                <fx:include source="header.fxml" />
             </children>
 
         </AnchorPane>

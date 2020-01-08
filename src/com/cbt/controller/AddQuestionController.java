@@ -435,8 +435,6 @@ public class AddQuestionController implements Initializable {
                 test.setFullMarks(fullMarks);
 
                 t.saveTest(test);
-
-                t.saveTest(test);
                 Router.routeTo("Exam.fxml", "Exams");
 
             } catch (NotBoundException | MalformedURLException | RemoteException ex) {

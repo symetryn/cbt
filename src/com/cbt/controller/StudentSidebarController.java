@@ -32,8 +32,11 @@ public class StudentSidebarController implements Initializable {
 
     /**
      * Initializes the controller class.
-     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
-     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     *
+     * @param url The url used to resolve relative paths for the root object, or
+     * null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root
+     * object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,26 +45,29 @@ public class StudentSidebarController implements Initializable {
 
     @FXML
     private void gotoDashboard(ActionEvent event) {
-         Router.routeTo("StudentDashboard.fxml","Dashboard");
+        Router.routeTo("StudentDashboard.fxml", "Dashboard");
     }
 
     @FXML
     private void gotoExam(ActionEvent event) {
-        Router.routeTo("StudentViewExam.fxml","My Exams");
+        Router.routeTo("StudentViewExam.fxml", "My Exams");
     }
 
     @FXML
     private void gotoResult(ActionEvent event) {
-        Router.routeTo("StudentViewResult.fxml","My Results");
+        Router.routeTo("StudentViewResult.fxml", "My Results");
     }
 
     @FXML
     private void logout(ActionEvent event) {
-         UserState instance = UserState.getInstance();
-        if (instance != null) {
-            instance.resetState();
+        if (Router.routeEnabled) {
+            UserState instance = UserState.getInstance();
+            if (instance != null) {
+                instance.resetState();
+            }
         }
-        Router.routeTo("SignIn.fxml","");
+
+        Router.routeTo("SignIn.fxml", "");
     }
 
 }

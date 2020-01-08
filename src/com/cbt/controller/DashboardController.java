@@ -76,58 +76,55 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            StatsDao s = (StatsDao) Naming.lookup("rmi://localhost/StatService");
+            ArrayList<ChartItem> list = s.getTotalStudents();
+            ArrayList<ChartItem> list2 = s.getTotalExams();
+            ArrayList<ChartItem> list3 = s.getPassRate();
+            ArrayList<ChartItem> list4 = s.getUpcomingTests();
+            ArrayList<User> topUsers = s.getTopStudents();
+            StatItem testMap = s.getTestsData();
+            Platform.runLater(()
+                    -> {
+                try {
 
-        Platform.runLater(()
-                -> {
-            try {
-                StatsDao s = (StatsDao) Naming.lookup("rmi://localhost/StatService");
-                ArrayList<ChartItem> list = s.getTotalStudents();
-                ArrayList<ChartItem> list2 = s.getTotalExams();
-                ArrayList<ChartItem> list3 = s.getPassRate();
-                ArrayList<ChartItem> list4 = s.getUpcomingTests();
-                ArrayList<User> topUsers = s.getTopStudents();
-                StatItem testMap = s.getTestsData();
+                    ChartBuilder c = new ChartBuilder();
 
-                System.out.println(list.toString());
-                ChartBuilder c = new ChartBuilder();
+                    studentImage.setImage(c.build("radialGauge", null, list, 230, 180));
+                    testImage.setImage(c.build("radialGauge", null, list2, 230, 180));
+                    resultImage.setImage(c.build("radialGauge", null, list3, 230, 180));
+                    statsImage.setImage(c.build("radialGauge", null, list4, 230, 180));
+                    performanceGraph.setImage(c.build("bar", testMap.getLabelList(), testMap.getChartList(), 863, 463));
 
-                studentImage.setImage(c.build("radialGauge", null, list, 230, 180));
-                testImage.setImage(c.build("radialGauge", null, list2, 230, 180));
-                resultImage.setImage(c.build("radialGauge", null, list3, 230, 180));
-                statsImage.setImage(c.build("radialGauge", null, list4, 230, 180));
+                    int count = 1;
+                    for (User u : topUsers) {
 
-               
-                performanceGraph.setImage(c.build("bar", testMap.getLabelList(), testMap.getChartList(), 863, 463));
+                        Pane p = new Pane();
+                        p.setStyle("-fx-background-color:#F5F5F5");
+                        p.setPrefHeight(35);
 
+                        Label l = new Label(count + ". " + u.getFirstName() + " " + u.getLastName());
+                        l.setPadding(new Insets(5));
 
-                int count = 1;
-                for (User u : topUsers) {
-                    System.out.println("Iterated");
-                    System.out.println(u.toString());
-                    Pane p = new Pane();
-                    p.setStyle("-fx-background-color:#F5F5F5");
+                        //increment counter
+                        count++;
 
-                    p.setPrefHeight(35);
+                        Label passRate = new Label(Integer.toString(u.getLevel()) + "%");
+                        passRate.setPadding(new Insets(5));
+                        passRate.setLayoutX(380);
 
-                    Label l = new Label(count + ". " + u.getFirstName() + " " + u.getLastName());
-                    l.setPadding(new Insets(5));
-                    count++;
-                    Label passRate = new Label(Integer.toString(u.getLevel()) + "%");
-                    passRate.setPadding(new Insets(5));
-                    passRate.setLayoutX(380);
-                    p.getChildren().addAll(l, passRate);
-                    performancePie.getChildren().addAll(p);
+                        p.getChildren().addAll(l, passRate);
+                        performancePie.getChildren().addAll(p);
 
+                    }
+
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (NotBoundException ex) {
-                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (RemoteException ex) {
-                Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+            });
+        } catch (NotBoundException | MalformedURLException | RemoteException ex) {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

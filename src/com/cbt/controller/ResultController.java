@@ -127,10 +127,12 @@ public class ResultController implements Initializable {
         questionNumber.setPadding(new Insets(20, 20, 20, 50));
 
         Label question = new Label();
-        question.setFont(Font.font("System", 21));
+//        question.setFont(Font.font("System", 21));
         question.setText("Question: " + qn);
         question.setPadding(new Insets(20, 20, 20, 50));
-        question.setStyle("-fx-font-weight: bold");
+        question.setStyle("-fx-font-weight: bold;-fx-font-size:20px");
+        question.setWrapText(true);
+        question.setPrefWidth(1000);
 
         Label marks = new Label();
         marks.setFont(Font.font("System", 21));
@@ -139,8 +141,9 @@ public class ResultController implements Initializable {
         if (userAns.equals(correctAns)) {
             Label option1 = new Label();
             option1.setFont(Font.font("System", 21));
-            option1.setPadding(new Insets(140, 20, 20, 100));
+            option1.setPadding(new Insets(80, 20, 20, 100));
             option1.setText("Correct Answer: " + correctAns);
+            option1.setStyle("-fx-font-weight: bold;-fx-font-size:20px;-fx-text-fill:'green'");
 
 //            Label correct = new Label();
 //            correct.setFont(Font.font("System", 21));
@@ -150,8 +153,9 @@ public class ResultController implements Initializable {
         } else {
             Label option1 = new Label();
             option1.setFont(Font.font("System", 21));
-            option1.setPadding(new Insets(140, 20, 20, 100));
+            option1.setPadding(new Insets(120, 20, 20, 100));
             option1.setText("Correct Answer: " + correctAns);
+            option1.setStyle("-fx-font-weight: bold;-fx-font-size:20px;");
 
 //            Label correct = new Label();
 //            correct.setFont(Font.font("System", 21));
@@ -161,6 +165,7 @@ public class ResultController implements Initializable {
             option.setFont(Font.font("System", 21));
             option.setPadding(new Insets(80, 20, 20, 100));
             option.setText("Submitted Answer: " + userAns);
+            option.setStyle("-fx-font-weight: bold;-fx-font-size:20px;-fx-text-fill:'red'");
 
             Label incorrect = new Label();
             incorrect.setFont(Font.font("System", 21));

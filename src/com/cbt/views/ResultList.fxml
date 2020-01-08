@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ResultListController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="995.0" prefWidth="1920.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.ResultListController">
     <children>
         <AnchorPane prefHeight="1080.0" prefWidth="322.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -19,7 +19,7 @@
         </AnchorPane>
         <TableView fx:id="resultTable" layoutX="343.0" layoutY="122.0" prefHeight="851.0" prefWidth="1553.0">
             <columns>
-                <TableColumn fx:id="resultId" prefWidth="95.0" text="Test ID" />
+                <TableColumn fx:id="resultId" prefWidth="95.0" text="Student Id" />
                 <TableColumn fx:id="name" prefWidth="360.0" text="Name" />
                 <TableColumn fx:id="testName" prefWidth="547.0" text="Test Name" />
                 <TableColumn fx:id="marks" prefWidth="188.0" text="Obtained Marks" />

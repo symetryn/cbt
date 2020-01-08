@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -12,14 +11,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignUpController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1010.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cbt.controller.SignUpController">
    <children>
       <ImageView disable="true" fitHeight="1253.0" fitWidth="2341.0" layoutX="-409.0" layoutY="-148.0" pickOnBounds="true">
          <image>
             <Image url="@../../../image/kelly-sikkema-VBPzRgd7gfc-unsplash.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="775.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
+      <AnchorPane layoutX="1082.0" layoutY="78.0" prefHeight="727.0" prefWidth="693.0" style="-fx-background-color: #fafbfc;" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="78.0">
          <children>
             <TextField fx:id="firstNameField" layoutX="50.0" layoutY="148.0" onKeyReleased="#firstNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="First Name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="368.0" />
             <TextField fx:id="lastNameField" layoutX="358.0" layoutY="148.0" onKeyReleased="#lastNameKeyReleased" prefHeight="48.0" prefWidth="285.0" promptText="Last Name" AnchorPane.rightAnchor="50.0" />
@@ -28,13 +27,12 @@
             <TextField fx:id="idField" layoutX="60.0" layoutY="344.0" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <ComboBox fx:id="levelDrop" layoutX="50.0" layoutY="416.0" prefHeight="40.0" prefWidth="285.0" promptText="Level" AnchorPane.leftAnchor="50.0" />
             <ComboBox fx:id="semesterDrop" layoutX="368.0" layoutY="415.0" prefHeight="40.0" prefWidth="285.0" promptText="Semester" AnchorPane.rightAnchor="50.0" />
-            <Button layoutX="467.0" layoutY="493.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="179.0" text="Choose Photo" />
             <Label layoutX="165.0" layoutY="48.0" text="Create a New Account" textFill="#e1bc29">
                <font>
                   <Font name="System Bold" size="38.0" />
                </font>
             </Label>
-            <Label layoutX="256.0" layoutY="647.0" text="Already Have Account?">
+            <Label layoutX="256.0" layoutY="576.0" text="Already Have Account?">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -42,14 +40,12 @@
             <TextField fx:id="idField" layoutX="60.0" layoutY="344.0" onKeyReleased="#sidKeyReleased" prefHeight="48.0" prefWidth="321.0" promptText="Student ID" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             <ComboBox fx:id="levelDrop" layoutX="50.0" layoutY="416.0" prefHeight="40.0" prefWidth="285.0" promptText="Level" AnchorPane.leftAnchor="50.0" />
             <ComboBox fx:id="semesterDrop" layoutX="368.0" layoutY="415.0" prefHeight="40.0" prefWidth="285.0" promptText="Semester" AnchorPane.rightAnchor="50.0" />
-            <Button layoutX="467.0" layoutY="493.0" mnemonicParsing="false" onAction="#fileOpen" prefHeight="48.0" prefWidth="179.0" text="Choose Photo" />
-            <TextField fx:id="imageUrl" disable="true" layoutX="70.0" layoutY="494.0" prefHeight="48.0" prefWidth="418.0" promptText="No File Chosen" AnchorPane.leftAnchor="50.0" />
-            <JFXButton layoutX="50.0" layoutY="586.0" onAction="#handleSignUpClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40;" text="Create My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <JFXButton layoutX="50.0" layoutY="515.0" onAction="#handleSignUpClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#3b8a0b" style="-fx-background-color: #7bdb40;" text="Create My Account" textFill="WHITE" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="50.0" layoutY="686.0" onAction="#handleSignInClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6;" text="Login" textFill="WHITE">
+            <JFXButton layoutX="50.0" layoutY="615.0" onAction="#handleSignInClick" prefHeight="40.0" prefWidth="593.0" ripplerFill="#2d5aad" style="-fx-background-color: #4f7ed6;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
