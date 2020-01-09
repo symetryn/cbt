@@ -147,7 +147,7 @@ public class ViewExamController implements Initializable {
     public ViewExamController() {
         test = new Test();
         optionList = new ArrayList<OptionGroup>();
-        group= new ToggleGroup();
+        group = new ToggleGroup();
     }
 
     /**
@@ -207,7 +207,9 @@ public class ViewExamController implements Initializable {
         pane.getChildren().remove(og.getBtn());
         int removedIndex = optionList.indexOf(og);
         optionList.remove(og);
-        selectedQuestion.getAnswers().remove(removedIndex);
+        if (selectedQuestion.getAnswers().size() <= removedIndex) {
+            selectedQuestion.getAnswers().remove(removedIndex);
+        }
 
         if (removedIndex != optionList.size()) {
             for (int i = removedIndex; i < optionList.size(); i++) {
@@ -294,10 +296,14 @@ public class ViewExamController implements Initializable {
         }
 
     }
+
     /**
      * Initializes the controller class.
-     * @param url The url used to resolve relative paths for the root object, or null if the location is not known.
-     * @param rb The rb used to localize the root object, or null if the root object was not localized.
+     *
+     * @param url The url used to resolve relative paths for the root object, or
+     * null if the location is not known.
+     * @param rb The rb used to localize the root object, or null if the root
+     * object was not localized.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -519,7 +525,6 @@ public class ViewExamController implements Initializable {
             test.getQuestions().remove(selectedQuestion);
             questions.remove(selectedQuestion);
             setTable();
-        
 
         }
 
@@ -588,6 +593,5 @@ public class ViewExamController implements Initializable {
             eachMarks.setText("");
         }
     }
-
 
 }

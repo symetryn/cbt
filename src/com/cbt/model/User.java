@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.model;
 
 import java.io.Serializable;
 
 /**
- *
+ * Model for storing user data
  * @author Symetryn
  */
 public class User implements Serializable{    
@@ -22,6 +17,8 @@ private int level;
 private int semester; 
 private String role;
 
+
+//Getter and setter method for user model
     public int getUserID() {
         return userID;
     }

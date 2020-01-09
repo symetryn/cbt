@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.model;
 
 import java.io.Serializable;
 
 /**
- *
+ * Model for storing each question and selected answer after exam
  * @author Symetryn
  */
 public class ResultItem implements Serializable {
@@ -37,7 +32,7 @@ public class ResultItem implements Serializable {
         this.correct = correct;
         this.question = question;
     }
-
+//Getter and setter methods for result item model
     public Integer getQuestionId() {
         return questionId;
     }

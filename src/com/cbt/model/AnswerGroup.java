@@ -5,12 +5,11 @@
  */
 package com.cbt.model;
 
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 
 /**
- *
+ *  Model for storing reference of answers during exam
  * @author Symetryn
  */
 public class AnswerGroup {
@@ -23,7 +22,7 @@ public class AnswerGroup {
         this.check = check;
         this.label = label;
     }
-
+// Getters and setter method for answer model
     public void setLabel(Label label) {
         this.label = label;
     }

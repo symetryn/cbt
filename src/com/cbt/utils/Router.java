@@ -17,22 +17,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Symetryn
- */
+
 public class Router {
 
+    /**
+     *  global stage object
+     */
     public static Stage stage;
 
+    /**
+     * current page title
+     */
     public static String currentPage = "unavailable";
 
+    /**
+     * if routing is allowed
+     */
     public static boolean routeEnabled=true;
 
+    
     public Router() {
 
     }
 
+    /**
+     *  Route to given fxml page
+     * @param fxml fxml file name
+     * @param pageTitle screen title to be used
+     */
     public static void routeTo(String fxml, String pageTitle) {
         if (!routeEnabled) {
             return;
@@ -65,6 +77,10 @@ public class Router {
         }
     }
 
+    /**
+     * route to view exam
+     * @param testId id to be passed to view particular exam
+     */
     public void routeToViewExam(int testId) {
         if (!routeEnabled) {
             return;
@@ -83,6 +99,11 @@ public class Router {
 
     }
 
+    /**
+     * route to student exam instruction
+     * @param testId id to be passed to view particular exam
+     * @param testName name to be passed to view particular exam
+     */
     public void routeToStudentInstruction(int testId, String testName) {
         if (!routeEnabled) {
             return;
@@ -102,6 +123,10 @@ public class Router {
 
     }
 
+    /**
+     * routes to student exam with testId
+     * @param testId id to be passed to view particular exam
+     */
     public void routeToStudentExam(int testId) {
         if (!routeEnabled) {
             return;
@@ -120,6 +145,10 @@ public class Router {
 
     }
 
+    /**
+     *routes to result with resultId
+     * @param resultId
+     */
     public void routeToResult(int resultId) {
         if (!routeEnabled) {
             return;
@@ -137,6 +166,10 @@ public class Router {
 
     }
 
+    /**
+     * route to admin result with resultId
+     * @param resultId id to be passed to view particular result
+     */
     public void routeToAdminResult(int resultId) {
         if (!routeEnabled) {
             return;

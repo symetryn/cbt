@@ -7,10 +7,9 @@ package com.cbt.dao;
 
 import com.cbt.model.User;
 import java.rmi.RemoteException;
-import java.sql.ResultSet;
 
 /**
- *
+ *  Interface defining method to validate the user
  *
  */
 public interface UserDao extends java.rmi.Remote {

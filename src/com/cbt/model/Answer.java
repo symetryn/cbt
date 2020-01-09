@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.model;
 
 import java.io.Serializable;
 
 /**
- *
+ * Model for answers of each question
  * @author Symetryn
  */
 public class Answer implements Serializable {
@@ -35,6 +30,7 @@ public class Answer implements Serializable {
 
     }
 
+    // Getters and setters for the answer model
     public String getTitle() {
         return title;
     }

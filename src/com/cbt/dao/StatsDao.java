@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- *
+ *  Interface defining various methods for students
  *
  */
 public interface StatsDao extends java.rmi.Remote {

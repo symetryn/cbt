@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.model;
 
 import com.google.gson.Gson;
@@ -10,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Model for storing result
  * @author Symetryn
  */
 public class Result implements Serializable {
@@ -38,6 +33,7 @@ public class Result implements Serializable {
         this.resultItem = resultItem;
     }
 
+    //Getter and setters methods for result model
     public int getId() {
         return id;
     }

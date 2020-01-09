@@ -3,7 +3,7 @@ package com.cbt.utils;
 /**
  * Singleton class for storing user state
  *
- * @author Symetryn
+ * 
  */
 public final class UserState {
 
@@ -22,7 +22,7 @@ public final class UserState {
     }
 
     /**
-     *
+     * Get current stored instance
      * @return instance of the singleton class
      */
     public static UserState getInstance() {
@@ -30,7 +30,7 @@ public final class UserState {
     }
 
     /**
-     * instantiating the class if not exists
+     * instantiating the singleton class
      *
      * @param name
      * @param userId
@@ -68,21 +68,34 @@ public final class UserState {
         return "UserState name=" + name + " userId=" + userId + " level=" + level + " semester" + semester;
     }
 
+    /**
+     *
+     * @return gives student name
+     */
     public String getName() {
-//        if (name == null) {
-//            return "no user";
-//        }
         return name;
     }
 
+    /**
+     *
+     * @return gives userID
+     */
     public Integer getUserId() {
         return userId;
     }
 
+    /**
+     *
+     * @return gives student Level
+     */
     public Integer getLevel() {
         return level;
     }
 
+    /**
+     *
+     * @return gives student semester
+     */
     public Integer getSemester() {
         return semester;
     }

@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cbt.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ * Model for storing chart data with labels
  * @author Symetryn
  */
 public class StatItem implements Serializable {
@@ -27,7 +22,7 @@ public class StatItem implements Serializable {
         this.labelList = labelList;
     }
     
-    
+    // getter and setter method for stat item model
 
     public ArrayList<ChartItem> getChartList() {
         return chartList;

@@ -214,6 +214,7 @@ public class AddQuestionController implements Initializable {
         optionList.remove(og);
 
         if (removedIndex != optionList.size()) {
+            
             for (int i = removedIndex; i < optionList.size(); i++) {
 
                 OptionGroup currentOption = optionList.get(i);

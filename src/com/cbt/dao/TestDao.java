@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
- *
+ *  Interface defining various methods for test
  * 
  */
 public interface TestDao extends java.rmi.Remote {
